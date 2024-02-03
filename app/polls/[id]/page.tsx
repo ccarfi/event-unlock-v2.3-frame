@@ -5,6 +5,9 @@ import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
 async function getPoll(id: string): Promise<Poll> {
+
+    console.log("Entered getPoll");
+    
     let nullPoll = {
         id: "",
         title: "No poll found",
@@ -42,6 +45,9 @@ export async function generateMetadata(
     { params, searchParams }: Props,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
+
+    console.log("Entered generateMetadata");
+    
     // read route params
     const id = params.id
     const poll = await getPoll(id)
@@ -71,6 +77,8 @@ export async function generateMetadata(
 function getMeta(
     poll: Poll
 ) {
+    console.log("Entered getMeta");
+    
     // This didn't work for some reason
     return (
         <Head>
@@ -83,6 +91,8 @@ function getMeta(
 
 export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);
+    
+    console.log("Entered export");
 
     return(
         <>
