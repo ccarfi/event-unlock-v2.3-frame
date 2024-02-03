@@ -29,6 +29,12 @@ async function getPoll(id: string): Promise<Poll> {
             return nullPoll;
         }
 
+        // experiment to override and hardcode button values -cfc
+        poll.option1 = "Register";
+        poll.option2 = "See location";
+        poll.option3 = "Show my ticket";
+        poll.option4 = "";
+
         return poll;
     } catch (error) {
         console.error(error);
