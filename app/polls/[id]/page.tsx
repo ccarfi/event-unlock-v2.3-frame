@@ -93,6 +93,8 @@ export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);
     
     console.log("Entered export");
+    console.log(params);
+
 
     return(
         <>
