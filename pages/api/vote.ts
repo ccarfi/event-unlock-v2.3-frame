@@ -2,6 +2,9 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import {Poll, POLL_EXPIRY} from "@/app/types";
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
+import { getMessage } from "@/src/lib/messages";
+import { balanceOf } from "@/src/lib/unlock";
+
 
 const HUB_URL = process.env['HUB_URL']
 const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
@@ -91,9 +94,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
 // I THINK what we do here is check for membership. If member, set image to one thing. If not member, set to another.
+            const balances = await Promise.all(
+                addresses.map((userAddress: string) => {
+                    return balanceOf(
+                        userAddress as `0x${string}`,
+                        message.gate.contract as `0x${string}`,
+                        message.gate.network
+                    );
+                })
+            );
             
-//          let isMember = balances.some((balance) => balance > 0);
-            let isMember = true; // Default to a member
+          const isMember = balances.some((balance) => balance > 0);
+//            let isMember = true; // Default to a member
 
             
             let action = "";
