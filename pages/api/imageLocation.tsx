@@ -20,7 +20,7 @@ export default async function handler() {
           alignItems: 'center',
         }}
       >
-        You pressed that Location button
+        You pressed the Location button
       </div>
     ),
     {
