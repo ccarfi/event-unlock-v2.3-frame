@@ -45,11 +45,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 buttonId = req.body?.untrustedData?.buttonIndex || 0;
                 fid = req.body?.untrustedData?.fid || 0;
             }
-
+        
             // Clicked create poll
-            if ((results || voted) && buttonId === 2) {
-                return res.status(302).setHeader('Location', `${process.env['HOST']}`).send('Redirecting to create poll');
-            }
+//            if ((results || voted) && buttonId === 2) {
+//                return res.status(302).setHeader('Location', `${process.env['HOST']}`).send('Redirecting to create poll');
+//            }
+            
 
             const voteExists = await kv.sismember(`poll:${pollId}:voted`, fid)
             voted = voted || !!voteExists
@@ -86,6 +87,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             button1Text = "Register (2)";
             button2Text = "Show location (2)";
             button3Text = "See my ticket (2)";
+
+            
+            if buttonId === 1 {
+                let action = "register";
+            }
+
+            if buttonId === 2 {
+                let action = "location";
+            }
+
+            if buttonId === 3 {
+                 let action = "ticket";
+            }
+
+            console.log(action);
             
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
