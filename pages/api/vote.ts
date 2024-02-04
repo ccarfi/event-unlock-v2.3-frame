@@ -70,6 +70,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
             const imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
             let button1Text = "View Results";
+            let button2Text = "";
+            let button2Text = "";
+
             if (!voted && !results) {
                 button1Text = "Back"
             } else if (voted && !results) {
@@ -79,7 +82,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
 
             // override buttons on the deeper screen -cfc
-            // button2 is getting set explicitly in the return below
             console.log("Entered vote...");
             button1Text = "Register (2)";
             button2Text = "Show location (2)";
