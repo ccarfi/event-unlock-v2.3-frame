@@ -119,7 +119,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const isMember = balances.some((balance) => balance > 0);
             
             let action = "";
-            let button1Action "";
+            let button1Action = "";
             if (buttonId === 1) {
                 action = "register";
                 if (isMember) {
