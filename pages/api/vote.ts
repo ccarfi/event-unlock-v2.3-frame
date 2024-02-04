@@ -136,17 +136,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let action = "";
             if (buttonId === 1) {
                 action = "register";
-//                imageUrl = `${process.env['HOST']}/api/imageRegister?t=513`;
-                imageUrl = `https://i.imgur.com/FQvDjSm.png?t=815`;
+                if (isMember) {
+                    imageUrl = `https://i.imgur.com/FQvDjSm.png?1055`;
+                }
+                else {
+                    imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
+                }
             }
 
             if (buttonId === 2) {
                 action = "location";
-//                imageUrl = `${process.env['HOST']}/api/imageLocation?t=755`;
-                imageUrl = `https://i.imgur.com/2uSiYW1.png?815`;
+                if (isMember) {
+                    imageUrl = `https://i.imgur.com/2uSiYW1.png?1055`;
+                }
+                else {
+                    imageUrl = `${process.env['HOST']}/api/imageLocationNotRegistered?t=1055`;
+                }
             }
-
-// Let's try doing the conditional here for this third button initially and see if we can get it to work.
             
             if (buttonId === 3) {
                  action = "ticket";
@@ -154,7 +160,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                    imageUrl = `https://i.imgur.com/zbyr758.png?915`;
                  }   
                  else {
-                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered?t=915`;
+                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered?t=1055`;
                  }
             }
 
