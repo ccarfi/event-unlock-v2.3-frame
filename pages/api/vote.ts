@@ -93,17 +93,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 1) {
                 action = "register";
 //                imageUrl = `${process.env['HOST']}/api/imageRegister?t=513`;
-                imageUrl = `https://i.imgur.com/FQvDjSm.png?t=755`;
+                imageUrl = `https://i.imgur.com/FQvDjSm.png?t=815`;
             }
 
             if (buttonId === 2) {
                 action = "location";
-                imageUrl = `${process.env['HOST']}/api/imageLocation?t=755`;
+//                imageUrl = `${process.env['HOST']}/api/imageLocation?t=755`;
+                imageUrl = `https://i.imgur.com/2uSiYW1.png?815`;
             }
 
             if (buttonId === 3) {
                  action = "ticket";
-                 imageUrl = `${process.env['HOST']}/api/imageTicket?t=755`;
+//                 imageUrl = `${process.env['HOST']}/api/imageTicket?t=755`;
+                imageUrl = `https://i.imgur.com/zbyr758.png?815`;
             }
 
             console.log(action);
