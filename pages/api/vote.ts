@@ -19,6 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const pollId = req.query['id']
             const results = req.query['results'] === 'true'
             let voted = req.query['voted'] === 'true'
+            let register = req.query['register'] === 'true'
             if (!pollId) {
                 return res.status(400).send('Missing poll ID');
             }
@@ -55,6 +56,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 //            if ((results || voted) && buttonId === 2) {
 //                return res.status(302).setHeader('Location', `${process.env['HOST']}`).send('Redirecting to create poll');
 //            }
+
+            // Clicked register and was not registered already
+            if (register && buttonId === 1) {
+                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
+                console.log(registrationURL);
+                return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
+            }
             
 
             const voteExists = await kv.sismember(`poll:${pollId}:voted`, fid)
@@ -126,12 +134,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     imageUrl = `https://i.imgur.com/FQvDjSm.png?1055`;
                 }
                 else {
-                    // should be able to replace this with a redirect to register
                     //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
-                    const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
+                    register = "true";
                     button1Action = "post_redirect";
-                    console.log(registrationURL);
-//                    return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
                 }
             }
 
@@ -168,7 +173,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/vote?id=${poll.id}&voted=true&results=${results ? 'false' : 'true'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/vote?id=${poll.id}&register=${register}&voted=true&results=${results ? 'false' : 'true'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
