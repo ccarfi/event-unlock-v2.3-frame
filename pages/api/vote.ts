@@ -119,6 +119,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const isMember = balances.some((balance) => balance > 0);
             
             let action = "";
+            let button1Action "";
             if (buttonId === 1) {
                 action = "register";
                 if (isMember) {
@@ -128,7 +129,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     // should be able to replace this with a redirect to register
                     //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
                     const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
-                    return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
+                    button1Action = "post_redirect";
+                    console.log(registrationURL);
+//                    return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
                 }
             }
 
@@ -167,6 +170,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame:image" content="${imageUrl}">
           <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/vote?id=${poll.id}&voted=true&results=${results ? 'false' : 'true'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
+          <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
           <meta name="fc:frame:button:3" content="${button3Text}">
         </head>
