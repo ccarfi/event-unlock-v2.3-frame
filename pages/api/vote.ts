@@ -135,7 +135,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
                 else {
                     //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
-                    register = "true";
+                    register = 'true';
                     button1Action = "post_redirect";
                 }
             }
