@@ -104,8 +104,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame:button:3" content="${button3Text}">
         </head>
         <body>
-//          <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
-          <p>You clicked button ${buttonId}</p>
+          <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
+//          <p>You clicked button ${buttonId}</p>
         </body>
       </html>
     `);
