@@ -88,17 +88,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             button2Text = "Show location (2)";
             button3Text = "See my ticket (2)";
 
-            
+            let action = "";
             if (buttonId === 1) {
-                let action = "register";
+                action = "register";
             }
 
             if (buttonId === 2) {
-                let action = "location";
+                action = "location";
             }
 
             if (buttonId === 3) {
-                 let action = "ticket";
+                 action = "ticket";
             }
 
             console.log(action);
