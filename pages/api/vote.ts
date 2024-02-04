@@ -117,7 +117,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                    imageUrl = `https://i.imgur.com/zbyr758.png?915`;
                  }   
                  else {
-                    imageUrl = `${process.env['HOST']}/api/imageTicket?t=915`;
+                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered?t=915`;
                  }
             }
 
