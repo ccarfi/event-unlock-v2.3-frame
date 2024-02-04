@@ -3,8 +3,6 @@ import {Poll, POLL_EXPIRY} from "@/app/types";
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 
-console.log("Entered vote...");
-
 const HUB_URL = process.env['HUB_URL']
 const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 
@@ -81,10 +79,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
 
             // override buttons on the deeper screen -cfc
+            // button2 is getting set explicitly in the return below
+            console.log("Entered vote...");
             console.log(req);
             button1Text = "Register (2)";
-            let button2Text = "See location (2)";
-            let button3Text = "Show my ticket (2)";
+    
 
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
