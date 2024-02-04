@@ -20,7 +20,7 @@ export default async function handler() {
           alignItems: 'center',
         }}
       >
-        You pressed the Ticket button
+        Please register for the event to see your ticket.
       </div>
     ),
     {
