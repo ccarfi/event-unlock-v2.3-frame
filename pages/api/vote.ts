@@ -126,7 +126,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
                 else {
                     // should be able to replace this with a redirect to register
-                    imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
+                    //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
+                    const registrationURL = `https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14`;
+                    return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
                 }
             }
 
