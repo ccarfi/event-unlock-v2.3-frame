@@ -96,7 +96,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 // I THINK what we do here is check for membership. If member, set image to one thing. If not member, set to another.
 
-            const addresses = await getUserAddresses(fcMessage.message.data.fid);
+//            const addresses = await getUserAddresses(fcMessage.message.data.fid);
+            const addresses = await getUserAddresses(fid);
+
+            
             if (addresses.length === 0) {
 //                return new Response(
 //                    <!DOCTYPE html>
