@@ -131,10 +131,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 1) {
                 action = "register";
                 if (isMember) {
-                    imageUrl = `https://i.imgur.com/FQvDjSm.png?1055`;
+                    imageUrl = `https://i.imgur.com/FQvDjSm.png?t=110`;
                 }
                 else {
-                    //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
+                    //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=110`;
                     register = true;
                     button1Action = "post_redirect";
                 }
@@ -143,20 +143,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 2) {
                 action = "location";
                 if (isMember) {
-                    imageUrl = `https://i.imgur.com/2uSiYW1.png?1055`;
+                    imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
                 }
                 else {
-                    imageUrl = `${process.env['HOST']}/api/imageLocationNotRegistered?t=1055`;
+                    imageUrl = `${process.env['HOST']}/api/imageLocationNotRegistered?t=110`;
                 }
             }
             
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-                   imageUrl = `https://i.imgur.com/zbyr758.png?915`;
+                   imageUrl = `https://i.imgur.com/zbyr758.png?110`;
                  }   
                  else {
-                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered?t=1055`;
+                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered?t=110`;
                  }
             }
 
