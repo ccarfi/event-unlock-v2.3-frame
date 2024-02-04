@@ -119,8 +119,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 addresses.map((userAddress: string) => {
                     return balanceOf(
                         userAddress as `0x${string}`,
-                        message.gate.contract as `0x${string}`,
-                        message.gate.network
+                        "0xb77030a7e47a5eb942a4748000125e70be598632" as `0x${string}`,
+                        137
                     );
                 })
             );
