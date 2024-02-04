@@ -75,43 +75,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
 //            const imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
             let imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
-            let button1Text = "View Results";
-            let button2Text = "";
-            let button3Text = "";
+            let button1Text = "Register";
+            let button2Text = "Show location";
+            let button3Text = "See my ticket";
 
-            if (!voted && !results) {
-                button1Text = "Back"
-            } else if (voted && !results) {
-                button1Text = "Already Voted"
-            } else if (voted && results) {
-                button1Text = "View Results"
-            }
+//            if (!voted && !results) {
+//                button1Text = "Back"
+//            } else if (voted && !results) {
+//                button1Text = "Already Voted"
+//            } else if (voted && results) {
+//                button1Text = "View Results"
+//            }
 
-            // override buttons on the deeper screen -cfc
+            // Log that we made it this far
             console.log("Entered vote...");
-            button1Text = "Register (2)";
-            button2Text = "Show location (2)";
-            button3Text = "See my ticket (2)";
 
-
-// I THINK what we do here is check for membership. If member, set image to one thing. If not member, set to another.
-
-//            const addresses = await getUserAddresses(fcMessage.message.data.fid);
+            // Get the wallet address of the user, or note if there is no wallet address
             const fidAsString = fid.toString();
             const addresses = await getUserAddresses(fidAsString);
             
             if (addresses.length === 0) {
-//                return new Response(
-//                    <!DOCTYPE html>
-//                    <html>
-//                    <head>
-//                    <meta property="fc:frame" content="vNext" />
-//                        <meta property="fc:frame:image" content="${new URL(
-//                    `${AppConfig.siteUrl}/api/og/no-wallet`
-//                    ).toString()}" />
-//                    </head>
-//                    </html>`
- //                   )
                 console.log("No wallet");
             }
             else {
@@ -128,10 +111,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     );
                 })
             );
-            
-          const isMember = balances.some((balance) => balance > 0);
-//            let isMember = true; // Default to a member
 
+            // The main bit. If user is a member (ticketholder who is registered), set image to one thing. If not a member, set to another.
+
+            // Check to see if the user had a valid ticket
+            const isMember = balances.some((balance) => balance > 0);
             
             let action = "";
             if (buttonId === 1) {
@@ -140,6 +124,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     imageUrl = `https://i.imgur.com/FQvDjSm.png?1055`;
                 }
                 else {
+                    // should be able to replace this with a redirect to register
                     imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
                 }
             }
