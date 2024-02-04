@@ -81,10 +81,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // override buttons on the deeper screen -cfc
             // button2 is getting set explicitly in the return below
             console.log("Entered vote...");
-            //console.log(req);
             button1Text = "Register (2)";
-    
-
+            button2Text = "Show location (2)";
+            button3Text = "See my ticket (2)";
+            
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
             res.status(200).send(`
@@ -98,11 +98,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame:image" content="${imageUrl}">
           <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/vote?id=${poll.id}&voted=true&results=${results ? 'false' : 'true'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
-          <meta name="fc:frame:button:2" content="Create your poll">
-          <meta name="fc:frame:button:2:action" content="post_redirect">
+          <meta name="fc:frame:button:2" content="${button2Text}">
+          <meta name="fc:frame:button:3" content="${button3Text}">
         </head>
         <body>
-          <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
+//          <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
+          <p>`You clicked button ${buttonId}`</p>
         </body>
       </html>
     `);
