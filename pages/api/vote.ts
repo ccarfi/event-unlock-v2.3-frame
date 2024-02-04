@@ -92,18 +92,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let action = "";
             if (buttonId === 1) {
                 action = "register";
-//                imageUrl = `${process.env['HOST']}/api/imageRegister?t=857`;
-                imageUrl = `https://i.imgur.com/fKUBgay.png`;
+                imageUrl = `${process.env['HOST']}/api/imageRegister?t=513`;
+//                imageUrl = `https://i.imgur.com/fKUBgay.png`;
             }
 
             if (buttonId === 2) {
                 action = "location";
-                imageUrl = `${process.env['HOST']}/api/imageLocation?t=857`;
+                imageUrl = `${process.env['HOST']}/api/imageLocation?t=513`;
             }
 
             if (buttonId === 3) {
                  action = "ticket";
-                 imageUrl = `${process.env['HOST']}/api/imageTicket?t=857`;
+                 imageUrl = `${process.env['HOST']}/api/imageTicket?t=513`;
             }
 
             console.log(action);
