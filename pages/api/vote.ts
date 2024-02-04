@@ -127,16 +127,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const isMember = balances.some((balance) => balance > 0);
             
             let action = "";
-            let button1Action = "post";
+            register = true;
+            let button1Action = "post_redirect";
             if (buttonId === 1) {
                 action = "register";
                 if (isMember) {
                     imageUrl = `https://i.imgur.com/FQvDjSm.png?t=110`;
+                    button1Action = "post";
+                    register = false;
                 }
                 else {
                     //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=110`;
-                    register = true;
-                    button1Action = "post_redirect";
+                    //  register = true;
                 }
             }
 
