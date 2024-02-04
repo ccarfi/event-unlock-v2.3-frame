@@ -89,6 +89,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             button2Text = "Show location (2)";
             button3Text = "See my ticket (2)";
 
+
+// I THINK what we do here is check for membership. If member, set image to one thing. If not member, set to another.
+            
             let action = "";
             if (buttonId === 1) {
                 action = "register";
@@ -102,6 +105,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 imageUrl = `https://i.imgur.com/2uSiYW1.png?815`;
             }
 
+// Let's try doing the conditional here for this third button initially and see if we can get it to work.
+            
             if (buttonId === 3) {
                  action = "ticket";
 //                 imageUrl = `${process.env['HOST']}/api/imageTicket?t=755`;
