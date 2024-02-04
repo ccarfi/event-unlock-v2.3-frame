@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import {Poll, POLL_EXPIRY} from "@/app/types";
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
-import { getMessage } from "@/src/lib/farcaster";
+import { getUserAddresses } from "@/src/lib/farcaster";
 import { getMessage } from "@/src/lib/messages";
 import { balanceOf } from "@/src/lib/unlock";
 
