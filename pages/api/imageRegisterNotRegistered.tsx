@@ -20,7 +20,7 @@ export default async function handler() {
           alignItems: 'center',
         }}
       >
-        Please connect your wallet or register for the event to see the location.
+        Please connect your wallet or register for the event.
       </div>
     ),
     {
