@@ -135,7 +135,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
                 else {
                     //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=1055`;
-                    register = 'true';
+                    register = true;
                     button1Action = "post_redirect";
                 }
             }
@@ -173,7 +173,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/vote?id=${poll.id}&register=${register}&voted=true&results=${results ? 'false' : 'true'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/vote?id=${poll.id}&register=${register ? 'false' : 'true'}&voted=true&results=${results ? 'false' : 'true'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
