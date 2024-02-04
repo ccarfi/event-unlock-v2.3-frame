@@ -92,7 +92,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let action = "";
             if (buttonId === 1) {
                 action = "register";
-                imageUrl = `${process.env['HOST']}/api/imageRegister?t=857`;
+//                imageUrl = `${process.env['HOST']}/api/imageRegister?t=857`;
+                imageUrl = `https://i.imgur.com/fKUBgay.png`;
             }
 
             if (buttonId === 2) {
