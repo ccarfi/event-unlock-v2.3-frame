@@ -78,6 +78,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 button1Text = "View Results"
             }
 
+            // override buttons on the deeper screen -cfc
+            console.log(req);
+            button1Text = "Register (2)";
+            let button2Text = "See location (2)";
+            let button3Text = "Show my ticket (2)";
+
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
             res.status(200).send(`
