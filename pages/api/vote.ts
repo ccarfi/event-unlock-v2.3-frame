@@ -81,7 +81,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // override buttons on the deeper screen -cfc
             // button2 is getting set explicitly in the return below
             console.log("Entered vote...");
-            console.log(req);
+            //console.log(req);
             button1Text = "Register (2)";
     
 
