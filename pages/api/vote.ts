@@ -114,6 +114,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
  //                   )
                 console.log("No wallet");
             }
+            else {
+                console.log(addresses);
+            }
             
             const balances = await Promise.all(
                 addresses.map((userAddress: string) => {
