@@ -95,6 +95,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
 // I THINK what we do here is check for membership. If member, set image to one thing. If not member, set to another.
+
+            const addresses = await getUserAddresses(fcMessage.message.data.fid);
+            if (addresses.length === 0) {
+//                return new Response(
+//                    <!DOCTYPE html>
+//                    <html>
+//                    <head>
+//                    <meta property="fc:frame" content="vNext" />
+//                        <meta property="fc:frame:image" content="${new URL(
+//                    `${AppConfig.siteUrl}/api/og/no-wallet`
+//                    ).toString()}" />
+//                    </head>
+//                    </html>`
+ //                   )
+                console.log("No wallet");
+            }
+            
             const balances = await Promise.all(
                 addresses.map((userAddress: string) => {
                     return balanceOf(
