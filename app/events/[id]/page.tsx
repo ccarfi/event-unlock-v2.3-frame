@@ -20,6 +20,21 @@ async function getPoll(id: string): Promise<Poll> {
         votes4: 0,
         created_at: 0,
     };
+    
+    let nullEvent = {
+        id: "",
+        title: "No event found",
+        contractAddress: "",
+        network: 0,
+        checkoutURL: "",
+        option3: "",
+        eventImageURL: "",
+        registeredImageURL: "",
+        registeredLocationImageURL: "",
+        registeredTicketImageURL: "",
+        created_at: 0,
+    };
+    
 
     try {
         let poll: Poll | null = await kv.hgetall(`poll:${id}`);
@@ -79,22 +94,6 @@ export async function generateMetadata(
         metadataBase: new URL(process.env['HOST'] || '')
     }
 }
-
-/*
-function getMeta(
-    poll: Poll
-) {
-    console.log("Entered getMeta");
-    
-    // This didn't work for some reason
-    return (
-        <Head>
-            <meta property="og:image" content="" key="test"></meta>
-            <meta property="og:title" content="My page title" key="title"/>
-        </Head>
-    );
-}
-*/
 
 export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);
