@@ -22,31 +22,32 @@ export async function savePoll(poll: Poll, formData: FormData) {
     score: Number(poll.created_at),
     member: newPoll.id,
   });
+  
+  revalidatePath("/events");
+  redirect(`/events/${poll.id}`);
+}
 
-/* export async function saveEvent(event: Event, formData: FormData) {
+// export async function saveEvent(event: Event, formDataEvent: FormDataEvent) {
+export async function saveEvent(event: Event) {
   let newEvent = {
     ...event,
     created_at: Date.now(),
-    title: formData.get("title") as string,
-  }
-  await kv.hset(`event:${event.id}`, event);
-//  await kv.expire(`poll:${poll.id}`, POLL_EXPIRY);
-  await kv.zadd("events_by_date", {
-    score: Number(event.created_at),
-    member: newEvent.id,
-  }); 
-*/
-
-/*  
-  export async function saveEvent(event: Event, formDataEvent: FormDataEvent) {
-  let newEvent = {
-    ...event,
+    title: "Test event" as string,
+    contractAddress: "0x00000" as string,
+    network: 137 as number,
+    checkoutURL: "testcheckoutURL" as string,
+    eventImageURL: " test eventImageURL" as string,
+    registeredImageURL: "test registeredImageURL" as string,
+    registeredLocationImageURL: "test registeredLocationImageURL" as string,
+    registeredTicketImageURL: "test registeredTicketImageURL" as string,
+    option1: "Register" as string,
+    option2: "Show location" as string,
+    option3: "See ticket" as string,
+    option4: "" as string,
+    
+/*
     created_at: Date.now(),
     title: formDataEvent.get("title") as string,
-    option1: formDataEvent.get("option1") as string,
-    option2: formDataEvent.get("option2") as string,
-    option3: formDataEvent.get("option3") as string,
-    option4: formDataEvent.get("option4") as string,
     contractAddress: get("contractAddress") as string,
     network: formDataEvent.get("network") as number,
     checkoutURL: formDataEvent.get("checkoutURL") as string,
@@ -54,13 +55,18 @@ export async function savePoll(poll: Poll, formData: FormData) {
     registeredImageURL: formDataEvent.get("registeredImageURL") as string,
     registeredLocationImageURL: formDataEvent.get("registeredLocationImageURL") as string,
     registeredTicketImageURL: formDataEvent.get("registeredTicketImageURL") as string,
+    option1: "Register" as string,
+    option2: "Show location" as string,
+    option3: "See ticket" as string,
+    option4: "" as string,
+*/
+    
   }
   await kv.hset(`event:${event.id}`, event);
   await kv.zadd("events_by_date", {
     score: Number(event.created_at),
     member: newEvent.id,
   });
-*/
 
   revalidatePath("/events");
   redirect(`/events/${poll.id}`);
