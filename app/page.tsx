@@ -1,8 +1,8 @@
 import {PollCreateForm} from "./form";
 
 export let metadata = {
-  title: "Farcaster polls",
-  description: "Poll example for farcaster",
+  title: "Unlock Event Frames v2.2",
+  description: "Event Unlock frame example for farcaster",
 };
 
 function VercelLogo(props: React.SVGProps<SVGSVGElement>) {
@@ -34,10 +34,10 @@ export default async function Page() {
           <VercelLogo className="h-8 sm:h-16 invert p-3 mb-1" />
         </div>
         <h1 className="text-lg sm:text-2xl font-bold mb-2">
-          Farcaster Polls
+          Unlock Event Frames v2.2
         </h1>
         <h2 className="text-md sm:text-xl mx-4">
-          Create a new poll with upto 4 options
+          Create a new event registration frame
         </h2>
         <div className="flex flex-wrap items-center justify-around max-w-4xl my-8 sm:w-full bg-white rounded-md shadow-xl h-full border border-gray-100">
           <PollCreateForm />
