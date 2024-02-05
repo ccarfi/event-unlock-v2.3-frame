@@ -23,6 +23,7 @@ export async function savePoll(poll: Poll, formData: FormData) {
     member: newPoll.id,
   });
 
+/*  
   export async function saveEvent(event: Event, formDataEvent: FormDataEvent) {
   let newEvent = {
     ...event,
@@ -45,7 +46,7 @@ export async function savePoll(poll: Poll, formData: FormData) {
     score: Number(event.created_at),
     member: newEvent.id,
   });
-
+*/
 
   revalidatePath("/events");
   redirect(`/events/${poll.id}`);
