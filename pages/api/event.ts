@@ -76,6 +76,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
          //   https://event-unlock-v2-2-frame.vercel.app/events/48763c0b-5481-4275-b3ec-cb97e1abcf19
             
             let event: Event | null = await kv.hgetall(`event:48763c0b-5481-4275-b3ec-cb97e1abcf19`);
+            console.log("Event:");
             console.log(event);
 
             /* TEST */
@@ -83,6 +84,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             
             let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
+            console.log("PollId:");
+            console.log(pollId);
+            console.log(poll);
+
 
             if (!poll) {
                 return res.status(400).send('Missing poll ID');
