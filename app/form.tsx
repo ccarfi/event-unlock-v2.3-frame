@@ -51,7 +51,7 @@ export function EventCreateForm() {
     registeredLocationImageURL: "",
     registeredTicketImageURL: "",
   };
-//  let saveWithNewPoll = savePoll.bind(null, eventStub);
+  let saveWithNewPoll = savePoll.bind(null, eventStub);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let [isPending, startTransition] = useTransition();
 
