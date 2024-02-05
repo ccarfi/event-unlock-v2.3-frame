@@ -5,6 +5,7 @@ import {useOptimistic, useRef, useState, useTransition} from "react";
 import {redirectToPolls, savePoll, votePoll} from "./actions";
 import { v4 as uuidv4 } from "uuid";
 import {Poll} from "./types";
+import {Event} from "./types";
 import {useRouter, useSearchParams} from "next/navigation";
 
 type PollState = {
@@ -43,7 +44,7 @@ export function EventCreateForm() {
     created_at: new Date().getTime(),
     title: "",
     contractAddress: "",
-    network:0,
+    network: 0,
     checkoutURL: "",
     eventImageURL: "",
     registeredImageURL: "",
