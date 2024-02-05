@@ -147,6 +147,25 @@ export function PollCreateForm() {
       },
   );
 
+  /* ========================================= */
+  /* THIS IS TO TEST DATABASE WRITE FOR EVENTS */
+
+    let eventStub = {
+    id: uuidv4(),
+    created_at: new Date().getTime(),
+    title: "",
+    contractAddress: "",
+    network: 0,
+    checkoutURL: "",
+    eventImageURL: "",
+    registeredImageURL: "",
+    registeredLocationImageURL: "",
+    registeredTicketImageURL: "",
+  };
+  let saveWithNewEvent = saveEvent.bind(null, eventStub);
+
+  /* ========================================= */
+
   let pollStub = {
     id: uuidv4(),
     created_at: new Date().getTime(),
