@@ -35,14 +35,6 @@ export function EventCreateForm() {
     id: uuidv4(),
     created_at: new Date().getTime(),
     title: "",
-    option1: "",
-    option2: "",
-    option3: "",
-    option4: "",
-    votes1: 0,
-    votes2: 0,
-    votes3: 0,
-    votes4: 0,
     contractAddress: "",
     network:0,
     checkoutURL: "",
@@ -51,7 +43,7 @@ export function EventCreateForm() {
     registeredLocationImageURL: "",
     registeredTicketImageURL: "",
   };
-  let saveWithNewPoll = savePoll.bind(null, eventStub);
+  let saveWithNewEvent = saveEvent.bind(null, eventStub);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let [isPending, startTransition] = useTransition();
 
