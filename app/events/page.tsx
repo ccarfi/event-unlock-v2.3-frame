@@ -32,7 +32,7 @@ async function getEvents() {
     try {
         let eventIds = await kv.zrange("events_by_date", Date.now(), Date.now() - SEVEN_DAYS_IN_MS, {byScore: true, rev: true, count: 100, offset: 0});
 
-        if (!eventsIds.length) {
+        if (!eventIds.length) {
             return [];
         }
 
