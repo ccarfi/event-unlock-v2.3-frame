@@ -62,7 +62,7 @@ export async function saveEvent(event: Event) {
 */
     
   }
-  console.log("newEvent:);
+  console.log("newEvent:");
   console.log(newEvent);            
   await kv.hset(`event:${event.id}`, newEvent);
   await kv.zadd("events_by_date", {
