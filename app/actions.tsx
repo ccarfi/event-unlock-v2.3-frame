@@ -6,25 +6,6 @@ import {Poll, POLL_EXPIRY} from "./types";
 import {Event} from "./types";
 import {redirect} from "next/navigation";
 
-
-export async function saveEvent(event: Event, formData: FormData) {
-  let newEvent = {
-    ...event,
-    created_at: Date.now(),
-    title: formData.get("title") as string,
-/*    option1: formData.get("option1") as string,
-    option2: formData.get("option2") as string,
-    option3: formData.get("option3") as string,
-    option4: formData.get("option4") as string,
-*/
-  }
-  await kv.hset(`event:${event.id}`, event);
-//  await kv.expire(`poll:${poll.id}`, POLL_EXPIRY);
-  await kv.zadd("events_by_date", {
-    score: Number(event.created_at),
-    member: newEvent.id,
-  });
-
 export async function savePoll(poll: Poll, formData: FormData) {
   let newPoll = {
     ...poll,
@@ -41,6 +22,19 @@ export async function savePoll(poll: Poll, formData: FormData) {
     score: Number(poll.created_at),
     member: newPoll.id,
   });
+
+export async function saveEvent(event: Event, formData: FormData) {
+  let newEvent = {
+    ...event,
+    created_at: Date.now(),
+    title: formData.get("title") as string,
+  }
+  await kv.hset(`event:${event.id}`, event);
+//  await kv.expire(`poll:${poll.id}`, POLL_EXPIRY);
+  await kv.zadd("events_by_date", {
+    score: Number(event.created_at),
+    member: newEvent.id,
+  });  
 
 /*  
   export async function saveEvent(event: Event, formDataEvent: FormDataEvent) {
