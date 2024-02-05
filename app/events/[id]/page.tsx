@@ -27,7 +27,6 @@ async function getPoll(id: string): Promise<Poll> {
         contractAddress: "",
         network: 0,
         checkoutURL: "",
-        option3: "",
         eventImageURL: "",
         registeredImageURL: "",
         registeredLocationImageURL: "",
