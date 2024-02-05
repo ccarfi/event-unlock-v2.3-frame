@@ -14,18 +14,25 @@ type PollState = {
   voted?: boolean;
 };
 
+type EventState = {
+  newEvent: Event;
+  updatedEvent?: Event;
+  pending: boolean;
+  voted?: boolean;
+};
+
 export function EventCreateForm() {
   let formRef = useRef<HTMLFormElement>(null);
   let [state, mutate] = useOptimistic(
       { pending: false },
-      function createReducer(state, newPoll: PollState) {
-        if (newPoll.newPoll) {
+      function createReducer(state, newEvent: EventState) {
+        if (newEvent.newEvent) {
           return {
-            pending: newPoll.pending,
+            pending: newEvent.pending,
           };
         } else {
           return {
-            pending: newPoll.pending,
+            pending: newEvent.pending,
           };
         }
       },
