@@ -31,7 +31,7 @@ export function EventCreateForm() {
       },
   );
 
-  let pollStub = {
+  let eventStub = {
     id: uuidv4(),
     created_at: new Date().getTime(),
     title: "",
@@ -44,7 +44,7 @@ export function EventCreateForm() {
     votes3: 0,
     votes4: 0,
   };
-  let saveWithNewPoll = savePoll.bind(null, pollStub);
+  let saveWithNewPoll = savePoll.bind(null, eventStub);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let [isPending, startTransition] = useTransition();
 
@@ -59,7 +59,7 @@ export function EventCreateForm() {
                 event.preventDefault();
                 let formData = new FormData(event.currentTarget);
                 let newPoll = {
-                  ...pollStub,
+                  ...eventStub,
                   title: formData.get("title") as string,
                   option1: formData.get("option1") as string,
                   option2: formData.get("option2") as string,
