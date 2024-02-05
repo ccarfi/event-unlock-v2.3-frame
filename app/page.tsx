@@ -1,4 +1,5 @@
 import {PollCreateForm} from "./form";
+import {EventCreateForm} from "./form";
 
 export let metadata = {
   title: "Unlock Event Frames v2.2",
