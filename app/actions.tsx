@@ -23,7 +23,7 @@ export async function savePoll(poll: Poll, formData: FormData) {
     member: newPoll.id,
   });
 
-export async function saveEvent(event: Event, formData: FormData) {
+/* export async function saveEvent(event: Event, formData: FormData) {
   let newEvent = {
     ...event,
     created_at: Date.now(),
@@ -34,7 +34,8 @@ export async function saveEvent(event: Event, formData: FormData) {
   await kv.zadd("events_by_date", {
     score: Number(event.created_at),
     member: newEvent.id,
-  });  
+  }); 
+*/
 
 /*  
   export async function saveEvent(event: Event, formDataEvent: FormDataEvent) {
