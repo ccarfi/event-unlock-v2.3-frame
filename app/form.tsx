@@ -127,7 +127,7 @@ export function EventCreateForm() {
 
 
 
-
+/*
 export function PollCreateForm() {
   let formRef = useRef<HTMLFormElement>(null);
   let [state, mutate] = useOptimistic(
@@ -224,7 +224,9 @@ export function PollCreateForm() {
       </>
   );
 }
+*/
 
+/*
 function PollOptions({poll, onChange} : {poll: Poll, onChange: (index: number) => void}) {
     return (
         <div className="mb-4 text-left">
@@ -243,7 +245,9 @@ function PollOptions({poll, onChange} : {poll: Poll, onChange: (index: number) =
         </div>
     );
 }
+*/
 
+/*
 function PollResults({poll} : {poll: Poll}) {
     return (
         <div className="mb-4">
@@ -251,7 +255,9 @@ function PollResults({poll} : {poll: Poll}) {
         </div>
     );
 }
+*/
 
+/*
 export function PollVoteForm({poll, viewResults}: { poll: Poll, viewResults?: boolean }) {
     const [selectedOption, setSelectedOption] = useState(-1);
     const router = useRouter();
@@ -327,3 +333,4 @@ export function PollVoteForm({poll, viewResults}: { poll: Poll, viewResults?: bo
         </div>
 );
 }
+*/
