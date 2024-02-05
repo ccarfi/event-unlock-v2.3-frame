@@ -162,6 +162,8 @@ export function PollCreateForm() {
     registeredLocationImageURL: "",
     registeredTicketImageURL: "",
   };
+  console.log("eventStub:");
+  console.log(eventStub);
   let saveWithNewEvent = saveEvent.bind(null, eventStub);
 
   /* ========================================= */
