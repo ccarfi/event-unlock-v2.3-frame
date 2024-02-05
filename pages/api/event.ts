@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {Poll, POLL_EXPIRY} from "@/app/types";
+import {Event} from "@/app/types";
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 import { getUserAddresses } from "@/src/lib/farcaster";
@@ -69,6 +70,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 await multi.exec();
             }
 
+
+            /* TEST */
+            
+         //   https://event-unlock-v2-2-frame.vercel.app/events/48763c0b-5481-4275-b3ec-cb97e1abcf19
+            
+            let event: Event | null = await kv.hgetall(`event:48763c0b-5481-4275-b3ec-cb97e1abcf19`);
+            console.log(event);
+
+            /* TEST */
+
+
+            
             let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
 
             if (!poll) {
