@@ -16,7 +16,7 @@ export async function savePoll(poll: Poll, formData: FormData) {
     option3: formData.get("option3") as string,
     option4: formData.get("option4") as string,
   }
-  await kv.hset(`poll:${poll.id}`, poll);
+  await kv.hset(`poll:${poll.id}`, newPoll);       // changed this from 'poll' to 'newPoll'
   await kv.expire(`poll:${poll.id}`, POLL_EXPIRY);
   await kv.zadd("polls_by_date", {
     score: Number(poll.created_at),
@@ -40,10 +40,10 @@ export async function saveEvent(event: Event) {
     registeredImageURL: "test registeredImageURL" as string,
     registeredLocationImageURL: "test registeredLocationImageURL" as string,
     registeredTicketImageURL: "test registeredTicketImageURL" as string,
-    option1: "Register" as string,
-    option2: "Show location" as string,
-    option3: "See ticket" as string,
-    option4: "" as string,
+//    option1: "Register" as string,
+//    option2: "Show location" as string,
+//    option3: "See ticket" as string,
+//   option4: "" as string,
     
 /*
     created_at: Date.now(),
@@ -62,7 +62,9 @@ export async function saveEvent(event: Event) {
 */
     
   }
-  await kv.hset(`event:${event.id}`, event);
+  console.log("newEvent:);
+  console.log(newEvent);            
+  await kv.hset(`event:${event.id}`, newEvent);
   await kv.zadd("events_by_date", {
     score: Number(event.created_at),
     member: newEvent.id,
