@@ -22,17 +22,17 @@ export async function savePoll(poll: Poll, formData: FormData) {
     member: newPoll.id,
   });
 
-  revalidatePath("/polls");
-  redirect(`/polls/${poll.id}`);
+  revalidatePath("/events");
+  redirect(`/events/${poll.id}`);
 }
 
 export async function votePoll(poll: Poll, optionIndex: number) {
   await kv.hincrby(`poll:${poll.id}`, `votes${optionIndex}`, 1);
 
-  revalidatePath(`/polls/${poll.id}`);
-  redirect(`/polls/${poll.id}?results=true`);
+  revalidatePath(`/events/${poll.id}`);
+  redirect(`/events/${poll.id}?results=true`);
 }
 
 export async function redirectToPolls() {
-  redirect("/polls");
+  redirect("/events");
 }
