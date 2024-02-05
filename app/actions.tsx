@@ -69,7 +69,7 @@ export async function saveEvent(event: Event) {
   });
 
   revalidatePath("/events");
-  redirect(`/events/${poll.id}`);
+  redirect(`/events/${event.id}`);
 }
 
 export async function votePoll(poll: Poll, optionIndex: number) {
