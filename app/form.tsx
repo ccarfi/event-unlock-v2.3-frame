@@ -25,6 +25,7 @@ type EventState = {
 
 export function EventCreateForm() {
   let formRef = useRef<HTMLFormElement>(null);
+
   let [state, mutate] = useOptimistic(
       { pending: false },
       function createReducer(state, newEvent: EventState) {
@@ -39,6 +40,7 @@ export function EventCreateForm() {
         }
       },
   );
+  
 
   let eventStub = {
     id: uuidv4(),
@@ -52,9 +54,10 @@ export function EventCreateForm() {
     registeredLocationImageURL: "",
     registeredTicketImageURL: "",
   };
+  
   let saveWithNewEvent = saveEvent.bind(null, eventStub);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let [isPending, startTransition] = useTransition();
+  // let [isPending, startTransition] = useTransition();
 
   return (
       <>
