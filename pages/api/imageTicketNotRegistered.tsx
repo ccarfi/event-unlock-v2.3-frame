@@ -20,7 +20,7 @@ export default async function handler() {
           alignItems: 'center',
         }}
       >
-        You pressed the Ticket button
+        Please connect your wallet or register for the event to see your ticket.
       </div>
     ),
     {
