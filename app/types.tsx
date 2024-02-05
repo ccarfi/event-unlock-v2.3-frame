@@ -13,3 +13,16 @@ export type Poll = {
 };
 
 export const POLL_EXPIRY = 60 * 60 * 24 * 180; // Expire polls after 3 months
+
+export type Event = {
+  id: string;
+  title: string;
+  contractAddress: string;
+  network: number;
+  checkoutURL: string;
+  eventImageURL: string;
+  registeredImageURL: string;
+  registeredLocationImageURL: string;
+  registeredTicketImageURL: string;
+  created_at: number;
+};
