@@ -79,6 +79,8 @@ export async function generateMetadata(
         metadataBase: new URL(process.env['HOST'] || '')
     }
 }
+
+/*
 function getMeta(
     poll: Poll
 ) {
@@ -92,7 +94,7 @@ function getMeta(
         </Head>
     );
 }
-
+*/
 
 export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);
