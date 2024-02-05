@@ -43,6 +43,13 @@ export function EventCreateForm() {
     votes2: 0,
     votes3: 0,
     votes4: 0,
+    contractAddress: "",
+    network:0,
+    checkoutURL: "",
+    eventImageURL: "",
+    registeredImageURL: "",
+    registeredLocationImageURL: "",
+    registeredTicketImageURL: "",
   };
   let saveWithNewPoll = savePoll.bind(null, eventStub);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -69,6 +76,13 @@ export function EventCreateForm() {
                   votes2: 0,
                   votes3: 0,
                   votes4: 0,
+                  contractAddress: formData.get("contractAddress") as string,,
+                  network:0,
+                  checkoutURL: formData.get("checkoutURL") as string,,
+                  eventImageURL: formData.get("eventImageURL") as string,,
+                  registeredImageURL: formData.get("registeredImageURL") as string,,
+                  registeredLocationImageURL: formData.get("registeredLocationImageURL") as string,,
+                  registeredTicketImageURL: formData.get("registeredTicketImageURL") as string,,
                 };
 
                 formRef.current?.reset();
@@ -83,7 +97,7 @@ export function EventCreateForm() {
               }}
           >
             <input
-                aria-label="Poll Title"
+                aria-label="Event Title"
                 className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
                 maxLength={150}
                 placeholder="Title..."
