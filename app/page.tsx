@@ -1,4 +1,4 @@
-import {PollCreateForm} from "./form";
+// import {PollCreateForm} from "./form";
 import {EventCreateForm} from "./form";
 
 export let metadata = {
