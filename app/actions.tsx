@@ -3,7 +3,7 @@
 import { kv } from "@vercel/kv";
 import { revalidatePath } from "next/cache";
 import {Poll, POLL_EXPIRY} from "./types";
-import {Event} from "./types";
+import {UnlockEvent} from "./types";
 import {redirect} from "next/navigation";
 
 export async function savePoll(poll: Poll, formData: FormData) {
