@@ -1,13 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {Poll, POLL_EXPIRY} from "@/app/types";
 import {UnlockEvent} from "@/app/types";
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 import { getUserAddresses } from "@/src/lib/farcaster";
 import { balanceOf } from "@/src/lib/unlock";
-
-// import { getMessage } from "@/src/lib/messages";
-
+//import {Poll, POLL_EXPIRY} from "@/app/types";
 
 const HUB_URL = process.env['HUB_URL']
 const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
@@ -15,16 +12,10 @@ const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
 
-        // For example, let's assume you receive an option in the body
+        // Get the event id, and if the user is trying to register
         try {
-//            const pollId = req.query['id']
-            const eventId = req.query['id']  // shadow
-//            const results = req.query['results'] === 'true'
-//            let voted = req.query['voted'] === 'true'
+            const eventId = req.query['id'] 
             let register = req.query['register'] === 'true'
-//            if (!pollId) {
-//                return res.status(400).send('Missing poll ID');
-//            }
             if (!eventId) {
                 return res.status(400).send('Missing event ID');
             }
@@ -56,25 +47,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 buttonId = req.body?.untrustedData?.buttonIndex || 0;
                 fid = req.body?.untrustedData?.fid || 0;
             }
-
-
-            /* TEST */
-            
-         //   https://event-unlock-v2-2-frame.vercel.app/events/48763c0b-5481-4275-b3ec-cb97e1abcf19
             
             let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
             console.log("Event:");
             console.log(event);
             
-//            let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
-//            console.log("PollId:");
-//            console.log(pollId);
-//            console.log(poll);
-
-             /* TEST */
-
-
-
             if (!event) {
                 return res.status(400).send('Missing event ID');
             }
@@ -167,7 +144,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
             }
  
-            
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
             res.status(200).send(`
@@ -200,10 +176,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 }
-
-// line 215 event.id instead of poll.id
-// <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${event.id}&voted=true&results=${results ? 'false' : 'true'}&register=${register ? 'true' : 'false'}">
-
-// line 222
-// <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
-
