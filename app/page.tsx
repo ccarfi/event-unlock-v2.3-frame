@@ -113,6 +113,7 @@ z"/>
   );
 }
 
+/*
 function VercelLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -133,6 +134,7 @@ function VercelLogo(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+*/
 
 export default async function Page() {
   return (
