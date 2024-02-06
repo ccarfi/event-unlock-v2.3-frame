@@ -70,7 +70,7 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
     member: newEvent.id,
   });
 
-  let testEvent: UnlockEvent | null = await kv.hgetall(`event:17dbc2c9-a757-4a0e-8656-e14e7795c6b7`);
+  let testEvent: UnlockEvent | null = await kv.hgetall(`event:f92ea721-636a-4287-b464-e7ee6f781309`);
   console.log("Event from earlier:");
   console.log(testEvent);
 
