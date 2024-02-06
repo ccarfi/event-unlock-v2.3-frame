@@ -1,5 +1,5 @@
 import {PollCreateForm} from "./form";
-// import {EventCreateForm} from "./form";
+import {EventCreateForm} from "./form";
 
 export let metadata = {
   title: "Unlock Event Frames v2.2",
@@ -151,7 +151,7 @@ export default async function Page() {
           Create a new event registration frame
         </h2>
         <div className="flex flex-wrap items-center justify-around max-w-4xl my-8 sm:w-full bg-white rounded-md shadow-xl h-full border border-gray-100">
-          <PollCreateForm />
+          <EventCreateForm />
         </div>
       </main>
     </div>
