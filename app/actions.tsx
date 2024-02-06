@@ -27,8 +27,8 @@ export async function savePoll(poll: Poll, formData: FormData) {
   redirect(`/events/${poll.id}`);
 }
 
-// export async function saveEvent(event: Event, formDataEvent: FormDataEvent) {
-export async function saveEvent(event: Event) {
+// export async function saveEvent(event: UnlockEvent, formDataEvent: FormDataEvent) {
+export async function saveEvent(event: UnlockEvent) {
   let newEvent = {
     ...event,
     created_at: Date.now(),
