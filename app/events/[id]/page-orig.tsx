@@ -1,6 +1,6 @@
 import {kv} from "@vercel/kv";
 import {Poll} from "@/app/types";
-import {PollVoteForm} from "@/app/form";
+// import {PollVoteForm} from "@/app/form";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
