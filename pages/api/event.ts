@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {Poll, POLL_EXPIRY} from "@/app/types";
-import {Event} from "@/app/types";
+import {UnlockEvent} from "@/app/types";
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 import { getUserAddresses } from "@/src/lib/farcaster";
