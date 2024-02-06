@@ -70,6 +70,11 @@ export async function saveEvent(event: UnlockEvent) {
     member: newEvent.id,
   });
 
+  let testEvent: UnlockEvent | null = await kv.hgetall(`event:17dbc2c9-a757-4a0e-8656-e14e7795c6b7`);
+  console.log("Event from earlier:");
+  console.log(testEvent);
+
+
   revalidatePath("/events");
   redirect(`/events/${event.id}`);
 }
