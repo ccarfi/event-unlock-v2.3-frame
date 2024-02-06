@@ -112,7 +112,7 @@ export async function generateMetadata(
         "fc:frame": "vNext",
         "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true`,
         "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
-        "fc:frame:button:1:action:" `post_redirect`,
+        "fc:frame:button:1:action": `post_redirect`,
     };
     ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
         fcMetadata[`fc:frame:button:${index + 1}`] = option;
