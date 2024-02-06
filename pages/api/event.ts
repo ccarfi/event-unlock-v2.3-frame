@@ -207,7 +207,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       <!DOCTYPE html>
       <html>
         <head>
-          <title>`${event.title}`</title>
+          <title>${event.title}</title>
           <meta property="og:title" content="${event.title}">
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
@@ -219,7 +219,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame:button:3" content="${button3Text}">
         </head>
         <body>
-          <p>You clicked ${buttonId}`}</p>
+          <p>You clicked ${buttonId}}</p>
         </body>
       </html>
     `);
