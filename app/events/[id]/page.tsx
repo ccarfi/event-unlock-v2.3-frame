@@ -109,17 +109,17 @@ export async function generateMetadata(
     console.log("Entered generateMetadata");
     
     // read route params
-    const id = params.id
-    const poll = await getPoll(id)
-    const event = await getEvent(id)
+    const id = params.id;
+    const poll = await getPoll(id);
+    const event = await getEvent(id);
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
         "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}`,
         "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
     };
-    [poll.option1, poll.option2, poll.option3, poll.option4].filter(o => o !== "").map((option, index) => {
-        fcMetadata[`fc:frame:button:${index + 1}`] = option;
+ //   [poll.option1, poll.option2, poll.option3, poll.option4].filter(o => o !== "").map((option, index) => {
+ //       fcMetadata[`fc:frame:button:${index + 1}`] = option;
     ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
         fcMetadata[`fc:frame:button:${index + 1}`] = option;
     })
