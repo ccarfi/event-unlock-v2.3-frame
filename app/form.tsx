@@ -162,8 +162,6 @@ export function PollCreateForm() {
     registeredLocationImageURL: "",
     registeredTicketImageURL: "",
   };
-  console.log("eventStub:");
-  console.log(eventStub);
   let saveWithNewEvent = saveEvent.bind(null, eventStub);
 
   /* ========================================= */
@@ -207,6 +205,11 @@ export function PollCreateForm() {
                   votes4: 0,
                 };
 
+                let newEvent = {
+                  ...eventStub,
+                  title: formData.get("title") as string,
+                }
+
                 formRef.current?.reset();
                 startTransition(async () => {
                   mutate({
@@ -215,6 +218,7 @@ export function PollCreateForm() {
                   });
 
                   await savePoll(newPoll, formData);
+                  await saveEvent(newEvent);
                 });
               }}
           >
