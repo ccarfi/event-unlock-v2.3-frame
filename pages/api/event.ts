@@ -207,19 +207,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Vote Recorded</title>
-          <meta property="og:title" content="Vote Recorded">
+          <title>`${event.title}`</title>
+          <meta property="og:title" content="${event.title}">
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${event.id}&voted=true&results=${results ? 'false' : 'true'}&register=${register ? 'true' : 'false'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${event.id}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
           <meta name="fc:frame:button:3" content="${button3Text}">
         </head>
         <body>
-          <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
+          <p>You clicked ${buttonId}`}</p>
         </body>
       </html>
     `);
@@ -235,3 +235,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 
 // line 215 event.id instead of poll.id
+// <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${event.id}&voted=true&results=${results ? 'false' : 'true'}&register=${register ? 'true' : 'false'}">
+
+// line 222
+// <p>${ results || voted ? `You have already voted. You clicked ${buttonId}` : `Your vote for ${buttonId} has been recorded for fid ${fid}.` }</p>
+
