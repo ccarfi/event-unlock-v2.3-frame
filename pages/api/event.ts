@@ -96,21 +96,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             console.log("First visit:");
             console.log(firstVisit);
-
-            // Clicked register and is registered already
-            if (firstVisit && isMember && buttonId === 1) {
-//                const registrationURL = `${process.env['HOST']}/api/event?id=${event.id}&register=false&firstvisit=false`;
-                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
-                console.log(registrationURL);
-                return res.status(200).setHeader('Location', `${registrationURL}`).send('Redirecting back here to change state');
-            }
-            
+           
             let action = "";
             register = true;
             let button1Action = "post_redirect";
             if (buttonId === 1) {
                 action = "register";
-                if (isMember) {
+                if (isMember && !firstVisit) {
                     imageUrl = `https://i.imgur.com/FQvDjSm.png?t=110`;
                     button1Action = "post";
                     register = false;
