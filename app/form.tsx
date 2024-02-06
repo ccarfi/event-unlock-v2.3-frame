@@ -191,7 +191,6 @@ export function PollCreateForm() {
           <form
               className="relative my-8"
               ref={formRef}
-           // action={saveWithNewEvent}
               onSubmit={(event) => {
                 event.preventDefault();
                 let formData = new FormData(event.currentTarget);
