@@ -1,8 +1,8 @@
 import {kv} from "@vercel/kv";
-import {Poll} from "@/app/types";
 import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
+// import {Poll} from "@/app/types";
 
 // TODO: remove poll things from this page
 
@@ -37,9 +37,7 @@ async function getEvent(id: string): Promise<UnlockEvent> {
     }
 }
 
-/* ===== */
-
-
+/* 
 async function getPoll(id: string): Promise<Poll> {
 
     console.log("Entered getPoll");
@@ -91,6 +89,7 @@ async function getPoll(id: string): Promise<Poll> {
         return nullPoll;
     }
 }
+*/
 
 type Props = {
     params: { id: string }
