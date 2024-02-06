@@ -1,7 +1,48 @@
 import {kv} from "@vercel/kv";
 import {Poll} from "@/app/types";
+import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
+
+async function getEvent(id: string): Promise<Poll> {
+
+    console.log("Entered getEvent");
+    
+    let nullEvent = {
+        id: "",
+        title: "No event found",
+        contractAddress: "",
+        network: 0,
+        checkoutURL: "",
+        eventImageURL: "",
+        registeredImageURL: "",
+        registeredLocationImageURL: "",
+        registeredTicketImageURL: "",
+        created_at: 0,
+    };
+
+    try {
+        let event: UnlockEvent | null = await kv.hgetall(`event:${id}`);
+
+        if (!event) {
+            return nullEvent;
+        }
+
+        // experiment to override and hardcode button values -cfc
+  //      poll.option1 = "Register";
+  //      poll.option2 = "See location";
+  //      poll.option3 = "Show my ticket";
+  //      poll.option4 = "";
+
+        return event;
+    } catch (error) {
+        console.error(error);
+        return nullEvent;
+    }
+}
+
+/* ===== */
+
 
 async function getPoll(id: string): Promise<Poll> {
 
@@ -70,6 +111,7 @@ export async function generateMetadata(
     // read route params
     const id = params.id
     const poll = await getPoll(id)
+    const event = await getEvent(id)
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
@@ -78,13 +120,15 @@ export async function generateMetadata(
     };
     [poll.option1, poll.option2, poll.option3, poll.option4].filter(o => o !== "").map((option, index) => {
         fcMetadata[`fc:frame:button:${index + 1}`] = option;
+    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
+        fcMetadata[`fc:frame:button:${index + 1}`] = option;
     })
 
 
     return {
-        title: poll.title,
+        title: event.title,
         openGraph: {
-            title: poll.title,
+            title: event.title,
             images: [`/api/image?id=${id}`],
         },
         other: {
@@ -96,6 +140,7 @@ export async function generateMetadata(
 
 export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);
+    const event = await getEvent(params.id);
     
     console.log("Entered export");
     console.log(params);
