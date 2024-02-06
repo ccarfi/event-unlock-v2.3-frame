@@ -32,9 +32,8 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
   let newEvent = {
     ...event,
     created_at: Date.now(),
-//    title: "Test event" as string,
     title: formData.get("title") as string,
-    contractAddress: "0x00000" as string,
+    contractAddress: formData.get("contractAddress") as string,
     network: 137 as number,
     checkoutURL: "testcheckoutURL" as string,
     eventImageURL: " test eventImageURL" as string,
