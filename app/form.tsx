@@ -2,19 +2,21 @@
 
 import clsx from "clsx";
 import {useOptimistic, useRef, useState, useTransition} from "react";
-import {redirectToPolls, savePoll, votePoll} from "./actions";
+//import {redirectToPolls, savePoll, votePoll} from "./actions";
 import {saveEvent} from "./actions";
 import { v4 as uuidv4 } from "uuid";
-import {Poll} from "./types";
+//import {Poll} from "./types";
 import {UnlockEvent} from "./types";
 import {useRouter, useSearchParams} from "next/navigation";
 
+/* 
 type PollState = {
   newPoll: Poll;
   updatedPoll?: Poll;
   pending: boolean;
   voted?: boolean;
 };
+*/
 
 type EventState = {
   newEvent: UnlockEvent;
@@ -123,7 +125,7 @@ export function EventCreateForm() {
 
 /* ========================================= */
 
-
+/*
 export function PollCreateForm() {
   let formRef = useRef<HTMLFormElement>(null);
   let [state, mutate] = useOptimistic(
@@ -141,7 +143,6 @@ export function PollCreateForm() {
       },
   );
 
-  /* ========================================= */
 
     let eventStub = {
     id: uuidv4(),
@@ -157,7 +158,6 @@ export function PollCreateForm() {
   };
   let saveWithNewEvent = saveEvent.bind(null, eventStub);
 
-  /* ========================================= */
 
   let pollStub = {
     id: uuidv4(),
@@ -173,8 +173,6 @@ export function PollCreateForm() {
     votes4: 0,
   };
   let saveWithNewPoll = savePoll.bind(null, pollStub);
-
-  /* ========================================= */
 
   
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -256,7 +254,7 @@ export function PollCreateForm() {
       </>
   );
 }
-
+*/
 
 /*
 function PollOptions({poll, onChange} : {poll: Poll, onChange: (index: number) => void}) {
