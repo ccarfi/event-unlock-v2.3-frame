@@ -30,12 +30,6 @@ async function getEvent(id: string): Promise<UnlockEvent> {
             return nullEvent;
         }
 
-        // experiment to override and hardcode button values -cfc
-  //      poll.option1 = "Register";
-  //      poll.option2 = "See location";
-  //      poll.option3 = "Show my ticket";
-  //      poll.option4 = "";
-
         return event;
     } catch (error) {
         console.error(error);
@@ -120,8 +114,6 @@ export async function generateMetadata(
         "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}`,
         "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
     };
- //   [poll.option1, poll.option2, poll.option3, poll.option4].filter(o => o !== "").map((option, index) => {
- //       fcMetadata[`fc:frame:button:${index + 1}`] = option;
     ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
         fcMetadata[`fc:frame:button:${index + 1}`] = option;
     })
@@ -142,11 +134,7 @@ export async function generateMetadata(
 
 export default async function Page({params}: { params: {id: string}}) {
     const poll = await getPoll(params.id);
-    const event = await getEvent(params.id);
-    
-    console.log("Entered export");
-    console.log(params);
-
+    const event = await getEvent(params.id);    
 
     return(
         <>
