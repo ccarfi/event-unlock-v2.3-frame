@@ -6,7 +6,7 @@ import {redirectToPolls, savePoll, votePoll} from "./actions";
 import {saveEvent} from "./actions";
 import { v4 as uuidv4 } from "uuid";
 import {Poll} from "./types";
-import {Event} from "./types";
+import {UnlockEvent} from "./types";
 import {useRouter, useSearchParams} from "next/navigation";
 
 type PollState = {
