@@ -27,12 +27,13 @@ export async function savePoll(poll: Poll, formData: FormData) {
   redirect(`/events/${poll.id}`);
 }
 
-// export async function saveEvent(event: UnlockEvent, formDataEvent: FormDataEvent) {
-export async function saveEvent(event: UnlockEvent) {
+// export async function saveEvent(event: UnlockEvent) {
+export async function saveEvent(event: UnlockEvent, formData: FormData) {
   let newEvent = {
     ...event,
     created_at: Date.now(),
-    title: "Test event" as string,
+//    title: "Test event" as string,
+    title: formData.get("title") as string,
     contractAddress: "0x00000" as string,
     network: 137 as number,
     checkoutURL: "testcheckoutURL" as string,
