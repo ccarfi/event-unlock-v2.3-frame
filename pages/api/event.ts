@@ -18,11 +18,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // For example, let's assume you receive an option in the body
         try {
             const pollId = req.query['id']
+            const eventId = req.query['id']  // shadow
             const results = req.query['results'] === 'true'
             let voted = req.query['voted'] === 'true'
             let register = req.query['register'] === 'true'
             if (!pollId) {
                 return res.status(400).send('Missing poll ID');
+            }
+            if (!pollId) {                   // shadow
+                return res.status(400).send('Missing event ID');
             }
 
             let validatedMessage : Message | undefined = undefined;
@@ -58,6 +62,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 //                return res.status(302).setHeader('Location', `${process.env['HOST']}`).send('Redirecting to create poll');
 //            }           
 
+
+/* none of this should matter for events
+
             const voteExists = await kv.sismember(`poll:${pollId}:voted`, fid)
             voted = voted || !!voteExists
 
@@ -69,19 +76,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 multi.expire(`poll:${pollId}:voted`, POLL_EXPIRY);
                 await multi.exec();
             }
-
+*/
 
             /* TEST */
             
          //   https://event-unlock-v2-2-frame.vercel.app/events/48763c0b-5481-4275-b3ec-cb97e1abcf19
             
-            let event: UnlockEvent | null = await kv.hgetall(`event:48763c0b-5481-4275-b3ec-cb97e1abcf19`);
+            let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
             console.log("Event:");
             console.log(event);
 
             /* TEST */
 
-
+/*   TESTING UP TO HERE FIRST */
             
             let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
             console.log("PollId:");
