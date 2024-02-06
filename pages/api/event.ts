@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         try {
             const eventId = req.query['id'] 
             let register = req.query['register'] === 'true'
+            let firstVisit = req.query['firstvisit'] === 'true'
             if (!eventId) {
                 return res.status(400).send('Missing event ID');
             }
@@ -145,11 +146,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
 
             // Clicked register and is registered already
-//            if (!register && buttonId === 1) {
-//                const registrationURL = `${process.env['HOST']}/api/event?id=${event.id}&register=false`;
-//                console.log(registrationURL);
-//                return res.status(302).setHeader('Location', "${registrationURL}").send('Redirecting back here to change state');
-//            }
+            if (firstVisit && IsMember && buttonId === 1) {
+                const registrationURL = `${process.env['HOST']}/api/event?id=${event.id}&register=false&firstvisit=false`;
+                console.log(registrationURL);
+                return res.status(302).setHeader('Location', "${registrationURL}").send('Redirecting back here to change state');
+            }
  
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
