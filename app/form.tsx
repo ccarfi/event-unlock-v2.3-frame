@@ -218,7 +218,7 @@ export function PollCreateForm() {
                   });
 
                   await savePoll(newPoll, formData);
-                  await saveEvent(newEvent);
+                  await saveEvent(newEvent, formData);
                 });
               }}
           >
