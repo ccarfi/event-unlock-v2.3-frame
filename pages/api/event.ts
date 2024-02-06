@@ -234,4 +234,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 }
 
-// line 213 event.id instead of poll.id
+// line 215 event.id instead of poll.id
