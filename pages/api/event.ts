@@ -17,15 +17,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // For example, let's assume you receive an option in the body
         try {
-            const pollId = req.query['id']
+//            const pollId = req.query['id']
             const eventId = req.query['id']  // shadow
-            const results = req.query['results'] === 'true'
-            let voted = req.query['voted'] === 'true'
+//            const results = req.query['results'] === 'true'
+//            let voted = req.query['voted'] === 'true'
             let register = req.query['register'] === 'true'
-            if (!pollId) {
-                return res.status(400).send('Missing poll ID');
-            }
-            if (!pollId) {                   // shadow
+//            if (!pollId) {
+//                return res.status(400).send('Missing poll ID');
+//            }
+            if (!eventId) {
                 return res.status(400).send('Missing event ID');
             }
 
@@ -56,27 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 buttonId = req.body?.untrustedData?.buttonIndex || 0;
                 fid = req.body?.untrustedData?.fid || 0;
             }
-        
-            // Clicked create poll
-//            if ((results || voted) && buttonId === 2) {
-//                return res.status(302).setHeader('Location', `${process.env['HOST']}`).send('Redirecting to create poll');
-//            }           
 
-
-/* none of this should matter for events
-
-            const voteExists = await kv.sismember(`poll:${pollId}:voted`, fid)
-            voted = voted || !!voteExists
-
-            if (fid > 0 && buttonId > 0 && buttonId < 5 && !results && !voted) {
-                let multi = kv.multi();
-                multi.hincrby(`poll:${pollId}`, `votes${buttonId}`, 1);
-                multi.sadd(`poll:${pollId}:voted`, fid);
-                multi.expire(`poll:${pollId}`, POLL_EXPIRY);
-                multi.expire(`poll:${pollId}:voted`, POLL_EXPIRY);
-                await multi.exec();
-            }
-*/
 
             /* TEST */
             
@@ -85,41 +65,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
             console.log("Event:");
             console.log(event);
-
-            /* TEST */
-
             
-            let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
-            console.log("PollId:");
-            console.log(pollId);
-            console.log(poll);
+//            let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
+//            console.log("PollId:");
+//            console.log(pollId);
+//            console.log(poll);
 
-//            if (!poll) {
-//                return res.status(400).send('Missing poll ID');
-//            }
+             /* TEST */
+
+
 
             if (!event) {
                 return res.status(400).send('Missing event ID');
             }
+
+            // we'll use these later when constructing og tags
             
-/*   TESTING UP TO HERE FIRST */
-
-            
-//            let imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
-
-            let imageUrl = "";  // shadow
-
+            let imageUrl = "";  
             let button1Text = "Register";
             let button2Text = "Show location";
             let button3Text = "See my ticket";
-
-//            if (!voted && !results) {
-//                button1Text = "Back"
-//            } else if (voted && !results) {
-//                button1Text = "Already Voted"
-//            } else if (voted && results) {
-//                button1Text = "View Results"
-//            }
 
             // Log that we made it this far
             console.log("Entered event.ts...");
@@ -162,7 +127,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     register = false;
                 }
                 else {
-                    //  imageUrl = `${process.env['HOST']}/api/imageRegisterNotRegistered?t=110`;
+                    //  Drop through this conditional and don't do anything here, we'll
+                    //  do the redirect just after the conditional block to go register
+                    
                     //  register = true;
                 }
             }
