@@ -75,7 +75,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             
          //   https://event-unlock-v2-2-frame.vercel.app/events/48763c0b-5481-4275-b3ec-cb97e1abcf19
             
-            let event: Event | null = await kv.hgetall(`event:48763c0b-5481-4275-b3ec-cb97e1abcf19`);
+            let event: UnlockEvent | null = await kv.hgetall(`event:48763c0b-5481-4275-b3ec-cb97e1abcf19`);
             console.log("Event:");
             console.log(event);
 
@@ -107,7 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 //            }
 
             // Log that we made it this far
-            console.log("Entered vote...");
+            console.log("Entered event.ts...");
 
             // Get the wallet address of the user, or note if there is no wallet address
             const fidAsString = fid.toString();
