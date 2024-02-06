@@ -6,6 +6,7 @@ export let metadata = {
   description: "Event Unlock frame example for farcaster",
 };
 
+// TODO: replace this with a png in the project and replace in the body of the return page
 function UnlockLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
