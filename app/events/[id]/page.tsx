@@ -106,7 +106,7 @@ export async function generateMetadata(
     
     // read route params
     const id = params.id;
-    const poll = await getPoll(id);
+//    const poll = await getPoll(id);
     const event = await getEvent(id);
 
     const fcMetadata: Record<string, string> = {
@@ -133,7 +133,7 @@ export async function generateMetadata(
 }
 
 export default async function Page({params}: { params: {id: string}}) {
-    const poll = await getPoll(params.id);
+//    const poll = await getPoll(params.id);
     const event = await getEvent(params.id);    
 
     return(
