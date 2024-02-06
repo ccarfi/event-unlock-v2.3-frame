@@ -110,7 +110,7 @@ export async function generateMetadata(
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
-        "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}`,
+        "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true`,
         "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
     };
     ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
