@@ -88,19 +88,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             /* TEST */
 
-/*   TESTING UP TO HERE FIRST */
             
             let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
             console.log("PollId:");
             console.log(pollId);
             console.log(poll);
 
+//            if (!poll) {
+//                return res.status(400).send('Missing poll ID');
+//            }
 
-            if (!poll) {
-                return res.status(400).send('Missing poll ID');
+            if (!event) {
+                return res.status(400).send('Missing event ID');
             }
-//            const imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
-            let imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
+            
+/*   TESTING UP TO HERE FIRST */
+
+            
+//            let imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
+
             let button1Text = "Register";
             let button2Text = "Show location";
             let button3Text = "See my ticket";
@@ -204,7 +210,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${poll.id}&voted=true&results=${results ? 'false' : 'true'}&register=${register ? 'true' : 'false'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${event.id}&voted=true&results=${results ? 'false' : 'true'}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
@@ -226,3 +232,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 }
 
+// line 213 event.id instead of poll.id
