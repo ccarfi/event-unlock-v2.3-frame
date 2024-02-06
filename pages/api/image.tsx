@@ -9,6 +9,8 @@ import * as fs from "fs";
 const fontPath = join(process.cwd(), 'Roboto-Regular.ttf')
 let fontData = fs.readFileSync(fontPath)
 
+// TODO: update this file to render an image for the event
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const pollId = req.query['id']
