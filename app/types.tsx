@@ -14,7 +14,7 @@ export type Poll = {
 
 export const POLL_EXPIRY = 60 * 60 * 24 * 180; // Expire polls after 3 months
 
-export type Event = {
+export type UnlockEvent = {
   id: string;
   title: string;
   contractAddress: string;
