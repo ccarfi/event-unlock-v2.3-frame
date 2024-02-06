@@ -4,7 +4,7 @@ import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
-async function getEvent(id: string): Promise<Event> {
+async function getEvent(id: string): Promise<UnlockEvent> {
 
     console.log("Entered getEvent");
     
