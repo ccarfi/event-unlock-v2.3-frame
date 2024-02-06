@@ -288,6 +288,7 @@ function PollResults({poll} : {poll: Poll}) {
 */
 
 
+/*
 export function PollVoteForm({poll, viewResults}: { poll: Poll, viewResults?: boolean }) {
     const [selectedOption, setSelectedOption] = useState(-1);
     const router = useRouter();
@@ -362,3 +363,4 @@ export function PollVoteForm({poll, viewResults}: { poll: Poll, viewResults?: bo
         </div>
 );
 }
+*/
