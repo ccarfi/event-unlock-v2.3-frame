@@ -93,6 +93,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             // Check to see if the user had a valid ticket
             const isMember = balances.some((balance) => balance > 0);
+
+            console.log("First visit:");
+            console.log(firstVisit);
+
+            // Clicked register and is registered already
+            if (firstVisit && isMember && buttonId === 1) {
+//                const registrationURL = `${process.env['HOST']}/api/event?id=${event.id}&register=false&firstvisit=false`;
+                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
+                console.log(registrationURL);
+                return res.status(302).setHeader('Location', "${registrationURL}").send('Redirecting back here to change state');
+            }
             
             let action = "";
             register = true;
@@ -143,14 +154,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
                 console.log(registrationURL);
                 return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
-            }
-
-            // Clicked register and is registered already
-            if (firstVisit && isMember && buttonId === 1) {
-//                const registrationURL = `${process.env['HOST']}/api/event?id=${event.id}&register=false&firstvisit=false`;
-                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
-                console.log(registrationURL);
-                return res.status(302).setHeader('Location', "${registrationURL}").send('Redirecting back here to change state');
             }
  
             // Return an HTML response
