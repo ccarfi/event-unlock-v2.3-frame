@@ -4,6 +4,8 @@ import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
+// TODO: remove poll things from this page
+
 async function getEvent(id: string): Promise<UnlockEvent> {
 
     console.log("Entered getEvent");
