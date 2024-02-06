@@ -107,6 +107,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             
 //            let imageUrl = `${process.env['HOST']}/api/image?id=${poll.id}&results=${results ? 'false': 'true'}&date=${Date.now()}${ fid > 0 ? `&fid=${fid}` : '' }`;
 
+            let imageUrl = "";  // shadow
+
             let button1Text = "Register";
             let button2Text = "Show location";
             let button3Text = "See my ticket";
