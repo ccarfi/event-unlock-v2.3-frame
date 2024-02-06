@@ -146,9 +146,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             // Clicked register and is registered already
             if (!register && buttonId === 1) {
-                const registrationURL = "${process.env['HOST']}/api/event?id=${event.id}&register=false";
+                const registrationURL = `${process.env['HOST']}/api/event?id=${event.id}&register=false`;
                 console.log(registrationURL);
-                return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting back here to change state');
+                return res.status(302).setHeader('Location', "${registrationURL}").send('Redirecting back here to change state');
             }
  
             // Return an HTML response
