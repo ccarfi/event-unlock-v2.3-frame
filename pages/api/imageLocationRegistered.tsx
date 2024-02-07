@@ -1,5 +1,6 @@
 import { ImageResponse } from '@vercel/og';
-import {axios} from 'axios';
+import {axios} from "axios";       // API call
+
  
 export const config = {
   runtime: 'edge',
