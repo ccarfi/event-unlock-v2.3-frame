@@ -4,7 +4,7 @@ import { kv } from "@vercel/kv";
 import { revalidatePath } from "next/cache";
 import {UnlockEvent} from "./types";
 import {redirect} from "next/navigation";
-import {axios} from "axios";       // API call
+import axios from 'axios';       // API call
 
 export async function saveEvent(event: UnlockEvent, formData: FormData) {
   const networkValue = formData.get("network");
