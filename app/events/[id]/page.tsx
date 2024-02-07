@@ -2,7 +2,6 @@ import {kv} from "@vercel/kv";
 import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
-// import {Poll} from "@/app/types";
 
 // TODO: remove poll things from this page
 
@@ -13,6 +12,7 @@ async function getEvent(id: string): Promise<UnlockEvent> {
     let nullEvent = {
         id: "",
         title: "No event found",
+        slug: "",
         contractAddress: "",
         network: 0,
         checkoutURL: "",
@@ -53,6 +53,7 @@ export async function generateMetadata(
     const id = params.id;
     const event = await getEvent(id);
 
+// TODO: get the image and description from the databae (and later the API)
 // "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
 
 
