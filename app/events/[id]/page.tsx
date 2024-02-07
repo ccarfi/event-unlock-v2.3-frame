@@ -37,60 +37,6 @@ async function getEvent(id: string): Promise<UnlockEvent> {
     }
 }
 
-/* 
-async function getPoll(id: string): Promise<Poll> {
-
-    console.log("Entered getPoll");
-    
-    let nullPoll = {
-        id: "",
-        title: "No poll found",
-        option1: "",
-        option2: "",
-        option3: "",
-        option4: "",
-        votes1: 0,
-        votes2: 0,
-        votes3: 0,
-        votes4: 0,
-        created_at: 0,
-    };
-    
-    let nullEvent = {
-        id: "",
-        title: "No event found",
-        contractAddress: "",
-        network: 0,
-        checkoutURL: "",
-        eventImageURL: "",
-        registeredImageURL: "",
-        registeredLocationImageURL: "",
-        registeredTicketImageURL: "",
-        created_at: 0,
-    };
-    
-
-    try {
-        let poll: Poll | null = await kv.hgetall(`poll:${id}`);
-
-        if (!poll) {
-            return nullPoll;
-        }
-
-        // experiment to override and hardcode button values -cfc
-        poll.option1 = "Register";
-        poll.option2 = "See location";
-        poll.option3 = "Show my ticket";
-        poll.option4 = "";
-
-        return poll;
-    } catch (error) {
-        console.error(error);
-        return nullPoll;
-    }
-}
-*/
-
 type Props = {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
@@ -105,7 +51,6 @@ export async function generateMetadata(
     
     // read route params
     const id = params.id;
-//    const poll = await getPoll(id);
     const event = await getEvent(id);
 
 // "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
@@ -124,7 +69,7 @@ export async function generateMetadata(
 
     return {
         title: event.title,
-        openGraph: {
+        openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
             title: event.title,
             images: [`/api/image?id=${id}`],
         },
