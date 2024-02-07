@@ -43,7 +43,7 @@ async function getEvents() {
             multi.hgetall(`event:${id}`);
         });
 
-        let items: Event[] = await multi.exec();
+        let items: UnlockEvent[] = await multi.exec();
         return items.map((item) => {
             return {...item};
         });
@@ -52,7 +52,6 @@ async function getEvents() {
         return [];
     }
 }
-
 
 /*
 export default async function Page() {
@@ -86,9 +85,9 @@ export default async function Page() {
 }
 */
 
-
 export default async function Page() {
     const polls = await getPolls();
+    const events = await getEvents();
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">
