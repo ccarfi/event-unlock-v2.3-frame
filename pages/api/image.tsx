@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import sharp from 'sharp';
-import {Poll} from "@/app/types";
+// import {Poll} from "@/app/types";
+import {UnlockEvent} from "@/app/types";
 import {kv} from "@vercel/kv";
 import satori from "satori";
 import { join } from 'path';
@@ -13,17 +14,30 @@ let fontData = fs.readFileSync(fontPath)
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const pollId = req.query['id']
+//        const pollId = req.query['id']
+        const eventId = req.query['id']  // shadow
+
         // const fid = parseInt(req.query['fid']?.toString() || '')
-        if (!pollId) {
-            return res.status(400).send('Missing poll ID');
+//        if (!pollId) {
+//            return res.status(400).send('Missing poll ID');
+//        }
+
+        // shadow
+        if (!eventId) {
+            return res.status(400).send('Missing event ID');
         }
 
-        let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
+//        let poll: Poll | null = await kv.hgetall(`poll:${pollId}`);
+        let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);  // shadow
 
 
-        if (!poll) {
-            return res.status(400).send('Missing poll ID');
+//        if (!poll) {
+//            return res.status(400).send('Missing poll ID');
+//        }
+
+        // shadow
+        if (!event) {
+            return res.status(400).send('Missing event ID');
         }
 
         const showResults = req.query['results'] === 'true'
@@ -32,6 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         //     votedOption = await kv.hget(`poll:${pollId}:votes`, `${fid}`) as number
         // }
 
+        /*
         const pollOptions = [poll.option1, poll.option2, poll.option3, poll.option4]
             .filter((option) => option !== '');
         const totalVotes = pollOptions
@@ -49,6 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     return { option, votes, text, percentOfTotal }
                 })
         };
+        */
 
         const svg = await satori(
             <div style={{
@@ -67,23 +83,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     flexDirection: 'column',
                     padding: 20,
                 }}>
-                    <h2 style={{textAlign: 'center', color: 'lightgray'}}>{poll.title}</h2>
-                    {
-                        pollData.options.map((opt, index) => {
-                            return (
-                                <div style={{
-                                    backgroundColor:  showResults ? '#007bff' : '',
-                                    color: '#fff',
-                                    padding: 10,
-                                    marginBottom: 10,
-                                    borderRadius: 4,
-                                    width: `${showResults ? opt.percentOfTotal : 100}%`,
-                                    whiteSpace: 'nowrap',
-                                    overflow: 'visible',
-                                }}>{opt.text}</div>
-                            )
-                        })
-                    }
+                    <h2 style={{textAlign: 'center', color: 'lightgray'}}>{event.title}</h2>
+                    <p>
+                        Placeholder
+                    </p>
                     {/*{showResults ? <h3 style={{color: "darkgray"}}>Total votes: {totalVotes}</h3> : ''}*/}
                 </div>
             </div>
@@ -111,3 +114,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(500).send('Error generating image');
     }
 }
+
+/* this was at line 87
+
+                    {
+                        pollData.options.map((opt, index) => {
+                            return (
+                                <div style={{
+                                    backgroundColor:  showResults ? '#007bff' : '',
+                                    color: '#fff',
+                                    padding: 10,
+                                    marginBottom: 10,
+                                    borderRadius: 4,
+                                    width: `${showResults ? opt.percentOfTotal : 100}%`,
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'visible',
+                                }}>{opt.text}</div>
+                            )
+                        })
+                    }
+*/ 
