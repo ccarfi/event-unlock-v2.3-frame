@@ -1,4 +1,8 @@
 export const getMessage = async (id: string) => {
+
+
+  // TODO: See if/where this is used and needed going forward
+  
   const paywallConfig = {
     pessimistic: true,
     persistentCheckout: true,
