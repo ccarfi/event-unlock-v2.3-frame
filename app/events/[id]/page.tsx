@@ -81,7 +81,6 @@ export async function generateMetadata(
 }
 
 export default async function Page({params}: { params: {id: string}}) {
-//    const poll = await getPoll(params.id);
     const event = await getEvent(params.id);    
 
     return(
