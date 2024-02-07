@@ -142,7 +142,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             // Clicked register and needs to register
             if (register && buttonId === 1) {
-//                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";
+//                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";  // unlock community checkout
                 const registrationURL = "https://app.unlock-protocol.com/checkout?id=ade561b1-fe5d-4540-82df-1e7a9f67c3ee";   // privy checkout
                 console.log(registrationURL);
                 return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
