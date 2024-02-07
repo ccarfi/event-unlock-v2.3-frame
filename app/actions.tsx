@@ -12,14 +12,29 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
     title: formData.get("title") as string,
     slug: formData.get("slug") as string,
     contractAddress: formData.get("contractAddress") as string,
-    network: formData.get("network") as number,
+    networkValue: formData.get("network"),        // need to do some typing below
     checkoutURL: "testcheckoutURL" as string,
     eventImageURL: " test eventImageURL" as string,
     registeredImageURL: "test registeredImageURL" as string,
     registeredLocationImageURL: "test registeredLocationImageURL" as string,
-    registeredTicketImageURL: "test registeredTicketImageURL" as string,
-        
+    registeredTicketImageURL: "test registeredTicketImageURL" as string,   
   }
+  
+  // Retrieve the value from the form data
+//  const networkValue = formData.get("network");
+
+  // Initialize a variable for the network number
+  let newEvent.network: number;
+
+  // Check if the value is a string and not null or a File object
+  if (typeof networkValue === 'string') {
+    // Convert the string to a number
+    newEvent.network = Number(networkValue);
+  } else {
+    // Handle the case where the value is not a string (or throw an error)
+    newEvent.network = 0; // default value, or throw an error
+  }
+  
   console.log("newEvent:");
   console.log(newEvent);            
   await kv.hset(`event:${event.id}`, newEvent);
