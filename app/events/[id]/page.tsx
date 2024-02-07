@@ -108,10 +108,13 @@ export async function generateMetadata(
 //    const poll = await getPoll(id);
     const event = await getEvent(id);
 
+// "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
+
+
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
         "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true&firstvisit=true`,
-        "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
+        "fc:frame:image": `https://storage.unlock-protocol.com/7b53b4df-1819-4e8f-b3d0-86a1b1e337ab`,
         "fc:frame:button:1:action": `post_redirect`,
     };
     ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
