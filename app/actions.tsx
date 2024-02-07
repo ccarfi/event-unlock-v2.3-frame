@@ -41,7 +41,7 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'https://locksmith.unlock-protocol.com/v2/events/:newEvent.slug',
+    url: `https://locksmith.unlock-protocol.com/v2/events/:${newEvent.slug}`,
     headers: { 
       'Accept': 'application/json'
     }
