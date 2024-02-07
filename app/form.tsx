@@ -35,6 +35,7 @@ export function EventCreateForm() {
     id: uuidv4(),
     created_at: new Date().getTime(),
     title: "",
+    slug: "",
     contractAddress: "",
     network: 0,
     checkoutURL: "",
@@ -78,19 +79,37 @@ export function EventCreateForm() {
                 aria-label="Event Title"
                 className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
                 maxLength={150}
-                placeholder="Title..."
+                placeholder="Privy Meetup ETHDenver."
                 required
                 type="text"
                 name="title"
+            />
+           <input
+                aria-label="Event Slug (do not include the /)"
+                className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
+                maxLength={150}
+                placeholder="privy-meetup"
+                required
+                type="text"
+                name="slug"
             />
             <input
                 aria-label="Contract Address"
                 className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
                 maxLength={150}
-                placeholder="0x..."
+                placeholder="0x12345678..."
                 required
                 type="text"
                 name="contractAddress"
+            />
+            <input
+                aria-label="Network"
+                className="pl-3 pr-28 py-3 mt-1 text-lg block w-full border border-gray-200 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring focus:ring-blue-300"
+                maxLength={150}
+                placeholder="8453"
+                required
+                type="number"
+                name="network"
             />
               <div className={"pt-2 flex justify-end"}>
                   <button
