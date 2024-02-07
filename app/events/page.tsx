@@ -86,7 +86,6 @@ export default async function Page() {
 */
 
 export default async function Page() {
-    const polls = await getPolls();
     const events = await getEvents();
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -99,7 +98,7 @@ export default async function Page() {
                         polls.map((poll) => {
                         // returns links to poll ids
                         return (<div key={event.id}>
-                            <a href={`/events/${poll.id}`} className="underline">
+                            <a href={`/events/${event.id}`} className="underline">
                                 <p className="text-md sm:text-xl mx-4">{event.title}</p>
                             </a>
                         </div>)
