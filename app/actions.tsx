@@ -81,6 +81,7 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
   redirect(`/events/${event.id}`);
 }
 
+/*
 export async function votePoll(poll: Poll, optionIndex: number) {
   await kv.hincrby(`poll:${poll.id}`, `votes${optionIndex}`, 1);
 
@@ -91,3 +92,4 @@ export async function votePoll(poll: Poll, optionIndex: number) {
 export async function redirectToPolls() {
   redirect("/events");
 }
+*/
