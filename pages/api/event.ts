@@ -117,7 +117,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 2) {
                 action = "location";
                 if (isMember) {
-                    imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
+                    // imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
+                    imageUrl = `${process.env['HOST']}/api/imageLocationRegistered?t=110`;
                     button1Action = "post";
                     register = false;
                 }
