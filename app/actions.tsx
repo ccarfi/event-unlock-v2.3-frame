@@ -24,12 +24,13 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
 //  const networkValue = formData.get("network");
 
   // Initialize a variable for the network number
-  let newEvent.network: number;
+  let network: number;
 
   // Check if the value is a string and not null or a File object
   if (typeof networkValue === 'string') {
     // Convert the string to a number
-    newEvent.network = Number(networkValue);
+    network = Number(networkValue);
+    newEvent.network = network;
   } else {
     // Handle the case where the value is not a string (or throw an error)
     newEvent.network = 0; // default value, or throw an error
