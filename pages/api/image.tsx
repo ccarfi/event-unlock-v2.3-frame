@@ -23,8 +23,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(400).send('Missing event ID');
         }
 
-//        const showResults = req.query['results'] === 'true'
-
         const svg = await satori(
             <div style={{
                 justifyContent: 'flex-start',
