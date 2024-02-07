@@ -6,6 +6,25 @@ export const config = {
 };
  
 export default async function handler() {
+
+  let config = {
+   method: 'get',
+   maxBodyLength: Infinity,
+   url: `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`,
+   headers: { 
+     'Accept': 'application/json'
+   }
+ };
+
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+ 
   return new ImageResponse(
     (
       <div
