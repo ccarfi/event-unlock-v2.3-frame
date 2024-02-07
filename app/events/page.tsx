@@ -1,11 +1,11 @@
 import {kv} from "@vercel/kv";
-//import {Poll} from "@/app/types";
+import {Poll} from "@/app/types";
 import {UnlockEvent} from "@/app/types";
 import Link from "next/link";
 
 const SEVEN_DAYS_IN_MS = 1000 * 60 * 60 * 24 * 7;
 
-/*
+
 async function getPolls() {
     try {
         let pollIds = await kv.zrange("polls_by_date", Date.now(), Date.now() - SEVEN_DAYS_IN_MS, {byScore: true, rev: true, count: 100, offset: 0});
@@ -28,7 +28,7 @@ async function getPolls() {
         return [];
     }
 }
-*/
+
 
 async function getEvents() {
     try {
@@ -54,7 +54,7 @@ async function getEvents() {
 }
 
 
-
+/*
 export default async function Page() {
     const events = await getEvents();
     return (
@@ -84,9 +84,9 @@ export default async function Page() {
         </div>
     );
 }
+*/
 
 
-/*
 export default async function Page() {
     const polls = await getPolls();
     return (
@@ -116,4 +116,4 @@ export default async function Page() {
         </div>
     );
 }
-*/
+
