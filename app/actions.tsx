@@ -4,6 +4,7 @@ import { kv } from "@vercel/kv";
 import { revalidatePath } from "next/cache";
 import {UnlockEvent} from "./types";
 import {redirect} from "next/navigation";
+import axios from 'axios';       // added to test API call
 
 export async function saveEvent(event: UnlockEvent, formData: FormData) {
   const networkValue = formData.get("network");
@@ -28,12 +29,32 @@ export async function saveEvent(event: UnlockEvent, formData: FormData) {
   
   console.log("newEvent:");
   console.log(newEvent);            
+  
   await kv.hset(`event:${event.id}`, newEvent);
   await kv.zadd("events_by_date", {
-    score: Number(event.created_at),
+    score: Number(newEvent.created_at),
     member: newEvent.id,
   });
 
+  // see if we can get event data from the API with the slug and write to console
+
+  let config = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'https://locksmith.unlock-protocol.com/v2/events/:newEvent.slug',
+    headers: { 
+      'Accept': 'application/json'
+    }
+  };
+
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  
   revalidatePath("/events");
   redirect(`/events/${event.id}`);
 }
