@@ -1,4 +1,3 @@
-/*
 export type Poll = {
   id: string;
   title: string;
@@ -12,7 +11,6 @@ export type Poll = {
   votes4: number;
   created_at: number;
 };
-*/
 
 export const POLL_EXPIRY = 60 * 60 * 24 * 180; // Expire polls after 3 months
 
