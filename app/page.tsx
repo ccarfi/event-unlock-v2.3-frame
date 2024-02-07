@@ -121,7 +121,7 @@ export default async function Page() {
           <UnlockLogo className="h-8 sm:h-16 invert p-3 mb-1" />
         </div>
         <h1 className="text-lg sm:text-2xl font-bold mb-2">
-          Unlock Event Frames v2.2
+          Unlock Event Frames v2.3
         </h1>
         <h2 className="text-md sm:text-xl mx-4">
           Create a new event registration frame
