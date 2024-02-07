@@ -1,5 +1,5 @@
 import { ImageResponse } from '@vercel/og';
-//import {axios} from "axios";       // API call
+import axios from 'axios';       // API call
 
  
 export const config = {
@@ -8,7 +8,7 @@ export const config = {
  
 export default async function handler() {
 
-/*  let config = {
+  let config = {
    method: 'get',
    maxBodyLength: Infinity,
    url: `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`,
@@ -24,7 +24,7 @@ export default async function handler() {
   .catch((error) => {
     console.log(error);
   });
-*/
+
  
   return new ImageResponse(
     (
