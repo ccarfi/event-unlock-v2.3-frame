@@ -41,10 +41,11 @@ export const config = {
     console.log(error);
   }
 
-  const MyComponent = () => {
-  const lat = 39.7675; // Example latitude
-  const lon = -104.9825; // Example longitude
-  const zoom = 13; // Example zoom level
+ const MyComponent = () => {
+   const lat = 39.7675; // Example latitude
+   const lon = -104.9825; // Example longitude
+   const zoom = 13; // Example zoom level
+ } 
    
   return new ImageResponse(
     (
