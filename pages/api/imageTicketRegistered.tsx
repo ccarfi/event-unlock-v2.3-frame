@@ -42,7 +42,7 @@ export const config = {
           justifyContent: 'center',
           alignItems: 'center',
           backgroundImage: `url(${process.env['HOST']}/bgp.png)`,
-          display: flex,
+          display: 'flex',
         }}
       >
           <img 
