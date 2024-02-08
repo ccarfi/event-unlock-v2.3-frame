@@ -54,7 +54,7 @@ export const config = {
           alignItems: 'center',
         }}
       >
-       <img src =""/>
+  	    <img src={`${process.env['HOST']}/unlock-icon-round.png`} alt="Unlock Logo" />
        {eventAddress}
       </div>
     ),
