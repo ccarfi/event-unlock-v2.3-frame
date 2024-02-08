@@ -12,6 +12,12 @@ export const config = {
  export default async function handler() {
    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
    let eventAddress = 'Address not available'; // Declare eventAddress here with a default value
+  
+   const MyComponent = () => {
+   const lat = 39.7675; // Example latitude
+   const lon = -104.9825; // Example longitude
+   const zoom = 13; // Example zoom level
+ } 
 
   try {
     const response = await fetch(url, {
@@ -41,12 +47,6 @@ export const config = {
     console.log(error);
   }
 
- const MyComponent = () => {
-   const lat = 39.7675; // Example latitude
-   const lon = -104.9825; // Example longitude
-   const zoom = 13; // Example zoom level
- } 
-   
   return new ImageResponse(
     (
       <div
