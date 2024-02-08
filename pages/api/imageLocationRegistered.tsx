@@ -1,10 +1,10 @@
 import { ImageResponse } from '@vercel/og';
 
-/* 
+ 
 export const config = {
   runtime: 'edge',
 };
-*/
+
 
  export default async function handler() {
    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
