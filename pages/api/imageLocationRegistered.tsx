@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Get the slug
         try {
             const slug = req.query['slug'];
-        }
+        };
  }   
 
  // TODO clean this section up
