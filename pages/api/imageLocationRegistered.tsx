@@ -49,7 +49,7 @@ export const config = {
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundImage: `url(${process.env['HOST']}/map-pin-bg.png)`,
+          backgroundImage: `url(${process.env['HOST']}/map-pin-bgp.png)`,
         }}
       >
        {eventAddress}
