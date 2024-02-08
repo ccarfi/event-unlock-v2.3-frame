@@ -66,6 +66,7 @@ export const config = {
       >
        {eventAddress}
       </div>
+      <MapComponent lat={lat} lon={lon} zoom={zoom} />
     ),
     {
       width: 1200,
