@@ -6,10 +6,7 @@ export const config = {
 
  export default async function handler() {
    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
-   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value
-  
- }; 
-
+   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value 
 
   try {
     const response = await fetch(url, {
