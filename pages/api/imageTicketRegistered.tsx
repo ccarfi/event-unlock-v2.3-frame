@@ -44,9 +44,15 @@ export const config = {
           backgroundImage: `url(${process.env['HOST']}/bgp.png)`,
         }}
       >
-       {ticketImageURL}
+          <img 
+            src={ticketImageURL} 
+            alt="Ticket Image"
+            style={{
+              maxHeight: '50%', // Limits the image height to 50% of its parent container
+              maxWidth: '100%', // Ensures the image does not exceed the width of the container
+              objectFit: 'contain', // Keeps the aspect ratio of the image
+            }} 
       </div>
-
     ),
     {
       width: 1200,
