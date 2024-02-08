@@ -4,9 +4,18 @@ export const config = {
   runtime: 'edge',
 };
 
- export default async function handler() {
-   const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
-   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value 
+// export default async function handler() {
+//   const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
+//   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value 
+
+
+export default async function handler(req: NextApiRequest) {
+  // Extract the 'slug' query parameter
+  const { slug } = req.query;
+
+  // Construct the URL using the 'slug', ensuring it's a string
+  const url = `https://locksmith.unlock-protocol.com/v2/events/${encodeURIComponent(slug as string)}`;
+  let eventAddress = 'Address not available'; // Default value for eventAddress
 
   try {
     const response = await fetch(url, {
