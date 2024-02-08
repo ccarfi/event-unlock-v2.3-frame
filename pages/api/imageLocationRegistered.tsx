@@ -8,7 +8,7 @@ export const config = {
  
 export default async function handler() {
 
-//  const axios = require('axios');
+  const axios = require('axios');
  
   let config = {
    method: 'get',
