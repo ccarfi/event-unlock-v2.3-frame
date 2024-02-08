@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 
-const MapComponent = ({ lat, lon, zoom }) => {
+export const MapComponent = ({ lat, lon, zoom }) => {
   const mapRef = useRef(null); // For the map container div
 
   useEffect(() => {
