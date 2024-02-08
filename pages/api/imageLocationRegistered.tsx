@@ -13,6 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Use optional chaining and provide a default value
   const slug = req.query?.slug || 'default-slug';
 
+  console.log("Slug received as querystring");
+  console.log(slug);
+
   // Construct the URL using the 'slug', ensuring it's a string
   const url = `https://locksmith.unlock-protocol.com/v2/events/${encodeURIComponent(slug as string)}`;
   let eventAddress = 'Address not available'; // Default value for eventAddress
