@@ -52,7 +52,7 @@ export const config = {
           display: 'flex',
         }}
       >
-  	    <img src={`${process.env['HOST']}/unlock-icon-round.png`} alt="Unlock Logo" />
+  	    <img src={`${process.env['HOST']}/map-pin.png`} alt="Map Pin" />
        {eventAddress}
       </div>
     ),
