@@ -1,5 +1,5 @@
 import { ImageResponse } from '@vercel/og';
-//import axios from 'axios';       // API call
+import axios, { AxiosResponse } from 'axios';       // API call
 
  
 export const config = {
@@ -8,7 +8,7 @@ export const config = {
  
 export default async function handler() {
 
-  const axios = require('axios');
+//  const axios = require('axios');
  
   let config = {
    method: 'get',
@@ -20,7 +20,7 @@ export default async function handler() {
  };
 
   axios.request(config)
-  .then((response) => {
+  .then((response: AxiosResponse) => {
     console.log(JSON.stringify(response.data));
   })
   .catch((error) => {
