@@ -1,4 +1,5 @@
 import { ImageResponse } from '@vercel/og';
+import { NextApiRequest, NextApiResponse } from 'next';
  
 export const config = {
   runtime: 'edge',
