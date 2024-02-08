@@ -52,7 +52,7 @@ export const config = {
               maxWidth: '100%', // Ensures the image does not exceed the width of the container
               objectFit: 'contain', // Keeps the aspect ratio of the image
             }} 
-          >
+          />
       </div>
     ),
     {
