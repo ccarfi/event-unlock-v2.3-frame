@@ -49,7 +49,7 @@ export const config = {
     console.log(error);
   }
 
-  return new MapComponent(
+  return(
        <MapComponent lat={lat} lon={lon} zoom={zoom} />
   );
 }
