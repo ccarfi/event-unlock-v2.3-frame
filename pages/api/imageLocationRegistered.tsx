@@ -1,32 +1,9 @@
 import { ImageResponse } from '@vercel/og';
-//import axios, { AxiosResponse } from 'axios';       // API call
 
- 
+/* 
 export const config = {
   runtime: 'edge',
 };
-
-/*
-export default async function handler() {
-
-//  const axios = require('axios');
- 
-  let config = {
-   method: 'get',
-   maxBodyLength: Infinity,
-   url: `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`,
-   headers: { 
-     'Accept': 'application/json'
-   }
- };
-
-  axios.request(config)
-  .then((response: AxiosResponse) => {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 */
 
  export default async function handler() {
@@ -49,8 +26,6 @@ export default async function handler() {
   } catch (error) {
     console.log(error);
   }
-// }
-
  
   return new ImageResponse(
     (
