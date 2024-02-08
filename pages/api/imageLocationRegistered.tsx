@@ -11,8 +11,9 @@ export const config = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
+ let slug;
+
  if (req.method === 'POST') {
-        let slug;
         
         try {
             slug = req.query['slug'];
