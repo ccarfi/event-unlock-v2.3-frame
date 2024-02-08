@@ -43,30 +43,30 @@ export const config = {
     fontSize: 24, // Adjusted for better fit
     color: 'black',
     background: 'white',
-    width: '600px', // Explicit dimensions
-    height: '630px',
-    padding: '50px', // Adjusted padding
+//    width: '1200px', // Explicit dimensions
+//    height: '630px',
+//    padding: '50px', // Adjusted padding
     display: 'flex',
     flexDirection: 'row', // Ensures side-by-side layout
-    alignItems: 'center', // Vertically center align items
-    justifyContent: 'flex-start', // Start alignment for children
+//    alignItems: 'center', // Vertically center align items
+//    justifyContent: 'flex-start', // Start alignment for children
   }}
 >
   <img 
     src={`${process.env['HOST']}/map-pin.png`} 
     alt="Map Pin" 
     style={{ 
-      width: '100px', // Control image size
+//      width: '100px', // Control image size
       height: 'auto', // Maintain aspect ratio
       marginRight: '20px', // Space between icon and text
     }} 
   />
   <div 
     style={{ 
-      overflow: 'hidden', // Prevent text overflow
-      textOverflow: 'ellipsis', // Handle overflow with ellipsis
-      whiteSpace: 'nowrap', // Prevent wrapping to a new line
-      flexGrow: 1, // Allow the text container to fill the remaining space
+//      overflow: 'hidden', // Prevent text overflow
+//      textOverflow: 'ellipsis', // Handle overflow with ellipsis
+//      whiteSpace: 'nowrap', // Prevent wrapping to a new line
+//      flexGrow: 1, // Allow the text container to fill the remaining space
     }}
   >
     {eventAddress}
