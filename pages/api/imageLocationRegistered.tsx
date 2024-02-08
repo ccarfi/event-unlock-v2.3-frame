@@ -27,7 +27,7 @@ export const config = {
     console.log(error);
   }
 
-  const eventAddress = data.data.attributes.find(attr => attr.trait_type === 'event_address')?.value || 'Address not available';
+  const eventAddress = data.attributes.find(attr => attr.trait_type === 'event_address')?.value || 'Address not available';
  
   return new ImageResponse(
     (
