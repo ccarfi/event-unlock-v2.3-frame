@@ -43,7 +43,7 @@ export const config = {
     fontSize: 24, // Adjusted for better fit
     color: 'black',
     background: 'white',
-    width: '1200px', // Explicit dimensions
+    width: '600px', // Explicit dimensions
     height: '630px',
     padding: '50px', // Adjusted padding
     display: 'flex',
