@@ -1,6 +1,6 @@
 import { ImageResponse } from '@vercel/og';
 import 'leaflet/dist/leaflet.css';   // for map -cfc
-//import { MapComponent } from '@/src/lib/maps';
+import { MapComponent } from '@/src/lib/maps';
 
 
  
