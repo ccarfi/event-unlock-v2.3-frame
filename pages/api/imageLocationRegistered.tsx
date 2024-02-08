@@ -9,10 +9,9 @@ export const config = {
 //   const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
 //   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value 
 
-
-export default async function handler(req: NextApiRequest) {
-  // Extract the 'slug' query parameter
-  const { slug } = req.query;
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Use optional chaining and provide a default value
+  const slug = req.query?.slug || 'default-slug';
 
   // Construct the URL using the 'slug', ensuring it's a string
   const url = `https://locksmith.unlock-protocol.com/v2/events/${encodeURIComponent(slug as string)}`;
