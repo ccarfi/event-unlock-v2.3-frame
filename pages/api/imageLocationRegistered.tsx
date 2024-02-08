@@ -20,7 +20,7 @@ export default async function handler() {
  };
 
   axios.request<any>(config)
-  .then((response<any>) => {
+  .then((response) => {
     console.log(JSON.stringify(response.data));
   })
   .catch((error) => {
