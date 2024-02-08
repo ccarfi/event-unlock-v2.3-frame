@@ -8,6 +8,7 @@ export const config = {
 
  export default async function handler() {
    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
+   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value
 
   try {
     const response = await fetch(url, {
@@ -21,15 +22,19 @@ export const config = {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-   interface Attribute {
-    trait_type: string;
-    value: string;
-   }
+    interface Attribute {
+     trait_type: string;
+     value: string;
+    }
 
     const data = await response.json();
     console.log(JSON.stringify(data));
-    const eventAddress = data.attributes.find((attr: Attribute) => attr.trait_type === 'event_address')?.value || 'Address not available';
-  } catch (error) {
+    const addressAttribute = data.data.attributes.find((attr: Attribute) => attr.trait_type === 'event_address');
+    if (addressAttribute) {
+      eventAddress = addressAttribute.value;
+    }
+  } 
+  catch (error) {
     console.log(error);
   }
  
