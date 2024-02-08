@@ -1,5 +1,6 @@
 import { ImageResponse } from '@vercel/og';
 import 'leaflet/dist/leaflet.css';   // for map -cfc
+import 'leaflet/dist/leaflet.js';   // for map -cfc
 import { MapComponent } from '@/src/lib/maps';
 
 
@@ -50,7 +51,6 @@ export const config = {
 
   return new ImageResponse(
     (
-      <MapComponent lat=39.7675 lon=-104.9825 zoom=13 />
       <div
         style={{
           fontSize: 40,
@@ -66,6 +66,15 @@ export const config = {
       >
        {eventAddress}
       </div>
+
+     <div id="map"></div>
+
+<script>
+    const map = L.map('map').setView([39.7675, -104.9825], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+</script>
     ),
     {
       width: 1200,
