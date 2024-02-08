@@ -118,7 +118,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 action = "location";
                 if (isMember) {
                     // imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
-                    imageUrl = `${process.env['HOST']}/api/imageLocationRegistered?t=110`;
+                    imageUrl = `${process.env['HOST']}/api/imageLocationRegistered`;
                     button1Action = "post";
                     register = false;
                 }
@@ -130,7 +130,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-                    imageUrl = `https://i.imgur.com/zbyr758.png?110`;
+//                    imageUrl = `https://i.imgur.com/zbyr758.png?110`;
+                    imageUrl = `${process.env['HOST']}/api/imageTicketRegistered`;
                     button1Action = "post";
                     register = false;
                  }   
