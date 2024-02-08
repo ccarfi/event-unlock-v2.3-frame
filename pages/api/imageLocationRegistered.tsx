@@ -1,23 +1,13 @@
 import { ImageResponse } from '@vercel/og';
-import 'leaflet/dist/leaflet.css';   // for map -cfc
-import 'leaflet/dist/leaflet.js';   // for map -cfc
-import { MapComponent } from '@/src/lib/maps';
-
-
  
 export const config = {
   runtime: 'edge',
 };
 
-
  export default async function handler() {
    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
    let eventAddress = 'Address not available'; // Declare eventAddress here with a default value
   
-   const MyComponent = () => {
-   const lat = 39.7675; // Example latitude
-   const lon = -104.9825; // Example longitude
-   const zoom = 13; // Example zoom level
  }; 
 
 
@@ -49,12 +39,6 @@ export const config = {
     console.log(error);
   }
 
-  return(
-       <MapComponent lat=39 lon=39 zoom=12 />
-  );
-}
-
-/*
   return new ImageResponse(
     (
       <div
@@ -70,6 +54,7 @@ export const config = {
           alignItems: 'center',
         }}
       >
+       <img src =""/>
        {eventAddress}
       </div>
     ),
@@ -78,4 +63,4 @@ export const config = {
       height: 630,
     },
   );
-*/
+}
