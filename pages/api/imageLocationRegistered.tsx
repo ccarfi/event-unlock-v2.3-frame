@@ -1,4 +1,5 @@
 import { ImageResponse } from '@vercel/og';
+import 'leaflet/dist/leaflet.css';   // for map -cfc
 
  
 export const config = {
