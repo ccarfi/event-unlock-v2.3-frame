@@ -12,11 +12,14 @@ export const config = {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
  if (req.method === 'POST') {
-
-        // Get the slug
+        let slug;
+        
         try {
-            const slug = req.query['slug'];
-        };
+            slug = req.query['slug'];
+        }
+        catch (error) {
+          console.error('Error:', error);
+    }
  }   
 
  // TODO clean this section up
