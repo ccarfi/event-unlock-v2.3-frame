@@ -22,7 +22,7 @@ export const config = {
 
     const data = await response.json();
     console.log(JSON.stringify(data));
-    const ticketImageURL = data.data.image;
+    ticketImageURL = data.data.image;
   } 
   catch (error) {
     console.log(error);
