@@ -19,8 +19,8 @@ export default async function handler() {
    }
  };
 
-  axios.request(config)
-  .then((response) => {
+  axios.request<any>(config)
+  .then((response<any>) => {
     console.log(JSON.stringify(response.data));
   })
   .catch((error) => {
