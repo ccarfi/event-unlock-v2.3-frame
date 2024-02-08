@@ -23,11 +23,10 @@ export const config = {
 
     const data = await response.json();
     console.log(JSON.stringify(data));
+    const eventAddress = data.attributes.find(attr => attr.trait_type === 'event_address')?.value || 'Address not available';
   } catch (error) {
     console.log(error);
   }
-
-  const eventAddress = data.attributes.find(attr => attr.trait_type === 'event_address')?.value || 'Address not available';
  
   return new ImageResponse(
     (
