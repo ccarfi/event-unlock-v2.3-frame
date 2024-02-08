@@ -38,7 +38,12 @@ export const config = {
   catch (error) {
     console.log(error);
   }
- 
+
+  const MyComponent = () => {
+  const lat = 39.7675; // Example latitude
+  const lon = -104.9825; // Example longitude
+  const zoom = 13; // Example zoom level
+   
   return new ImageResponse(
     (
       <div
@@ -54,6 +59,7 @@ export const config = {
           alignItems: 'center',
         }}
       >
+       <MapComponent lat={lat} lon={lon} zoom={zoom} />
        {eventAddress}
       </div>
     ),
