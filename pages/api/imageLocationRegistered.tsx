@@ -1,6 +1,6 @@
 import { ImageResponse } from '@vercel/og';
 import 'leaflet/dist/leaflet.css';   // for map -cfc
-import { MapComponent } from '@/src/lib/maps';
+//import { MapComponent } from '@/src/lib/maps';
 
 
  
@@ -18,6 +18,9 @@ export const config = {
 //   const lon = -104.9825; // Example longitude
 //   const zoom = 13; // Example zoom level
 // } 
+
+  //        <MapComponent lat=39.7675 lon=-104.9825 zoom=13 />
+
 
   try {
     const response = await fetch(url, {
@@ -62,7 +65,6 @@ export const config = {
           alignItems: 'center',
         }}
       >
-       <MapComponent lat=39.7675 lon=-104.9825 zoom=13 />
        {eventAddress}
       </div>
     ),
