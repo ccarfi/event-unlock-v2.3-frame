@@ -11,7 +11,15 @@ export const config = {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
- const slug = req.query['slug'];
+ if (req.method === 'POST') {
+
+        // Get the slug
+        try {
+            const slug = req.query['slug'];
+        }
+ }   
+
+ // TODO clean this section up
 
   console.log("Slug received as querystring");
   console.log(slug);
