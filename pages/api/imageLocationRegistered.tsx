@@ -49,6 +49,12 @@ export const config = {
     console.log(error);
   }
 
+  return new MapComponent(
+       <MapComponent lat={lat} lon={lon} zoom={zoom} />
+  );
+}
+
+/*
   return new ImageResponse(
     (
       <div
@@ -66,11 +72,10 @@ export const config = {
       >
        {eventAddress}
       </div>
-      <MapComponent lat={lat} lon={lon} zoom={zoom} />
     ),
     {
       width: 1200,
       height: 630,
     },
   );
-}
+*/
