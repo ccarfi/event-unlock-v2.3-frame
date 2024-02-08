@@ -26,6 +26,8 @@ export const config = {
   } catch (error) {
     console.log(error);
   }
+
+  const eventAddress = data.data.attributes.find(attr => attr.trait_type === 'event_address')?.value || 'Address not available';
  
   return new ImageResponse(
     (
@@ -42,7 +44,7 @@ export const config = {
           alignItems: 'center',
         }}
       >
-        live image from API
+       {eventAddress}
       </div>
     ),
     {
