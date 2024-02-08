@@ -39,22 +39,36 @@ export const config = {
   return new ImageResponse(
     (
       <div
-        style={{
-          fontSize: 40,
-          color: 'black',
-          background: 'white',
-          width: '100%',
-          height: '100%',
-          padding: '50px 200px',
-          textAlign: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
-          display: 'flex',
-        }}
-      >
-  	    <img src={`${process.env['HOST']}/map-pin.png`} alt="Map Pin" />
-       {eventAddress}
-      </div>
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '1200px',
+    height: '630px',
+    padding: '50px',
+    background: 'white',
+    color: 'black',
+    fontSize: '24px',
+  }}
+>
+  <div style={{ marginRight: '20px', flexShrink: 0 }}> {/* Prevents the wrapper from shrinking */}
+    <img
+      src={`${process.env['HOST']}/map-pin.png`}
+      alt="Map Pin"
+      style={{
+        width: '100px',
+        height: 'auto',
+      }}
+    />
+  </div>
+  <div
+    style={{
+      flexGrow: 1,
+    }}
+  >
+    {eventAddress}
+  </div>
+</div>
     ),
     {
       width: 1200,
