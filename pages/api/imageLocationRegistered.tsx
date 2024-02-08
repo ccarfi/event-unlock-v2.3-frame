@@ -49,6 +49,7 @@ export const config = {
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
+          display: 'flex',
         }}
       >
   	    <img src={`${process.env['HOST']}/unlock-icon-round.png`} alt="Unlock Logo" />
