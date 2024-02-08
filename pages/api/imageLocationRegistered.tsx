@@ -10,8 +10,8 @@ export const config = {
 //   let eventAddress = 'Address not available'; // Declare eventAddress here with a default value 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Use optional chaining and provide a default value
-  const slug = req.query?.slug || 'default-slug';
+
+ const slug = req.query['slug'];
 
   console.log("Slug received as querystring");
   console.log(slug);
