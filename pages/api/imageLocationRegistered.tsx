@@ -19,8 +19,6 @@ export const config = {
    const zoom = 13; // Example zoom level
  }; 
 
-  //        <MapComponent lat=39.7675 lon=-104.9825 zoom=13 />
-
 
   try {
     const response = await fetch(url, {
@@ -52,6 +50,7 @@ export const config = {
 
   return new ImageResponse(
     (
+      <MapComponent lat=39.7675 lon=-104.9825 zoom=13 />
       <div
         style={{
           fontSize: 40,
