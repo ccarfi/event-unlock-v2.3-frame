@@ -13,11 +13,11 @@ export const config = {
    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;
    let eventAddress = 'Address not available'; // Declare eventAddress here with a default value
   
-//   const MyComponent = () => {
-//   const lat = 39.7675; // Example latitude
-//   const lon = -104.9825; // Example longitude
-//   const zoom = 13; // Example zoom level
-// } 
+   const MyComponent = () => {
+   const lat = 39.7675; // Example latitude
+   const lon = -104.9825; // Example longitude
+   const zoom = 13; // Example zoom level
+ } 
 
   //        <MapComponent lat=39.7675 lon=-104.9825 zoom=13 />
 
