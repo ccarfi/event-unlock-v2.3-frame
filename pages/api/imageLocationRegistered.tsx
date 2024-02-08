@@ -66,15 +66,6 @@ export const config = {
       >
        {eventAddress}
       </div>
-
-     <div id="map"></div>
-
-<script>
-    const map = L.map('map').setView([39.7675, -104.9825], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-</script>
     ),
     {
       width: 1200,
