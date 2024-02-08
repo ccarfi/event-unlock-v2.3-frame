@@ -41,7 +41,7 @@ export const config = {
       <div
         style={{
           fontSize: 40,
-          color: 'black',
+          color: 'white',
           background: 'white',
           width: '100%',
           height: '100%',
