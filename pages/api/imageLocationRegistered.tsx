@@ -50,7 +50,7 @@ export const config = {
   }
 
   return(
-       <MapComponent lat={lat} lon={lon} zoom={zoom} />
+       <MapComponent lat=39 lon=39 zoom=12 />
   );
 }
 
