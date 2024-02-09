@@ -118,13 +118,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 action = "location";
                 if (isMember) {
                     // imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
-                    console.log("Slug we're sending")
-                    console.log(event.slug);
-                    imageUrl = `${process.env['HOST']}/api/imageLocationRegistered?slug=${event.slug}`;
-                    console.log("ImageUrl");
-                    console.log(imageUrl);
+                    // console.log("Slug we're sending")
+                    // console.log(event.slug);
+                    // imageUrl = `${process.env['HOST']}/api/imageLocationRegistered?slug=${event.slug}`;
+                    // console.log("ImageUrl");
+                    // console.log(imageUrl);
                     button1Action = "post";
                     register = false;
+                    imageUrl = new ImageResponse(
+    (
+      <div
+        style={{
+          fontSize: 40,
+          color: 'black',
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          padding: '50px 200px',
+          textAlign: 'center',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        Please connect your wallet or register for the event to see your ticket.
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 630,
+    },
+  );
+
                 }
                 else {
                     imageUrl = `${process.env['HOST']}/api/imageLocationNotRegistered?t=110`;
