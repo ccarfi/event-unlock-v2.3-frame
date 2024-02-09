@@ -71,7 +71,7 @@ export async function generateMetadata(
     
     // >>>>> if coming from API, use this
     const slug = params.slug;
-    const event = await getEvent(slug);
+//    const event = await getEvent(slug);
     const url = `https://locksmith.unlock-protocol.com/v2/events/${slug}`;
     let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
     let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
