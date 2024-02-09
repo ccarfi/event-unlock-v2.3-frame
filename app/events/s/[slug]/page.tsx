@@ -94,6 +94,7 @@ export async function generateMetadata(
         ogImageURL = data.data.image;
         eventTitle = data.data.name;
         regLink = data.data.external_url;
+        console.log(regLink);
       } 
       catch (error) {
         console.log(error);
