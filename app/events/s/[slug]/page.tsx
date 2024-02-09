@@ -91,7 +91,7 @@ export async function generateMetadata(
 
         const data = await response.json();
         console.log(JSON.stringify(data));
-        ogImageURL = data.image;
+        ogImageURL = data.data.image;
         eventTitle = data.name;
         regLink = data.eventUrl;
         console.log(regLink);
