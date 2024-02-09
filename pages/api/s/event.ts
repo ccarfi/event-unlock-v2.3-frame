@@ -189,13 +189,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
+          <meta name="fc:frame:image:aspect_ratio" content="1:1">
           <meta name="fc:frame:post_url" content="${process.env['HOST_DEV']}/api/s/event?slug=${eventSlug}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
-          <meta name="fc:frame:button:2:aspect_ratio" content="1:1">
           <meta name="fc:frame:button:3" content="${button3Text}">
-          <meta name="fc:frame:button:3:aspect_ratio" content="1:1">
         </head>
         <body>
           <p>You clicked ${buttonId}}</p>
