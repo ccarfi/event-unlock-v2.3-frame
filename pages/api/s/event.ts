@@ -14,6 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Get the event id, and if the user is trying to register
         try {
             const eventId = req.query['id'] 
+            const eventSlug = req.query['slug'] //shadow
             let register = req.query['register'] === 'true'
             let firstVisit = req.query['firstvisit'] === 'true'
             if (!eventId) {
@@ -67,11 +68,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             console.log("Entered event.ts...");
 
             // Get the wallet address of the user, or note if there is no wallet address
-            console.log("70...");
             const fidAsString = fid.toString();
-            console.log("72...");
             const addresses = await getUserAddresses(fidAsString);
-            console.log("74...");
             
             if (addresses.length === 0) {
                 console.log("No wallet");
@@ -123,7 +121,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
                     console.log("Slug we're sending")
                     console.log(event.slug);
-//                    imageUrl = `${process.env['HOST']}/api/imageLocationRegistered?slug=${event.slug}`;
                     console.log("ImageUrl");
                     console.log(imageUrl);
                     button1Action = "post";
@@ -137,7 +134,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-//                    imageUrl = `https://i.imgur.com/zbyr758.png?110`;
                     imageUrl = `${process.env['HOST']}/api/imageTicketRegistered`;
                     button1Action = "post";
                     register = false;
@@ -148,6 +144,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
 
             console.log(action);
+            console.log(eventSlug);
 
             // Clicked register and needs to register
             if (register && buttonId === 1) {
@@ -168,7 +165,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/s/event?id=${event.id}&slug=${event.slug}&register=${register ? 'true' : 'false'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/s/event?id=${event.id}&slug=${eventSlug}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
