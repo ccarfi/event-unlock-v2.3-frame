@@ -3,10 +3,11 @@ import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
-async function getEvent(id: string): Promise<UnlockEvent> {
+async function getEvent(slug: string): Promise<UnlockEvent> {
 
     console.log("Entered getEvent slug");
 
+/*    
     // >>>>> i may not need this since it'll be coming from the JSON returned from the API and not the database
     
     let nullEvent = {
@@ -37,7 +38,8 @@ async function getEvent(id: string): Promise<UnlockEvent> {
     }
 }
     // <<<<< i may not need this since it'll be coming from the JSON returned from the API and not the database
-
+*/
+    
 /*
 type Props = {
     params: { id: string }
@@ -69,7 +71,8 @@ export async function generateMetadata(
     const event = await getEvent(slug);
     const url = `https://locksmith.unlock-protocol.com/v2/events/${slug}`;
     let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
-    let eventTitle = 'event title not available'; // Declare eventTitle here with a default value 
+    let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
+    let regLink = 'registration link not available';
 
     try {
         const response = await fetch(url, {
@@ -87,6 +90,7 @@ export async function generateMetadata(
         console.log(JSON.stringify(data));
         ogImageURL = data.data.image;
         eventTitle = data.data.name;
+        regLink = data.data.external_url;
       } 
       catch (error) {
         console.log(error);
@@ -101,15 +105,18 @@ export async function generateMetadata(
 //        "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
         "fc:frame:image": `${ogImageURL}`,
         "fc:frame:image:aspect_ratio": `1.91:1`,
-        "fc:frame:button:1:action": `post_redirect`,
+//        "fc:frame:button:1:action": `post_redirect`,
+        "fc:frame:button:1:action": `link`,
+        "fc:frame:button:1:target": `${regLink}`,
     };
-    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
+//    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
         fcMetadata[`fc:frame:button:${index + 1}`] = option;
+    ["Register", "", "", ""].filter(o => o !== "").map((option, index) => {
+        fcMetadata[`fc:frame:button:${index + 1}`] = option;  
     })
 
-
     return {
-        title: event.title,
+        title: eventTitle,
         openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
             title: eventTitle,
             images: ogImageURL,                 // [`/api/image?id=${id}`],
