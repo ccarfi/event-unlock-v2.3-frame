@@ -67,8 +67,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             console.log("Entered event.ts...");
 
             // Get the wallet address of the user, or note if there is no wallet address
+            console.log("70...");
             const fidAsString = fid.toString();
+            console.log("72...");
             const addresses = await getUserAddresses(fidAsString);
+            console.log("74...");
             
             if (addresses.length === 0) {
                 console.log("No wallet");
