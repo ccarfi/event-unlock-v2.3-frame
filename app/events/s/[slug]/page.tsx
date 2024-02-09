@@ -38,9 +38,15 @@ async function getEvent(id: string): Promise<UnlockEvent> {
 }
     // <<<<< i may not need this since it'll be coming from the JSON returned from the API and not the database
 
-
+/*
 type Props = {
     params: { id: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
+*/
+
+type Props = {
+    params: { slug: string }
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
@@ -58,7 +64,8 @@ export async function generateMetadata(
     // <<<< if coming frorm database, we'll need this
     
     // >>>>> if coming from API, use this
-    const url = `https://locksmith.unlock-protocol.com/v2/events/erc-at-denver-2024`;    // replace hardcode with slug
+    const slug = params.slug;
+    const url = `https://locksmith.unlock-protocol.com/v2/events/${slug}`;
     let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
     let eventTitle = 'event title not available'; // Declare eventTitle here with a default value 
 
