@@ -54,8 +54,7 @@ export async function generateMetadata(
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
-        "fc:frame:post_url": `${process.env['HOST']}/api/s/event?slug=${slug}&id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
-//        "fc:frame:post_url": `https://event-unlock-v2-3-frame-git-ccarfi-slug-1-ccarfis-projects.vercel.app/api/s/event?slug=${slug}&id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
+        "fc:frame:post_url": `${process.env['HOST_DEV']}/api/s/event?slug=${slug}&id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
         "fc:frame:image": `${ogImageURL}`,
         "fc:frame:image:aspect_ratio": `1:1`,
         "fc:frame:button:1:action": `link`,
