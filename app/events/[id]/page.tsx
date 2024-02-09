@@ -63,6 +63,7 @@ export async function generateMetadata(
         "fc:frame": "vNext",
         "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true&firstvisit=true`,
         "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
+        "fc:frame:image:aspect_ratio": `1.91:1`,
         "fc:frame:button:1:action": `post_redirect`,
     };
     ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
