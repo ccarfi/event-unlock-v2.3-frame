@@ -88,7 +88,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
  
             let eventImageURL = 'image not available'; // Declare eventImageURL here with a default value 
             let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
-            let regLink = 'registration link not available';
+            let eventRegLink = 'registration link not available';
 
             try {
                 const response = await fetch(url, {
