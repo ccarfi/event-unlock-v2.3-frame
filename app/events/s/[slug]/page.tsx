@@ -3,12 +3,13 @@ import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
+/*    
+    // >>>>> i may not need this since it'll be coming from the JSON returned from the API and not the database
+
 async function getEvent(slug: string): Promise<UnlockEvent> {
 
     console.log("Entered getEvent slug");
 
-/*    
-    // >>>>> i may not need this since it'll be coming from the JSON returned from the API and not the database
     
     let nullEvent = {
         id: "",
@@ -36,8 +37,9 @@ async function getEvent(slug: string): Promise<UnlockEvent> {
         console.error(error);
         return nullEvent;
     }
-    */
+  
 }
+  */
     // <<<<< i may not need this since it'll be coming from the JSON returned from the API and not the database
 
     
