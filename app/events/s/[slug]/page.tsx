@@ -42,6 +42,14 @@ export async function generateMetadata(
         console.log(error);
       }
 
+    /* 
+        The commented-out line below lets us easily add new buttons to the frame when
+        we are ready to add them. The line below the commented-out line is the
+        simple case where we have just one 'Register' button that redirects to the Event
+        Landing Page. Farcater just added the 'action' and 'target' pieces
+        which make this much easier than doing the 'redirect' approach that
+        they required last week.
+    */
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
@@ -61,7 +69,7 @@ export async function generateMetadata(
         title: eventTitle,
         openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
             title: eventTitle,
-            images: ogImageURL,                 // [`/api/image?id=${id}`],
+            images: ogImageURL,                 
         },
         other: {
             ...fcMetadata,
