@@ -11,9 +11,9 @@ const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
 
-        // Get the event id, and if the user is trying to register
+        // Get the slug, and if the user is trying to register
         try {
-            const eventId = req.query['id'] 
+//            const eventId = req.query['id'] 
             const eventSlug = req.query['slug'] //shadow
             let register = req.query['register'] === 'true'
             let firstVisit = req.query['firstvisit'] === 'true'
@@ -206,7 +206,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 2) {
                 action = "location";
                 if (isMember) {
-                    imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
+                    imageUrl = `https://i.imgur.com/2uSiYW1.png`;
                     console.log("Slug we're sending")
                     console.log(eventSlug);
                     console.log("ImageUrl");
@@ -215,19 +215,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     register = false;
                 }
                 else {
-                    imageUrl = `${process.env['HOST']}/api/imageLocationNotRegistered?t=110`;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageLocationNotRegistered`;
                 }
             }
             
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-                    imageUrl = `${process.env['HOST']}/api/imageTicketRegistered`;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageTicketRegistered`;
                     button1Action = "post";
                     register = false;
                  }   
                  else {
-                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered?t=110`;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageTicketNotRegistered`;
                  }
             }
 
