@@ -57,13 +57,40 @@ export async function generateMetadata(
     const event = await getEvent(id);
     // <<<< if coming frorm database, we'll need this
     
+    // >>>>> if coming from API, use this
+    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;    // replace hardcode with slug
+    let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
+    let eventTitle = 'event title not available'; // Declare eventTitle here with a default value 
+
+    try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(JSON.stringify(data));
+        ogImageURL = data.data.image;
+        eventTitle = data.data.name;
+      } 
+      catch (error) {
+        console.log(error);
+      }
+    // <<<<< if coming from API, use this
 
 
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
         "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true&firstvisit=true`,
-        "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
+//        "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
+        "fc:frame:image": `${ogImageURL}`,
         "fc:frame:image:aspect_ratio": `1.91:1`,
         "fc:frame:button:1:action": `post_redirect`,
     };
@@ -75,8 +102,8 @@ export async function generateMetadata(
     return {
         title: event.title,
         openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
-            title: event.title,
-            images: [`/api/image?id=${id}`],
+            title: eventTitle,
+            images: ogImageURL,                 // [`/api/image?id=${id}`],
         },
         other: {
             ...fcMetadata,
