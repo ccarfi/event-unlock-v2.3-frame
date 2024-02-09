@@ -58,7 +58,7 @@ export async function generateMetadata(
     // <<<< if coming frorm database, we'll need this
     
     // >>>>> if coming from API, use this
-    const url = `https://locksmith.unlock-protocol.com/v2/events/privy-meetup`;    // replace hardcode with slug
+    const url = `https://locksmith.unlock-protocol.com/v2/events/erc-at-denver-2024`;    // replace hardcode with slug
     let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
     let eventTitle = 'event title not available'; // Declare eventTitle here with a default value 
 
