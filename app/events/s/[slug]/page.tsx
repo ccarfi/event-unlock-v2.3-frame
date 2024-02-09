@@ -13,7 +13,6 @@ export async function generateMetadata(
     parent: ResolvingMetadata
 ): Promise<Metadata> {
 
-    
     const slug = params.slug;
     const url = `https://locksmith.unlock-protocol.com/v2/events/${slug}`;
     let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
