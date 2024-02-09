@@ -1,8 +1,8 @@
 import { ImageResponse } from '@vercel/og'
 import React from 'react'
-import { toFormData } from '../../../../src/components/interface/locks/metadata/utils'
-import { storage } from '../../../../src/config/storage'
-import dayjs from '../../../../src/utils/dayjs'
+// import { toFormData } from '../../../../src/components/interface/locks/metadata/utils'
+// import { storage } from '../../../../src/config/storage'
+// import dayjs from '../../../../src/utils/dayjs'
 
 interface Props {
   name: string
