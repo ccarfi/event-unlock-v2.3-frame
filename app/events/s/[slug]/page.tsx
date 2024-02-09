@@ -5,7 +5,9 @@ import {Metadata, ResolvingMetadata} from "next";
 
 async function getEvent(id: string): Promise<UnlockEvent> {
 
-    console.log("Entered getEvent");
+    console.log("Entered getEvent slug");
+
+    // >>>>> i may not need this since it'll be coming from the JSON returned from the API and not the database
     
     let nullEvent = {
         id: "",
@@ -34,6 +36,8 @@ async function getEvent(id: string): Promise<UnlockEvent> {
         return nullEvent;
     }
 }
+    // <<<<< i may not need this since it'll be coming from the JSON returned from the API and not the database
+
 
 type Props = {
     params: { id: string }
@@ -46,13 +50,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 
     console.log("Entered generateMetadata");
-    
+
+    // >>>>>> if coming from database, we'll need this
     // read route params
     const id = params.id;
     const event = await getEvent(id);
+    // <<<< if coming frorm database, we'll need this
+    
 
-  // TODO: get the image and description from the database (and later the API)
-  //        "fc:frame:image": `https://storage.unlock-protocol.com/7b53b4df-1819-4e8f-b3d0-86a1b1e337ab`,
 
 
     const fcMetadata: Record<string, string> = {
