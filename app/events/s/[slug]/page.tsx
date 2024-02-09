@@ -91,9 +91,9 @@ export async function generateMetadata(
 
         const data = await response.json();
         console.log(JSON.stringify(data));
-        ogImageURL = data.data.image;
-        eventTitle = data.data.name;
-        regLink = data.data.external_url;
+        ogImageURL = data.image;
+        eventTitle = data.name;
+        regLink = data.eventUrl;
         console.log(regLink);
       } 
       catch (error) {
