@@ -17,9 +17,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const eventSlug = req.query['slug'] //shadow
             let register = req.query['register'] === 'true'
             let firstVisit = req.query['firstvisit'] === 'true'
-            if (!eventId) {
-                return res.status(400).send('Missing event ID');
-            }
+//            if (!eventId) {
+//                return res.status(400).send('Missing event ID');
+//            }
             if (!eventSlug) {
                 return res.status(400).send('Missing event slug');   //shadow
             }
