@@ -3,8 +3,6 @@ import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
 
-// TODO: remove poll things from this page
-
 async function getEvent(id: string): Promise<UnlockEvent> {
 
     console.log("Entered getEvent");
@@ -53,10 +51,8 @@ export async function generateMetadata(
     const id = params.id;
     const event = await getEvent(id);
 
-// TODO: get the image and description from the databae (and later the API)
-    //        "fc:frame:image": `https://storage.unlock-protocol.com/7b53b4df-1819-4e8f-b3d0-86a1b1e337ab`,
-
-// "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
+  // TODO: get the image and description from the database (and later the API)
+  //        "fc:frame:image": `https://storage.unlock-protocol.com/7b53b4df-1819-4e8f-b3d0-86a1b1e337ab`,
 
 
     const fcMetadata: Record<string, string> = {
