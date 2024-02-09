@@ -126,7 +126,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 if (isMember) {
                     imageUrl = `https://i.imgur.com/2uSiYW1.png?110`;
                     console.log("Slug we're sending")
-                    console.log(event.slug);
+                    console.log(eventSlug);
                     console.log("ImageUrl");
                     console.log(imageUrl);
                     button1Action = "post";
