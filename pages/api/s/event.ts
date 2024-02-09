@@ -107,7 +107,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 eventImageURL = data.data.image;
                 eventTitle = data.name;
                 eventRegLink = data.eventUrl;
-                console.log(regLink);
             } 
             catch (error) {
                 console.log(error);
