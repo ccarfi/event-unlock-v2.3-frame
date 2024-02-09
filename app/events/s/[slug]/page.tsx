@@ -36,9 +36,10 @@ async function getEvent(slug: string): Promise<UnlockEvent> {
         console.error(error);
         return nullEvent;
     }
+    */
 }
     // <<<<< i may not need this since it'll be coming from the JSON returned from the API and not the database
-*/
+
     
 /*
 type Props = {
@@ -131,7 +132,7 @@ export async function generateMetadata(
 //export default async function Page({params}: { params: {id: string}}) {
 //    const event = await getEvent(params.id);    
 export default async function Page({params}: { params: {slug: string}}) {
-    const event = await getEvent(params.slug);    
+//    const event = await getEvent(params.slug);    
 
     
     return(
