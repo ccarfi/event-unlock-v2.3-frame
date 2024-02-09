@@ -56,12 +56,13 @@ export async function generateMetadata(
 ): Promise<Metadata> {
 
     console.log("Entered generateMetadata");
-
+/*
     // >>>>>> if coming from database, we'll need this
     // read route params
     const id = params.id;
     const event = await getEvent(id);
     // <<<< if coming frorm database, we'll need this
+*/
     
     // >>>>> if coming from API, use this
     const slug = params.slug;
@@ -95,7 +96,7 @@ export async function generateMetadata(
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
-        "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true&firstvisit=true`,
+        "fc:frame:post_url": `${process.env['HOST']}/api/event?slug=${slug}&register=true&firstvisit=true`,
 //        "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
         "fc:frame:image": `${ogImageURL}`,
         "fc:frame:image:aspect_ratio": `1.91:1`,
@@ -119,9 +120,12 @@ export async function generateMetadata(
     }
 }
 
-export default async function Page({params}: { params: {id: string}}) {
-    const event = await getEvent(params.id);    
+//export default async function Page({params}: { params: {id: string}}) {
+//    const event = await getEvent(params.id);    
+export default async function Page({params}: { params: {slug: string}}) {
+    const event = await getEvent(params.slug);    
 
+    
     return(
         <>
             <div className="flex flex-col items-center justify-center min-h-screen py-2">
