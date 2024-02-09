@@ -43,26 +43,27 @@ export async function generateMetadata(
       }
 
     /* 
-        The commented-out line below lets us easily add new buttons to the frame when
-        we are ready to add them. The line below the commented-out line is the
-        simple case where we have just one 'Register' button that redirects to the Event
-        Landing Page. Farcater just added the 'action' and 'target' pieces
+        The commented-out array line(s) below lets us easily add new buttons to the frame when
+        we are ready to add them, or switch between different frame configs.
+        The line near the commented-out line is the simple case where we have just one 'Register' 
+        button that redirects to the Event Landing Page. 
+        Farcater just added the 'action' and 'target' pieces
         which make this much easier than doing the 'redirect' approach that
         they required last week.
     */
 
     const fcMetadata: Record<string, string> = {
         "fc:frame": "vNext",
-        "fc:frame:post_url": `${process.env['HOST']}/api/event?id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
+        "fc:frame:post_url": `${process.env['HOST']}/api/s/event?id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
         "fc:frame:image": `${ogImageURL}`,
         "fc:frame:image:aspect_ratio": `1:1`,
         "fc:frame:button:1:action": `link`,
         "fc:frame:button:1:target": `${regLink}`,
     };
-//    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
-//        fcMetadata[`fc:frame:button:${index + 1}`] = option;
-    ["Register", "", "", ""].filter(o => o !== "").map((option, index) => {
-        fcMetadata[`fc:frame:button:${index + 1}`] = option;  
+    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
+        fcMetadata[`fc:frame:button:${index + 1}`] = option;
+//    ["Register", "", "", ""].filter(o => o !== "").map((option, index) => {
+//        fcMetadata[`fc:frame:button:${index + 1}`] = option;  
     })
 
     return {
