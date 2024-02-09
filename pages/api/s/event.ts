@@ -13,13 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Get the slug, and if the user is trying to register
         try {
-//            const eventId = req.query['id'] 
             const eventSlug = req.query['slug'] //shadow
             let register = req.query['register'] === 'true'
             let firstVisit = req.query['firstvisit'] === 'true'
-//            if (!eventId) {
-//                return res.status(400).send('Missing event ID');
-//            }
             if (!eventSlug) {
                 return res.status(400).send('Missing event slug');   //shadow
             }
@@ -53,16 +49,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 fid = req.body?.untrustedData?.fid || 0;
             }
 
-/*            
-            let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
-            console.log("Event:");
-            console.log(event);
-            
-            if (!event) {
-                return res.status(400).send('Missing event ID');
-            }
-*/            
-
             // we'll use these later when constructing og tags
             
             let imageUrl = "";  
@@ -95,87 +81,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 })
             );
             
-            //////
-// export async function generateMetadata(
-//    { params, searchParams }: Props,
-//     parent: ResolvingMetadata
-// ): Promise<Metadata> {
 
-//    const slug = params.slug;
-    // we were given the slug when we came in — call the API and get the details
+            // we were given the slug when we came in — call the API and get the details
     
-    const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
+            const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
  
-    let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
-    let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
-    let regLink = 'registration link not available';
+            let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
+            let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
+            let regLink = 'registration link not available';
 
-    try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
+            try {
+                const response = await fetch(url, {
+                  method: 'GET',
+                  headers: {
+                    'Accept': 'application/json'
+                  }
+                });
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+                if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-        const data = await response.json();
-        console.log(JSON.stringify(data));
-        ogImageURL = data.data.image;
-        eventTitle = data.name;
-        regLink = data.eventUrl;
-        console.log(regLink);
-      } 
-      catch (error) {
-        console.log(error);
-      }
-
-    /* 
-        The commented-out array line(s) below lets us easily add new buttons to the frame when
-        we are ready to add them, or switch between different frame configs.
-        The line near the commented-out line is the simple case where we have just one 'Register' 
-        button that redirects to the Event Landing Page. 
-        Farcater just added the 'action' and 'target' pieces
-        which make this much easier than doing the 'redirect' approach that
-        they required last week.
-    */
-/*
-    const fcMetadata: Record<string, string> = {
-        "fc:frame": "vNext",
-        "fc:frame:post_url": `${process.env['HOST_DEV']}/api/s/event?slug=${slug}&id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
-        "fc:frame:image": `${ogImageURL}`,
-        "fc:frame:image:aspect_ratio": `1:1`,
-        "fc:frame:button:1:action": `link`,
-        "fc:frame:button:1:target": `${regLink}`,
-    };
-    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
-        fcMetadata[`fc:frame:button:${index + 1}`] = option;
-//    ["Register", "", "", ""].filter(o => o !== "").map((option, index) => {
-//        fcMetadata[`fc:frame:button:${index + 1}`] = option;  
-    })
-
-    return {
-        title: eventTitle,
-        openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
-            title: eventTitle,
-            images: ogImageURL,                 
-        },
-        other: {
-            ...fcMetadata,
-        },
-        metadataBase: new URL(process.env['HOST'] || '')
-    }
-}
-
-*/
-
-
-
-
-            //////
+                const data = await response.json();
+                console.log(JSON.stringify(data));
+                ogImageURL = data.data.image;
+                eventTitle = data.name;
+                regLink = data.eventUrl;
+                console.log(regLink);
+            } 
+            catch (error) {
+                console.log(error);
+            }
             
             // The main bit. If user is a member (ticketholder who is registered), set image to one thing. If not a member, set to another.
 
@@ -237,11 +173,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // Clicked register and needs to register
             if (register && buttonId === 1) {
 //                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";  // unlock community checkout
-                const registrationURL = "https://app.unlock-protocol.com/checkout?id=ade561b1-fe5d-4540-82df-1e7a9f67c3ee";   // privy checkout
+//                const registrationURL = "https://app.unlock-protocol.com/checkout?id=ade561b1-fe5d-4540-82df-1e7a9f67c3ee";   // privy checkout
+                const registrationURL = regLink;
                 console.log(registrationURL);
-                return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');
+                return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');  // change this to use link instead of redirect
             }
-       
  
             // Return an HTML response
             res.setHeader('Content-Type', 'text/html');
