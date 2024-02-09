@@ -113,7 +113,7 @@ export async function generateMetadata(
         "fc:frame:button:1:target": `${regLink}`,
     };
 //    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
-        fcMetadata[`fc:frame:button:${index + 1}`] = option;
+//        fcMetadata[`fc:frame:button:${index + 1}`] = option;
     ["Register", "", "", ""].filter(o => o !== "").map((option, index) => {
         fcMetadata[`fc:frame:button:${index + 1}`] = option;  
     })
