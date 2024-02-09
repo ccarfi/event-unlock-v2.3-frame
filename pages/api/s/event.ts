@@ -249,8 +249,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       <!DOCTYPE html>
       <html>
         <head>
-          <title>${event.title}</title>
-          <meta property="og:title" content="${event.title}">
+          <title>${eventTitle}</title>
+          <meta property="og:title" content="${eventTitle}">
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
