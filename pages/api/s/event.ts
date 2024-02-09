@@ -193,7 +193,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
+          <meta name="fc:frame:button:2:aspect_ratio" content="1:1">
           <meta name="fc:frame:button:3" content="${button3Text}">
+          <meta name="fc:frame:button:3:aspect_ratio" content="1:1">
         </head>
         <body>
           <p>You clicked ${buttonId}}</p>
