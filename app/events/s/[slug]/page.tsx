@@ -108,7 +108,7 @@ export async function generateMetadata(
         "fc:frame:post_url": `${process.env['HOST']}/api/event?slug=${slug}&register=true&firstvisit=true`,
 //        "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
         "fc:frame:image": `${ogImageURL}`,
-        "fc:frame:image:aspect_ratio": `1.91:1`,
+        "fc:frame:image:aspect_ratio": `1:1`,
 //        "fc:frame:button:1:action": `post_redirect`,
         "fc:frame:button:1:action": `link`,
         "fc:frame:button:1:target": `${regLink}`,
