@@ -86,7 +86,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
             const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
  
-            let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
+            let eventImageURL = 'image not available'; // Declare eventImageURL here with a default value 
             let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
             let regLink = 'registration link not available';
 
@@ -104,9 +104,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 const data = await response.json();
                 console.log(JSON.stringify(data));
-                ogImageURL = data.data.image;
+                eventImageURL = data.data.image;
                 eventTitle = data.name;
-                regLink = data.eventUrl;
+                eventRegLink = data.eventUrl;
                 console.log(regLink);
             } 
             catch (error) {
@@ -158,7 +158,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageTicketRegistered`;
+                    imageUrl = eventImageURL;
                     button1Action = "post";
                     register = false;
                  }   
@@ -174,7 +174,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (register && buttonId === 1) {
 //                const registrationURL = "https://app.unlock-protocol.com/checkout?id=23699ccb-6a3b-4192-8de8-c07c0390ac14";  // unlock community checkout
 //                const registrationURL = "https://app.unlock-protocol.com/checkout?id=ade561b1-fe5d-4540-82df-1e7a9f67c3ee";   // privy checkout
-                const registrationURL = regLink;
+                const registrationURL = eventRegLink;
                 console.log(registrationURL);
                 return res.status(302).setHeader('Location', `${registrationURL}`).send('Redirecting to go register');  // change this to use link instead of redirect
             }
