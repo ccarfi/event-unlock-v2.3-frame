@@ -20,6 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (!eventId) {
                 return res.status(400).send('Missing event ID');
             }
+            if (!eventSlug) {
+                return res.status(400).send('Missing event slug');   //shadow
+            }
+
 
             let validatedMessage : Message | undefined = undefined;
             try {
@@ -48,7 +52,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 buttonId = req.body?.untrustedData?.buttonIndex || 0;
                 fid = req.body?.untrustedData?.fid || 0;
             }
-            
+
+/*            
             let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
             console.log("Event:");
             console.log(event);
@@ -56,6 +61,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (!event) {
                 return res.status(400).send('Missing event ID');
             }
+*/            
 
             // we'll use these later when constructing og tags
             
