@@ -168,7 +168,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/s/event?id=${event.id}&slug=${slug}&register=${register ? 'true' : 'false'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/s/event?id=${event.id}&slug=${event.slug}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:2" content="${button2Text}">
