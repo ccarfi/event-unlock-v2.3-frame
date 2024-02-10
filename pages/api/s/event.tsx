@@ -179,7 +179,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Get the slug, and if the user is trying to register
         try {
-            const eventSlug = req.query['slug'] //shadow
+            const eventSlug = req.query['slug']
             let register = req.query['register'] === 'true'
             let firstVisit = req.query['firstvisit'] === 'true'
             if (!eventSlug) {
