@@ -11,7 +11,7 @@ export const config = {
 // const HUB_URL = process.env['HUB_URL']
 // const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 
-export default async function handler(req: NextRequest, res: NextResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
 
         console.log('Request object:', req);
@@ -20,7 +20,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
         // Get the string
         try {
-//            const testString = req.nextUrl.searchParams.get('teststring');
+            const testString = req.nextUrl.searchParams.get('teststring');
 
 //            let testString = req.query['teststring'];
 
