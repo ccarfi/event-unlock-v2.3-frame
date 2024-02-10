@@ -21,9 +21,11 @@ export default async function handler(req: NextRequest, res: NextResponse) {
  
         // Get the string
         try {
-            const testString = req.nextUrl.search.get('teststring');
+  const searchParams = new URLSearchParams(req.nextUrl.search);
+  const testStringValue = searchParams.get('teststring');
 
-//            let testString = req.query['teststring'];
+  console.log('testStringValue:',testStringValue); // This should log "woohoo"
+          
 
 //            if (!testString) {
 //                return res.status(400).send('Missing string to display'); 
