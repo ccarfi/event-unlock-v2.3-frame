@@ -38,8 +38,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             } catch (e)  {
                 return res.status(400).send(`Failed to validate message: ${e}`);
             }
-        }
-        catch {
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error generating image');
         }
     } else {
         // Handle any non-POST requests
