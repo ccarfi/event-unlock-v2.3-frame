@@ -8,8 +8,9 @@ import { ImageResponse } from '@vercel/og';
 
 
 ////////////////////////////////////////////////
-/*
-ImageResponse(
+
+ function imageTicketRegisteredTest() {
+ return new ImageResponse(
     (
       <div
         style={{
@@ -27,7 +28,7 @@ ImageResponse(
         }}
       >
           <img 
-            src={ticketImageURL} 
+            src=https://i.imgur.com/zbyr758.png 
             alt="Ticket Image"
             style={{
               maxHeight: '50%', // Limits the image height to 50% of its parent container
@@ -42,9 +43,7 @@ ImageResponse(
       height: 630,
     },
   );
-*/
-
-
+  }
 
 ////////////////////////////////////////////////
 
