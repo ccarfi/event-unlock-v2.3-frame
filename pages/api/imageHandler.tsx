@@ -4,6 +4,10 @@ import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 import { getUserAddresses } from "@/src/lib/farcaster";
 import { ImageResponse } from '@vercel/og';
 
+export const config = {
+  runtime: 'edge',
+};
+
 const HUB_URL = process.env['HUB_URL']
 const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 
