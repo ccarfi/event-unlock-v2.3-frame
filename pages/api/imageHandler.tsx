@@ -8,31 +8,25 @@ export const config = {
   runtime: 'edge',
 };
 
-// const HUB_URL = process.env['HUB_URL']
-// const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
-
 export default async function handler(req: NextRequest, res: NextResponse) {
+
+    const searchParams = new URLSearchParams(req.nextUrl.search);
+    const slug = searchParams.get('slug');
 
     if (req.method === 'GET') {
 
-        console.log('Request object:', req);
-        console.log('Response object:', res);
         console.log('req.nextUrl.search:', req.nextUrl.search);
  
         // Get the string
         try {
-  const searchParams = new URLSearchParams(req.nextUrl.search);
-  const testStringValue = searchParams.get('teststring');
 
-  console.log('testStringValue:',testStringValue); // This should log "woohoo"
+                console.log('slug:',slug); // This should log the slug
           
 
-//            if (!testString) {
-//                return res.status(400).send('Missing string to display'); 
-//            }
+            if (!slug) {
+                return res.status(400).send('Missing slug to display'); 
+            }
 
-            console.log("Test String getting set with let");
-//            console.log(testString);
 /*
             let validatedMessage : Message | undefined = undefined;
             try {
@@ -77,7 +71,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           alignItems: 'center',
         }}
       >
-this is from the imageHandler. next is seending in something to format.
+        this is from the imageHandler. the value of slug is: ${slug}
       </div>
     ),
     {
