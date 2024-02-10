@@ -14,6 +14,9 @@ export const config = {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
 
+        console.log('Request object:', req);
+        console.log('Query parameters:', req.query);
+
         // Get the string
         try {
             let testString = req.query['teststring'];
