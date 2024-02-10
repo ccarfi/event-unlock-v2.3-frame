@@ -16,14 +16,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Get the string
         try {
-            const testString = req.query['teststring']
+//            const testString = req.query['teststring']
 
-            if (!testString) {
-                return res.status(400).send('Missing string to display'); 
-            }
+//            if (!testString) {
+//                return res.status(400).send('Missing string to display'); 
+//            }
 
-            console.log("Test String:");
-            console.log(testString);
+            console.log("Test String functionality above commented out ");
+//            console.log(testString);
 /*
             let validatedMessage : Message | undefined = undefined;
             try {
