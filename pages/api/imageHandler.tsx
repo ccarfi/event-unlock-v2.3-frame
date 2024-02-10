@@ -23,7 +23,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         try {
 //            const testString = req.nextUrl.search.get('teststring');
 
-//            let testString = req.query['teststring'];
+            let testString = req.query['teststring'];
 
 //            if (!testString) {
 //                return res.status(400).send('Missing string to display'); 
