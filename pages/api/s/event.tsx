@@ -9,6 +9,35 @@ import { ImageResponse } from '@vercel/og';
 
 ////////////////////////////////////////////////
 
+function returnAnImage() {
+
+   return new ImageResponse(
+    (
+      <div
+        style={{
+          fontSize: 40,
+          color: 'black',
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          padding: '50px 200px',
+          textAlign: 'center',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        Inlined response.
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 630,
+    },
+  );
+}
+
+
+
 interface OGEventProps {
   name: string
   startTime?: string
@@ -136,6 +165,9 @@ const OGEvent = ({ name, startTime, location, iconURL, bannerURL }: OGEventProps
     </div>
   )
 }
+
+
+
 
 ////////////////////////////////////////////////
 
@@ -291,33 +323,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
- //                   imageUrl = eventImageURL;
+                    imageUrl = eventImageURL;
                     button1Action = "post";
                     register = false;
-
-   imageUrl = new ImageResponse(
-    (
-      <div
-        style={{
-          fontSize: 40,
-          color: 'black',
-          background: 'white',
-          width: '100%',
-          height: '100%',
-          padding: '50px 200px',
-          textAlign: 'center',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        Inlined response.
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    },
-  );
                  }   
                  else {
                     imageUrl = `${process.env['HOST_DEV']}/api/imageTicketNotRegistered`;
@@ -346,7 +354,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta property="og:title" content="${eventTitle}">
           <meta property="og:image" content="${imageUrl}">
           <meta name="fc:frame" content="vNext">
-          <meta name="fc:frame:image" content="${imageUrl}">
+          <meta name="fc:frame:image" content=returnAnImage()>
           <meta name="fc:frame:image:aspect_ratio" content="1.91:1">
           <meta name="fc:frame:post_url" content="${process.env['HOST_DEV']}/api/s/event?slug=${eventSlug}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
