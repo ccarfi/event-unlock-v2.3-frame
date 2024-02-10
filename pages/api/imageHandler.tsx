@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         console.log('Request object:', req);
         console.log('Response object:', res);
+        console.log('req.nextUrl.search:', req.nextUrl.search);
  
         // Get the string
         try {
