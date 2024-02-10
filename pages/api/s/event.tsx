@@ -161,7 +161,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     imageUrl = eventImageURL;
                     button1Action = "post";
                     register = false;
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?teststring=woohoo`;
+ //                   imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?teststring=woohoo`;
+/////////////////////////////
+/*                     
+fetch(imageUrl, {
+  method: 'POST', // Specify the method as POST
+  headers: {
+    'Content-Type': 'application/json', // Assuming you're sending JSON data
+  },
+  body: JSON.stringify({
+    teststring: 'woohoo', // Send the data in the request body
+  }),
+})
+.then(response => response.blob()) // Convert the response to a Blob if it's an image
+.then(blob => {
+  // Create a URL for the blob object
+  const imageSrc = URL.createObjectURL(blob);
+  // Use imageSrc as the source for an image, assign to an <img> element, etc.
+  document.getElementById('yourImageElementId').src = imageSrc;
+})
+.catch(error => console.error('Error:', error));
+
+*/
+
+
+
+////////////////////
+
+                     
                  }   
                  else {
                     imageUrl = `${process.env['HOST_DEV']}/api/imageTicketNotRegistered`;
