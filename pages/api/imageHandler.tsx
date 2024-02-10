@@ -41,12 +41,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
         catch {
         }
-    return new ImageResponse(
+    }
+  return new ImageResponse(
     (
       <div
         style={{
           fontSize: 40,
-          color: 'white',
+          color: 'black',
           background: 'white',
           width: '100%',
           height: '100%',
@@ -54,12 +55,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundImage: `url(${process.env['HOST']}/bgp.png)`,
-          display: 'flex',
         }}
       >
-          {testString}
-        </div>
+this is from the imageHandler. next is seending in something to format.
+      </div>
     ),
     {
       width: 1200,
