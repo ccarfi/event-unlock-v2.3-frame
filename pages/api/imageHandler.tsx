@@ -74,7 +74,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           display: 'flex',
         }}
       >
-        this is from the imageHandler. the value of slug is: ${slug}
+        this is from the imageHandler. the value of slug is: {slug}
       </div>
     ),
     {
