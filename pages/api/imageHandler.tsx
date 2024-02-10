@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+//import { NextApiRequest, NextApiResponse } from 'next';
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 import { getUserAddresses } from "@/src/lib/farcaster";
@@ -11,7 +11,9 @@ export const config = {
 // const HUB_URL = process.env['HUB_URL']
 // const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+//export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
+
     if (req.method === 'GET') {
 
         console.log('Request object:', req);
