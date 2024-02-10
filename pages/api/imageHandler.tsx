@@ -52,12 +52,12 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 */            
         } catch (error) {
             console.error(error);
-            res.status(500).send('Error generating image');
+//            res.status(500).send('Error generating image');
         }
     } else {
         // Handle any non-POST requests
-        res.setHeader('Allow', ['POST']);
-        res.status(405).end(`Method ${req.method} Not Allowed`);
+//        res.setHeader('Allow', ['POST']);
+//        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
     console.log("Entering imageHandler return");
   return new ImageResponse(
