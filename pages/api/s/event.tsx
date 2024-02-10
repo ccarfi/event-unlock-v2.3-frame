@@ -161,7 +161,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 //                    imageUrl = eventImageURL;
                     button1Action = "post";
                     register = false;
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?teststring=woohoo`;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
 /////////////////////////////
 /*                     
 fetch(imageUrl, {
