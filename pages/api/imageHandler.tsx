@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             console.log("Test String:");
             console.log(testString);
-
+/*
             let validatedMessage : Message | undefined = undefined;
             try {
                 const frameMessage = Message.decode(Buffer.from(req.body?.trustedData?.messageBytes || '', 'hex'));
@@ -38,13 +38,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             } catch (e)  {
                 return res.status(400).send(`Failed to validate message: ${e}`);
             }
+*/            
         } catch (error) {
             console.error(error);
             res.status(500).send('Error generating image');
         }
     } else {
         // Handle any non-POST requests
-//        res.setHeader('Allow', ['POST']);
+        res.setHeader('Allow', ['POST']);
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
   return new ImageResponse(
