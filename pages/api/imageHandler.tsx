@@ -16,13 +16,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Get the string
         try {
-            const testString = req.query['teststring']
+            let testString = req.query['teststring'];
 
 //            if (!testString) {
 //                return res.status(400).send('Missing string to display'); 
 //            }
 
-            console.log("Test String getting set as CONST if that fails will try let");
+            console.log("Test String getting set with let");
 //            console.log(testString);
 /*
             let validatedMessage : Message | undefined = undefined;
