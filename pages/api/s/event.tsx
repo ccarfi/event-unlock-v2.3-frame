@@ -158,10 +158,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-                    imageUrl = eventImageURL;
+//                    imageUrl = eventImageURL;
                     button1Action = "post";
                     register = false;
- //                   imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?teststring=woohoo`;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?teststring=woohoo`;
 /////////////////////////////
 /*                     
 fetch(imageUrl, {
