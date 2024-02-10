@@ -10,7 +10,7 @@ const client = HUB_URL ? getSSLHubRpcClient(HUB_URL) : undefined;
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
 
-        // Get the slug, and if the user is trying to register
+        // Get the string
         try {
             const testString = req.query['teststring']
 
@@ -41,6 +41,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
         catch {
         }
+    } else {
+        // Handle any non-POST requests
+        res.setHeader('Allow', ['POST']);
+        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
   return new ImageResponse(
     (
