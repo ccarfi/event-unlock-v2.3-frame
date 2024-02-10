@@ -19,7 +19,7 @@ interface OGEventProps {
 
 const OGEvent = ({ name, startTime, location, iconURL, bannerURL }: OGEventProps) => {
   return (
-    <div classname="flex flex-col bg-[#F5F5F5] h-full w-full rounded-xl">
+    <div className="flex flex-col bg-[#F5F5F5] h-full w-full rounded-xl">
       {bannerURL && (
         <img
           src={bannerURL}
