@@ -24,7 +24,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           
 
             if (!slug) {
-                return res.status(400).send('Missing slug to display'); 
+//                return res.status(400).send('Missing slug to display'); 
             }
 
 /*
