@@ -15,10 +15,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'GET') {
 
         console.log('Request object:', req);
+        console.log('Response object:', res);
  
         // Get the string
         try {
-            const testString = req.nextUrl.search.get('teststring');
+//            const testString = req.nextUrl.search.get('teststring');
 
 //            let testString = req.query['teststring'];
 
