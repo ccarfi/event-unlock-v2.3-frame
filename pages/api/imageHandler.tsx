@@ -16,11 +16,11 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
         console.log('Request object:', req);
         console.log('req.nextUrl:', req.nextUrl);
-        console.log(`req.nextUrl.searchParams:`, req.nextUrl.searchParams);
+        console.log('req.nextUrl.searchParams:', req.nextUrl.searchParams);
 
         // Get the string
         try {
-            const testString = req.nextUrl.searchParams.get('teststring');
+//            const testString = req.nextUrl.searchParams.get('teststring');
 
 //            let testString = req.query['teststring'];
 
