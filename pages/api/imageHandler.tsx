@@ -11,21 +11,19 @@ export const config = {
 export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchParams = new URLSearchParams(req.nextUrl.search);
-    const slug = searchParams.get('slug');
+    const eventSlug = searchParams.get('slug');
     console.log('req:', req);
     console.log('req.nextUrl.search:', req.nextUrl.search);
 
     if (req.method === 'GET') {
-
-        console.log('req.nextUrl.search:', req.nextUrl.search);
  
         // Get the string
         try {
 
-                console.log('slug:',slug); // This should log the slug
+                console.log('eventSlug:',eventSlug); // This should log the slug
           
 
-            if (!slug) {
+            if (!eventSlug) {
 //                return res.status(400).send('Missing slug to display'); 
             }
 
@@ -57,7 +55,36 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 //        res.setHeader('Allow', ['POST']);
 //        res.status(405).end(`Method ${req.method} Not Allowed`);
     }
-    console.log("Entering imageHandler return");
+
+            const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
+ 
+            let eventImageURL = 'image not available'; // Declare eventImageURL here with a default value 
+            let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
+            let eventRegLink = 'registration link not available';
+
+            try {
+                const response = await fetch(url, {
+                  method: 'GET',
+                  headers: {
+                    'Accept': 'application/json'
+                  }
+                });
+
+                if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log(JSON.stringify(data));
+                eventImageURL = data.data.image;
+                eventTitle = data.name;
+                eventRegLink = data.eventUrl;
+            } 
+            catch (error) {
+                console.log(error);
+            }
+
+  
   return new ImageResponse(
     (
       <div
@@ -74,7 +101,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           display: 'flex',
         }}
       >
-        this is from the imageHandler. the value of slug is: {slug}
+        <img src={eventImageURL} />
       </div>
     ),
     {
