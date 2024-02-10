@@ -1,5 +1,4 @@
-//import type { NextApiRequest, NextApiResponse } from 'next';
-import type { NextRequest, NextResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import {kv} from "@vercel/kv";
 import {getSSLHubRpcClient, Message} from "@farcaster/hub-nodejs";
 import { getUserAddresses } from "@/src/lib/farcaster";
@@ -16,11 +15,14 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     if (req.method === 'GET') {
 
         console.log('Request object:', req);
-        console.log('Query parameters:', req.query);
+        console.log('req.nextUrl:', req.nextUrl);
+        console.log(`req.nextUrl.searchParams:`, req.nextUrl.searchParams);
 
         // Get the string
         try {
-            let testString = req.query['teststring'];
+            const testString = req.nextUrl.searchParams.get('teststring');
+
+//            let testString = req.query['teststring'];
 
 //            if (!testString) {
 //                return res.status(400).send('Missing string to display'); 
