@@ -12,6 +12,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchParams = new URLSearchParams(req.nextUrl.search);
     const slug = searchParams.get('slug');
+    console.log('req:', req);
+    console.log('req.nextUrl.search:', req.nextUrl.search);
 
     if (req.method === 'GET') {
 
