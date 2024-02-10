@@ -19,8 +19,7 @@ interface OGEventProps {
 
 const OGEvent = ({ name, startTime, location, iconURL, bannerURL }: OGEventProps) => {
   return (
-    <div className="flex flex-col bg-[#F5F5F5] h-full w-full rounded-xl">
-      {bannerURL && (
+     <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#F5F5F5', height: '100%', width: '100%', borderRadius: '1rem' }}>      {bannerURL && (
         <img
           src={bannerURL}
           tw="absolute top-0 object-cover"
