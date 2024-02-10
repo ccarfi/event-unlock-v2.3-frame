@@ -69,7 +69,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           textAlign: 'center',
           justifyContent: 'center',
           alignItems: 'center',
-          display: flex,
+          display: 'flex',
         }}
       >
         this is from the imageHandler. the value of slug is: ${slug}
