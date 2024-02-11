@@ -59,23 +59,23 @@ export async function generateMetadata(
 // "fc:frame:image": `https://i.imgur.com/fKUBgay.png?t=513`,
 
 
-    const fcMetadata: Record<string, string> = {
-        "fc:frame": "vNext",
-        "fc:frame:post_url": `${process.env['HOST']}/api/event?id=${id}&register=true&firstvisit=true`,
-        "fc:frame:image": `${process.env['HOST']}/frame-webinar-share-627.png`,
-        "fc:frame:image:aspect_ratio": `1.91:1`,
-        "fc:frame:button:1:action": `post_redirect`,
-    };
-    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
-        fcMetadata[`fc:frame:button:${index + 1}`] = option;
+        const fcMetadata: Record<string, string> = {
+            "fc:frame": "vNext",
+            "fc:frame:image": `https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75`,
+            "fc:frame:image:aspect_ratio": `1:1`,
+            "fc:frame:button:1:action": `mint`,
+            "fc:frame:button:1:content": `Boop!`,
+            "fc:frame:button:1:target": `eip155:7777777:0x060f3edd18c47f59bd23d063bbeb9aa4a8fec6df`,
+        };
+//    ["Register", "See location", "Show my ticket", ""].filter(o => o !== "").map((option, index) => {
+//        fcMetadata[`fc:frame:button:${index + 1}`] = option;
     })
 
-
     return {
-        title: event.title,
+        title: "Farcaster: Giraffe",
         openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
-            title: event.title,
-            images: [`/api/image?id=${id}`],
+            title: "Farcaster: Giraffe",
+            images: ["https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75"],
         },
         other: {
             ...fcMetadata,
