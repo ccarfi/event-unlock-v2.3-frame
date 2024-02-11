@@ -59,7 +59,7 @@ export async function generateMetadata(
             "fc:frame:button:1:content": `Boop!`,
             "fc:frame:button:1:target": `eip155:7777777:0x060f3edd18c47f59bd23d063bbeb9aa4a8fec6df`,
         };
-    })
+  //  })           // ???????
 
     return {
         title: "Farcaster: Giraffe",
