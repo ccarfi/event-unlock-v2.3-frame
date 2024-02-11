@@ -17,8 +17,8 @@ export async function generateMetadata(
             "fc:frame": "vNext",
             "fc:frame:image": "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75",
             "fc:frame:image:aspect_ratio": "1:1",
+            "fc:frame:button:1": "Boop!",
             "fc:frame:button:1:action": "mint",
-            "fc:frame:button:1:content": "Mint",
             "fc:frame:button:1:target": "eip155:7777777:0x060f3edd18c47f59bd23d063bbeb9aa4a8fec6df",
         };
     
