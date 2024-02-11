@@ -91,7 +91,7 @@ export default async function Page({params}: { params: {id: string}}) {
         <>
             <div className="flex flex-col items-center justify-center min-h-screen py-2">
                 <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">
-                    Your event has been created. Copy-paste the URL in the address bar into Warpcast.
+                    Boop!
                 </main>
             </div>
         </>
