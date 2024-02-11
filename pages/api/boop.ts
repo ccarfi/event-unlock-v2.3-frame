@@ -163,19 +163,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       <!DOCTYPE html>
       <html>
         <head>
-          <title>${event.title}</title>
-          <meta property="og:title" content="${event.title}">
-          <meta property="og:image" content="${imageUrl}">
-          <meta name="fc:frame" content="vNext">
-          <meta name="fc:frame:image" content="${imageUrl}">
-          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/event?id=${event.id}&register=${register ? 'true' : 'false'}">
-          <meta name="fc:frame:button:1" content="${button1Text}">
-          <meta name="fc:frame:button:1:action" content="${button1Action}">
-          <meta name="fc:frame:button:2" content="${button2Text}">
-          <meta name="fc:frame:button:3" content="${button3Text}">
+          <meta property="og:title" content="Farcaster: Giraffe" />
+          <meta property='og:image' content="https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75" />
+          <meta property="fc:frame" content="vNext" />
+          <meta property="fc:frame:image" content="https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75" />
+          <meta property="fc:frame:button:1" content="Mint" />
+          <meta property="fc:frame:button:1:action" content="mint" />
+          <meta property="fc:frame:button:1:target" content="eip155:7777777:0x060f3edd18c47f59bd23d063bbeb9aa4a8fec6df">
         </head>
         <body>
-          <p>You clicked ${buttonId}}</p>
+          <p>Boop!</p>
         </body>
       </html>
     `);
