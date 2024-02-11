@@ -77,14 +77,19 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                   throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
+                interface Attribute {
+                  trait_type: string;
+                  value: string;
+                }
+
                 const data = await response.json();
                 console.log(JSON.stringify(data));
                 eventTitle = data.name;
                 eventImageURL = data.data.image;
-                eventBannerURL = data.data.attributes.find(attr => attr.trait_type === "event_cover_image")?.value;
-                eventAddress = data.data.attributes.find(attr => attr.trait_type === "event_address")?.value;
-                eventDate = data.data.attributes.find(attr => attr.trait_type === "event_start_date")?.value;
-                eventTime = data.data.attributes.find(attr => attr.trait_type === "event_start_time")?.value;
+                eventBannerURL = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_cover_image")?.value;
+                eventAddress = data.data.attributes.find(attr: Attribute => attr.trait_type === "event_address")?.value;
+                eventDate = data.data.attributes.find(attr: Attribute => attr.trait_type === "event_start_date")?.value;
+                eventTime = data.data.attributes.find(attr: Attribute => attr.trait_type === "event_start_time")?.value;
                 eventRegLink = data.eventUrl;
             } 
             catch (error) {
