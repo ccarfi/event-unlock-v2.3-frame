@@ -96,11 +96,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             catch (error) {
                 console.log(error);
             }
-
-  
-  return new ImageResponse(
-    (
-      <div
+/*
+                    <div
         style={{
           fontSize: 40,
           color: 'black',
@@ -114,6 +111,20 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           display: 'flex',
         }}
       >
+*/
+  
+  return new ImageResponse(
+    (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: '#F5F5F5',
+            height: '100%',
+            width: '100%',
+            borderRadius: '0.5rem',
+          }}
+          >
         <img src={eventImageURL} />
       </div>
 
