@@ -134,8 +134,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          aria-label={eventTitle}
         }}
-        aria-label={eventTitle}
       />
     <div
       style={{
@@ -160,7 +160,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             borderWidth: '4px',
             borderColor: 'white',
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          aria-label={eventTitle}
+            aria-label={eventTitle}
+          }}
         />
       </div>
       <div
