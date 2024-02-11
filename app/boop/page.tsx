@@ -15,18 +15,18 @@ export async function generateMetadata(
     
         const fcMetadata: Record<string, string> = {
             "fc:frame": "vNext",
-            "fc:frame:image": "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75",
+            "fc:frame:image": "https://storage.unlock-protocol.com/45e9d74a-fee1-4d0f-95f8-8a9d8b78c3fa",
             "fc:frame:image:aspect_ratio": "1:1",
             "fc:frame:button:1": "Boop!",
             "fc:frame:button:1:action": "link",
-            "fc:frame:button:1:target": "https://app.unlock-protocol.com/checkout?id=5185a27a-9d21-41f5-ae23-ee36dcb0ca12",
+            "fc:frame:button:1:target": "https://app.unlock-protocol.com/checkout?id=5d166240-98c0-4236-af4b-04898be5485f",
         };
     
     return {
-        title: "Farcaster: Giraffe",
+        title: "Boop that snoot!",
         openGraph: {                            
-            title: "Farcaster: Giraffe",
-            images: ["https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75"],
+            title: "Boop that snoot!",
+            images: ["https://storage.unlock-protocol.com/45e9d74a-fee1-4d0f-95f8-8a9d8b78c3fa"],
         },
         other: {
             ...fcMetadata,
