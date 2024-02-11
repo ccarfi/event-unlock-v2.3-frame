@@ -33,6 +33,7 @@ async function getEvent(id: string): Promise<UnlockEvent> {
         return nullEvent;
     }
 }
+*/
 
 type Props = {
     params: { id: string }
@@ -47,8 +48,8 @@ export async function generateMetadata(
     console.log("Entered generateMetadata");
     
     // read route params
-    const id = params.id;
-    const event = await getEvent(id);
+//    const id = params.id;
+//    const event = await getEvent(id);
 
         const fcMetadata: Record<string, string> = {
             "fc:frame": "vNext",
@@ -72,19 +73,15 @@ export async function generateMetadata(
         metadataBase: new URL(process.env['HOST'] || '')
     }
 }
-*/
+
 export default async function Page() {
     return(
-<head>
-  <meta property="og:title" content="Farcaster: Giraffe" />
-  <meta property='og:image' content="https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75" />
-  <meta property="fc:frame" content="vNext" />
-  <meta property="fc:frame:image" content="https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fipfs.decentralized-content.com%2Fipfs%2Fbafybeiegrnialwu66u3nwzkn4gik4i2x2h4ip7y3w2dlymzlpxb5lrqbom&w=1920&q=75" />
-
-  <meta property="fc:frame:button:1" content="Mint" />
-  <meta property="fc:frame:button:1:action" content="mint" />
-  <meta property="fc:frame:button:1:target" content="eip155:7777777:0x060f3edd18c47f59bd23d063bbeb9aa4a8fec6df">
-</head>
+        <>
+            <div className="flex flex-col items-center justify-center min-h-screen py-2">
+                <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">
+                    Boop!
+                </main>
+            </div>
+        </>
     );
-
 }
