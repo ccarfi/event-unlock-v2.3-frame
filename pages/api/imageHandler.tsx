@@ -138,7 +138,93 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         aria-label={eventTitle}
       />
       </div>
-
+      <div
+        style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: '100%',
+        padding: '1.5rem',
+      }}
+      >
+      <h1
+        style={{
+          fontSize: '2.25rem',
+          width: '800px',
+          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+          padding: '0.5rem',
+          borderRadius: '0.5rem',
+        }}
+      >
+        {eventTitle}
+      </h1>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <div
+          style={{
+          display: 'flex',
+          alignItems: 'center',
+          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+          borderRadius: '1rem',
+        }}
+        >
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="0.5"
+            y="0.5"
+            width="63"
+            height="63"
+            rx="15.5"
+            fill="#FFFDFA"
+          />
+          <g clipPath="url(#clip0_403_6543)">
+            <path
+              d="M38.6665 19.9997H43.9998C44.3535 19.9997 44.6926 20.1402 44.9426 20.3902C45.1927 20.6402 45.3332 20.9794 45.3332 21.333V42.6663C45.3332 43.02 45.1927 43.3591 44.9426 43.6091C44.6926 43.8592 44.3535 43.9997 43.9998 43.9997H19.9998C19.6462 43.9997 19.3071 43.8592 19.057 43.6091C18.807 43.3591 18.6665 43.02 18.6665 42.6663V21.333C18.6665 20.9794 18.807 20.6402 19.057 20.3902C19.3071 20.1402 19.6462 19.9997 19.9998 19.9997H25.3332V17.333H27.9998V19.9997H35.9998V17.333H38.6665V19.9997ZM35.9998 22.6663H27.9998V25.333H25.3332V22.6663H21.3332V27.9997H42.6665V22.6663H38.6665V25.333H35.9998V22.6663ZM42.6665 30.6663H21.3332V41.333H42.6665V30.6663Z"
+              fill="#373A3E"
+            />
+          </g>
+          <rect
+            x="0.5"
+            y="0.5"
+            width="63"
+            height="63"
+            rx="15.5"
+            stroke="#E4E4E4"
+          />
+          <defs>
+            <clipPath id="clip0_403_6543">
+              <rect
+                width="32"
+                height="32"
+                fill="white"
+                transform="translate(16 16)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+        <p
+          style={{
+          fontSize: '24px',
+          marginLeft: '24px',
+          fontWeight: 'bold',
+          width: '384px',
+          }}
+        >
+          {eventTime}
+        </p>
+      </div>
+    </div>
+    </div>
     ),
     {
       width: 1200,
@@ -202,6 +288,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         />
       )}
     </div>
+
+    *** trying this next
     <div
       style={{
         display: 'flex',
