@@ -137,6 +137,35 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         }}
         aria-label={eventTitle}
       />
+    <div
+      style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '90%',
+      }}
+    >
+        <img
+          width="64"
+          height="64"
+          src={eventImageURL}
+          style={{
+            width: '64px',
+            height: '64px',
+            position: 'absolute',
+            top: '4rem',
+            left: '3rem',
+            borderRadius: '0.5rem',
+            borderWidth: '4px',
+            borderColor: 'white',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          aria-label={eventTitle}
+        />
+      )}
+    </div>
+
+          
       <div
         style={{
         display: 'flex',
