@@ -62,6 +62,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             let eventImageURL = 'image not available'; // Declare these here with a default value 
             let eventBannerURL = 'event banner not available';
             let eventAddress = 'event address not available';
+            let eventDate = 'event date not available';
             let eventTime = 'event time not available';
             let eventRegLink = 'registration link not available';
 
