@@ -210,8 +210,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </div>
       </div>
     </div>
-  )
-}
     ),
     {
       width: 1200,
