@@ -164,7 +164,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           aria-label={eventTitle}
         />
         </div>
-      </div>
       <div
         style={{
         display: 'flex',
@@ -310,6 +309,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           {eventAddress}
         </p>
       </div>
+              </div>
     </div>
     </div>
     </div>
