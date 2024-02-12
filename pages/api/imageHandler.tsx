@@ -146,23 +146,23 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         height: '90%',
       }}
     >
+      <div
+        style={{
+  width: '256px',
+  height: '256px',
+  position: 'relative', // Assuming you want to apply top and left positioning
+  top: '64px',
+  left: '48px',
+  borderRadius: '1rem', // This is an approximate value for `rounded-xl`
+  borderWidth: '4px',
+  borderColor: 'white',
+  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', // Example shadow, adjust as needed
+}}>
         <img
-          width="64"
-          height="64"
           src={eventImageURL}
-          style={{
-            width: '64px',
-            height: '64px',
-            position: 'absolute',
-            top: '4rem',
-            left: '3rem',
-            borderRadius: '0.5rem',
-            borderWidth: '4px',
-            borderColor: 'white',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          }}
-            aria-label={eventTitle}
+          aria-label={eventTitle}
         />
+        </div>
       </div>
       <div
         style={{
