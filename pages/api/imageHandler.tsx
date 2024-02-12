@@ -176,8 +176,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       >
       <h1
         style={{
-          fontSize: '3rem',
-          width: '800px',
+          fontSize: '24px',
+          width: '80%',
           backgroundColor: 'rgba(255, 255, 255, 0.5)',
           padding: '0.5rem',
           borderRadius: '0.5rem',
