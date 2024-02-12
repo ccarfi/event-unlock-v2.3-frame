@@ -172,16 +172,16 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         justifyContent: 'space-between',
         width: '100%',
         padding: '1.5rem',
-      }}
+      }}    
       >
       <h1
         style={{
-          fontSize: '2.25rem',
+          fontSize: '3rem',
           width: '800px',
           backgroundColor: 'rgba(255, 255, 255, 0.5)',
           padding: '0.5rem',
           borderRadius: '0.5rem',
-        }}
+        }}   
       >
         {eventTitle}
       </h1>
