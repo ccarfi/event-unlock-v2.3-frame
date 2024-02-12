@@ -151,6 +151,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   width: '256px',
   height: '256px',
   position: 'relative', // Assuming you want to apply top and left positioning
+                  display: 'flex',
   top: '64px',
   left: '48px',
   borderRadius: '1rem', // This is an approximate value for `rounded-xl`
