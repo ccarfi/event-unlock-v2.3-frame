@@ -171,7 +171,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        padding: '1.5rem',
+        padding: '0.5rem',
       }}    
       >
       <h1
