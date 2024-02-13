@@ -128,7 +128,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
-      width: '100%',
+      width: '60%',
       height: '90%',
     }}
   >
