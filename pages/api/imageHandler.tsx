@@ -110,7 +110,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   }}
 >
   <img
-    src="https://storage.unlock-protocol.com/7b53b4df-1819-4e8f-b3d0-86a1b1e337ab"
+    src={eventBannerURL}
     style={{
       position: 'absolute',
       top: 0,
@@ -145,7 +145,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       }}
     >
       <img
-        src="https://storage.unlock-protocol.com/0ed5b6ae-2432-442d-9759-18470b50dcf8"
+        src={eventImageURL}
         alt={eventTitle}
         style={{
           width: '100%',
