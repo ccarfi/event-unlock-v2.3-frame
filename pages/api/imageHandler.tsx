@@ -102,83 +102,39 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 <div
   style={{
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row', // Changed from column to row
     backgroundColor: '#F5F5F5',
     height: '630px',
     width: '1200px',
     borderRadius: '0.5rem',
   }}
 >
-  <img
-    src={eventBannerURL}
-    style={{
-      position: 'absolute',
-      top: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'flex',
-    }}
-    alt={eventTitle}
-  />
   <div
     style={{
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
-      width: '100%',
-      height: '90%',
+      flex: 1, // Take up remaining space
     }}
   >
-    <div
+    <h1
       style={{
-        width: '256px',
-        height: '256px',
-        position: 'relative',
-        top: '64px',
-        left: '48px',
-        borderRadius: '1rem',
-        borderWidth: '4px',
-        borderColor: 'white',
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        display: 'flex',
-      }}
-    >
-      <img
-        src={eventImageURL}
-        alt={eventTitle}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-      />
-    </div>
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '100%',
+        fontSize: '64px',
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
         padding: '0.5rem',
+        borderRadius: '0.5rem',
+        margin: '24px 0', // Provide some spacing
       }}
     >
-      <h1
-        style={{
-          fontSize: '64px',
-          width: '80%',
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-          padding: '0.5rem',
-          borderRadius: '0.5rem',
-        }}
-      >
-        {eventTitle}
-      </h1>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      {eventTitle}
+    </h1>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '0 24px', // Provide some padding
+      }}
+    >
         <div
           style={{
             display: 'flex',
@@ -302,6 +258,28 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </div>
       </div>
     </div>
+<div
+    style={{
+      width: '256px',
+      height: '256px',
+      position: 'relative',
+      alignSelf: 'center', // Center align the image vertically
+      marginRight: '24px', // Provide some spacing from the right edge
+      borderRadius: '1rem',
+      borderWidth: '4px',
+      borderColor: 'white',
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    }}
+  >
+    <img
+      src={eventImageURL}
+      alt={eventTitle}
+      style={{
+        width: '100%',
+        height: '100%',
+        borderRadius: '1rem', // Ensure the image also has rounded corners
+      }}
+    />
   </div>
 </div>
     ),
