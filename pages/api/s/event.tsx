@@ -53,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // we'll use these later when constructing og tags
             
             let imageUrl = "";  
-            let button1Text = "Register";
+            let button1Text = "See full details";
             let button2Text = "Show location";
             let button3Text = "See description";
 
@@ -128,7 +128,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 action = "register";
                 if (isMember && !firstVisit) {
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
-                    button1Action = "post";
+                    button1Action = "link";
+                    button1Target = "eventRegLink";
                     register = false;
                 }
                 else {
