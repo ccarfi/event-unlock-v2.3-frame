@@ -132,6 +132,27 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       >
         {eventTitle}
       </h1>
+      <div
+          id="dateContainer"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
+            borderRadius: '1rem',
+          }}
+        >
+        <p
+          style={{
+          fontSize: '36px',
+          color: '#FFFFFF',
+          fontWeight: 'bold',
+          marginLeft: '24px',
+          }}
+        >
+          {eventDate}
+        </p>  
+        {/* Close dateContainer */}                    
+        </div>
         <div
           id="timeContainer"
           style={{
@@ -152,28 +173,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           {eventTime}
         </p>  
         {/* Close timeContainer */}                    
-        </div>
-        <div
-          id="addressContainer"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginTop: '24px',
-            backgroundColor: 'rgba(255, 255, 255, 0.01)',
-            borderRadius: '1rem',
-          }}
-        >
-        <p
-          style={{
-            fontSize: '36px',
-            color: '#FFFFFF',
-            marginLeft: '24px',
-            fontWeight: 'bold',
-          }}
-        >
-          {eventAddress}
-        </p>
-        {/* Close addressContainer */}
         </div>
   {/* Close contentContainer */}
   </div>
