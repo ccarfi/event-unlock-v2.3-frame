@@ -129,7 +129,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 if (isMember && !firstVisit) {
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
                     button1Action = "link";
-                    button1Target = "eventRegLink";
                     register = false;
                 }
                 else {
@@ -143,7 +142,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 2) {
                 action = "location";
                 if (isMember) {
-                    button1Action = "post";
+                    button1Action = "link";
                     register = false;
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&address=true`;
                 }
@@ -155,7 +154,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-                    button1Action = "post";
+                    button1Action = "link";
                     register = false;
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&desc=true`;           
                  }   
@@ -192,6 +191,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame:post_url" content="${process.env['HOST_DEV']}/api/s/event?slug=${eventSlug}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
+          <meta name="fc:frame:button:1:target" content="${eventRegLink}">
           <meta name="fc:frame:button:2" content="${button2Text}">
           <meta name="fc:frame:button:3" content="${button3Text}">
         </head>
