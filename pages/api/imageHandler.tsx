@@ -257,29 +257,29 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </p>
         </div>
       </div>
+        <div
+          style={{
+          width: '256px',
+          height: '256px',
+          position: 'relative',
+          alignSelf: 'center', // Center align the image vertically
+          marginRight: '24px', // Provide some spacing from the right edge
+          borderRadius: '1rem',
+          borderWidth: '4px',
+          borderColor: 'white',
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        }}
+      >
+        <img
+          src={eventImageURL}
+          alt={eventTitle}
+          style={{
+          width: '100%',
+            height: '100%',
+            borderRadius: '1rem', // Ensure the image also has rounded corners
+          }}
+        />
     </div>
-<div
-    style={{
-      width: '256px',
-      height: '256px',
-      position: 'relative',
-      alignSelf: 'center', // Center align the image vertically
-      marginRight: '24px', // Provide some spacing from the right edge
-      borderRadius: '1rem',
-      borderWidth: '4px',
-      borderColor: 'white',
-      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    }}
-  >
-    <img
-      src={eventImageURL}
-      alt={eventTitle}
-      style={{
-        width: '100%',
-        height: '100%',
-        borderRadius: '1rem', // Ensure the image also has rounded corners
-      }}
-    />
   </div>
 </div>
     ),
