@@ -129,16 +129,17 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       display: 'flex',
       flexDirection: 'column',
       width: '70%',
-      height: '90%',
+      height: '60%',
     }}
   >
       <h1
         id="title"
         style={{
-          fontSize: '64px',
-          width: '80%',
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-          padding: '0.5rem',
+          fontSize: '48px',
+          width: '100%',
+          color: '#FFFFF',
+          backgroundColor: 'rgba(255, 255, 255, 0.01)',
+          marginLeft: '24px',
           borderRadius: '0.5rem',
         }}
       >
@@ -149,13 +150,15 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           style={{
             display: 'flex',
             alignItems: 'center',
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
             borderRadius: '1rem',
           }}
         >
         <p
           style={{
           fontSize: '36px',
+          color: '#FFFFF',
+          fontWeight: 'bold',
           marginLeft: '24px',
           fontWeight: 'bold',
           width: '384px',
@@ -171,13 +174,14 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             display: 'flex',
             alignItems: 'center',
             marginTop: '24px',
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
             borderRadius: '1rem',
           }}
         >
         <p
           style={{
             fontSize: '36px',
+            color: '#FFFFF',
             marginLeft: '24px',
             fontWeight: 'bold',
             width: '384px',
@@ -195,7 +199,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       width: '256px',
       height: '256px',
       alignSelf: 'center',
-      marginLeft: 'auto', 
       borderRadius: '1rem',
       borderWidth: '4px',
       borderColor: 'white',
