@@ -15,6 +15,11 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     console.log('req:', req);
     console.log('req.nextUrl.search:', req.nextUrl.search);
 
+  // TODO: pass in flags to show or not show various fields, set display flag in div below based on value
+
+    const showDescription = "none";
+    const showAddress = "none";
+
     if (req.method === 'GET') {
  
         // Get the string
@@ -59,6 +64,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
  
             let eventTitle = 'event title not available';
+            let eventDescription = 'event description not available';
             let eventImageURL = 'image not available'; // Declare these here with a default value 
             let eventBannerURL = 'event banner not available';
             let eventAddress = 'event address not available';
@@ -86,6 +92,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 const data = await response.json();
                 console.log(JSON.stringify(data));
                 eventTitle = data.name;
+                eventDescription = data.data.description;
                 eventImageURL = data.data.image;
                 eventBannerURL = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_cover_image")?.value;
                 eventAddress = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_address")?.value;
@@ -170,6 +177,25 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           {eventTime}
         </p>  
         {/* Close timeContainer */}                    
+        </div>
+        <div
+          id="descriptionContainer"
+          style={{
+            display: showDescription,
+            alignItems: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
+          }}
+        >
+        <p
+          style={{
+          fontSize: '36px',
+          color: '#FFFFFF',
+          fontWeight: 'bold',
+          }}
+        >
+          {eventDescription}
+        </p>  
+        {/* Close descriptionContainer */}                    
         </div>
   {/* Close contentContainer */}
   </div>
