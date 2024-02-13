@@ -116,14 +116,14 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       alignSelf: 'center',
       display: 'flex',
       flexDirection: 'column',
-      width: '70%',
+      width: '65%',
     }}
   >
       <p
         id="title"
         style={{
           fontSize: '64px',
-          fontWeight: '900',
+          fontWeight: '1000',
           width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
