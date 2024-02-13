@@ -134,8 +134,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 else {
                     //  Drop through this conditional and don't do anything here, we'll
                     //  do the redirect just after the conditional block to go register
-                    
+            
                     //  register = true;
+                    button1Text = "Register"
                 }
             }
 
@@ -147,6 +148,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&address=true`;
                 }
                 else {
+                    button1Text = "Register";
                     imageUrl = `${process.env['HOST_DEV']}/api/imageLocationNotRegistered`;
                 }
             }
@@ -160,6 +162,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                  }   
                  else {
 //                    imageUrl = `${process.env['HOST_DEV']}/api/imageTicketNotRegistered`;
+                    button1Text = "Register";
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&desc=true`;     // you can see description even if not registered      
                  }
             }
