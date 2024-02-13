@@ -107,7 +107,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     height: '630px',
     width: '1200px',
     borderRadius: '0.5rem',
-    background: linear-gradient(to bottom, #8a2be2, #4b0082);
+    background: linear-gradient(to bottom, #8a2be2, #4b0082),
   }}
 >
   <div
