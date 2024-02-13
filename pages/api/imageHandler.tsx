@@ -209,33 +209,33 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       </div>
     {/* Close infoContainer */}
     </div>
-        <div
-      id="imageContainer"
-      style={{
-        width: '256px',
-        height: '256px',
-        position: 'relative',
-        top: '64px',
-        left: '48px',
-        borderRadius: '1rem',
-        borderWidth: '4px',
-        borderColor: 'white',
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        display: 'flex',
-      }}
-    >
-      <img
-        src={eventImageURL}
-        alt={eventTitle}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-      />
-    {/* Close imageContainer */}
-    </div> 
   {/* Close contentContainer */}
   </div>
+  <div
+    id="imageContainer"
+    style={{
+      width: '256px',
+      height: '256px',
+      position: 'relative',
+      top: '64px',
+      left: '48px',
+      borderRadius: '1rem',
+      borderWidth: '4px',
+      borderColor: 'white',
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+      display: 'flex',
+    }}
+  >
+    <img
+      src={eventImageURL}
+      alt={eventTitle}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    />
+  {/* Close imageContainer */}
+  </div> 
 {/* Close mainContainer */}
 </div>
 
