@@ -196,9 +196,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontWeight: 'normal',
           }}
         >
-          <bold>
-            {eventTitle}
-          </bold>
+          {eventTitle}
           <br>
           {eventDescription}
         </p>  
