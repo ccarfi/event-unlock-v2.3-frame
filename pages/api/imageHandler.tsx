@@ -137,7 +137,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         style={{
           fontSize: '48px',
           width: '100%',
-          color: '#FFFFF',
+          color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
           marginLeft: '24px',
           borderRadius: '0.5rem',
@@ -157,11 +157,9 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         <p
           style={{
           fontSize: '36px',
-          color: '#FFFFF',
+          color: '#FFFFFF',
           fontWeight: 'bold',
           marginLeft: '24px',
-          fontWeight: 'bold',
-          width: '384px',
           }}
         >
           {eventTime}
@@ -181,10 +179,9 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         <p
           style={{
             fontSize: '36px',
-            color: '#FFFFF',
+            color: '#FFFFFF',
             marginLeft: '24px',
             fontWeight: 'bold',
-            width: '384px',
           }}
         >
           {eventAddress}
