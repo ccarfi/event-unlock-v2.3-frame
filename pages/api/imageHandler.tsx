@@ -126,6 +126,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       width: '60%',
       marginLeft: '50px',
       marginRight: '50px', 
+      marginTop: '50px',
+      marginBottom: '50px', 
     }}
   >
       <p
@@ -187,6 +189,18 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             overflow: 'hidden',
           }}
         >
+        <p
+        id="title"
+        style={{
+          fontSize: '36px',
+          fontWeight: '900',
+          width: '100%',
+          color: '#FFFFFF',
+          backgroundColor: 'rgba(255, 255, 255, 0.01)',
+        }}
+        >
+          {eventTitle}
+        </p>
         <p
           style={{
           fontSize: '24px',
