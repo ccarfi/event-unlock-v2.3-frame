@@ -190,24 +190,13 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           }}
         >
         <p
-        id="title"
-        style={{
-          fontSize: '36px',
-          fontWeight: '900',
-          width: '100%',
-          color: '#FFFFFF',
-          backgroundColor: 'rgba(255, 255, 255, 0.01)',
-        }}
-        >
-          {eventTitle}
-        </p>
-        <p
           style={{
           fontSize: '24px',
           color: '#FFFFFF',
           fontWeight: 'normal',
           }}
         >
+          <bold>{eventTitle}</bold><br>
           {eventDescription}
         </p>  
         {/* Close descriptionContainer */}                    
