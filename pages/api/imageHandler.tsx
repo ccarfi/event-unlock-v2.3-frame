@@ -100,6 +100,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   return new ImageResponse(
     (
 <div
+  id="mainContainer"
   style={{
     display: 'flex',
     flexDirection: 'column',
@@ -122,6 +123,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     alt={eventTitle}
   />
   <div
+    id="contentContainer"
     style={{
       position: 'relative',
       display: 'flex',
@@ -131,6 +133,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     }}
   >
     <div
+      id="imageContainer"
       style={{
         width: '256px',
         height: '256px',
@@ -152,8 +155,10 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           height: '100%',
         }}
       />
-    </div>
+    {/* Close imageContainer */}
+    </div> 
     <div
+      id="infoContainer"
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -163,6 +168,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       }}
     >
       <h1
+        id="title"
         style={{
           fontSize: '64px',
           width: '80%',
@@ -174,12 +180,14 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         {eventTitle}
       </h1>
       <div
+        id="detailsContainer"
         style={{
           display: 'flex',
           flexDirection: 'column',
         }}
       >
         <div
+          id="timeContainer"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -196,9 +204,11 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           }}
         >
           {eventTime}
-        </p>                      
+        </p>  
+        {/* Close timeContainer */}                    
         </div>
         <div
+          id="addressContainer"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -209,19 +219,25 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-            fontSize: '36px', // text-2xl
-            marginLeft: '24px', // ml-6, assuming 1rem = 16px
-            fontWeight: 'bold', // font-semibold
-            width: '384px', // w-96
+            fontSize: '36px',
+            marginLeft: '24px',
+            fontWeight: 'bold',
+            width: '384px',
           }}
         >
           {eventAddress}
         </p>
+        {/* Close addressContainer */}
         </div>
+      {/* Close detailsContainer */}
       </div>
+    {/* Close infoContainer */}
     </div>
+  {/* Close contentContainer */}
   </div>
+{/* Close mainContainer */}
 </div>
+
     ),
     {
       width: 1200,
