@@ -8,12 +8,20 @@ export const config = {
   runtime: 'edge',
 };
 
+function truncateString(str, num) {
+  if (str.length <= num) {
+    return str;
+  }
+  return str.slice(0, num) + "...";
+}
+
 export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchParams = new URLSearchParams(req.nextUrl.search);
     const eventSlug = searchParams.get('slug');
-    const showDescriptionParam = searchParams.get('desc');
     const showAddressParam = searchParams.get('address');
+    const showDescriptionParam = searchParams.get('desc');
+
     console.log('req:', req);
     console.log('req.nextUrl.search:', req.nextUrl.search);
 
@@ -104,6 +112,9 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 eventDate = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_start_date")?.value;
                 eventTime = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_start_time")?.value;
                 eventRegLink = data.eventUrl;
+
+                eventDescription = truncateString(eventDescription,500); // clip the description if needed
+
             } 
             catch (error) {
                 console.log(error);
