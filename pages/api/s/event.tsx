@@ -55,7 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let imageUrl = "";  
             let button1Text = "Register";
             let button2Text = "Show location";
-            let button3Text = "See my ticket";
+            let button3Text = "See description";
 
             // Log that we made it this far
             console.log("Entered event.ts...");
