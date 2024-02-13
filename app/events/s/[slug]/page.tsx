@@ -34,6 +34,7 @@ export async function generateMetadata(
         const data = await response.json();
         console.log(JSON.stringify(data));
         ogImageURL = data.data.image;
+        ogImageURL = `${process.env['HOST_DEV']}/api/imageHandler?slug=${slug}`;
         eventTitle = data.name;
         regLink = data.eventUrl;
         console.log(regLink);
@@ -56,7 +57,7 @@ export async function generateMetadata(
         "fc:frame": "vNext",
         "fc:frame:post_url": `${process.env['HOST_DEV']}/api/s/event?slug=${slug}&id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
         "fc:frame:image": `${ogImageURL}`,
-        "fc:frame:image:aspect_ratio": `1:1`,
+        "fc:frame:image:aspect_ratio": `1.91:1`,
         "fc:frame:button:1:action": `link`,
         "fc:frame:button:1:target": `${regLink}`,
     };
