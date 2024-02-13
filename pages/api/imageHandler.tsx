@@ -194,9 +194,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     style={{
       width: '256px',
       height: '256px',
-      position: 'relative',
-      top: '64px',
-      left: '48px',
+      alignSelf: 'center',
+      marginLeft: 'auto', 
       borderRadius: '1rem',
       borderWidth: '4px',
       borderColor: 'white',
