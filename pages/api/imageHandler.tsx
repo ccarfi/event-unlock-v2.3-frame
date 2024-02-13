@@ -125,17 +125,16 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   <div
     id="contentContainer"
     style={{
-      position: 'relative',
+      alignSelf: 'center',
       display: 'flex',
       flexDirection: 'column',
       width: '70%',
-      height: '60%',
     }}
   >
       <h1
         id="title"
         style={{
-          fontSize: '48px',
+          fontSize: '64px',
           width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
