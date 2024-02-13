@@ -116,63 +116,68 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   
   return new ImageResponse(
     (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            backgroundColor: '#F5F5F5',
-            height: '100%',
-            width: '100%',
-            borderRadius: '0.5rem',
-          }}
-          >
-        <img
-        src={eventBannerURL}
-        style={{
-          position: 'absolute',
-          top: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          }}
-          aria-label={eventTitle}
-      />
+<div
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#F5F5F5',
+    height: '630px',
+    width: '1200px',
+    borderRadius: '0.5rem',
+  }}
+>
+  <img
+    src="https://storage.unlock-protocol.com/7b53b4df-1819-4e8f-b3d0-86a1b1e337ab"
+    style={{
+      position: 'absolute',
+      top: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'flex',
+    }}
+    alt={eventTitle}
+  />
+  <div
+    style={{
+      position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      height: '90%',
+    }}
+  >
     <div
       style={{
+        width: '256px',
+        height: '256px',
         position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '90%',
+        top: '64px',
+        left: '48px',
+        borderRadius: '1rem',
+        borderWidth: '4px',
+        borderColor: 'white',
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       }}
     >
-      <div
+      <img
+        src="https://storage.unlock-protocol.com/0ed5b6ae-2432-442d-9759-18470b50dcf8"
+        alt={eventTitle}
         style={{
-  width: '256px',
-  height: '256px',
-  position: 'relative', // Assuming you want to apply top and left positioning
-                  display: 'flex',
-  top: '64px',
-  left: '48px',
-  borderRadius: '1rem', // This is an approximate value for `rounded-xl`
-  borderWidth: '4px',
-  borderColor: 'white',
-  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', // Example shadow, adjust as needed
-}}>
-        <img
-          src={eventImageURL}
-          aria-label={eventTitle}
-        />
-        </div>
-      <div
-        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      />
+    </div>
+    <div
+      style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
         padding: '0.5rem',
-      }}    
-      >
+      }}
+    >
       <h1
         style={{
           fontSize: '24px',
@@ -180,7 +185,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           backgroundColor: 'rgba(255, 255, 255, 0.5)',
           padding: '0.5rem',
           borderRadius: '0.5rem',
-        }}   
+        }}
       >
         {eventTitle}
       </h1>
@@ -192,13 +197,14 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       >
         <div
           style={{
-          display: 'flex',
-          alignItems: 'center',
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-          borderRadius: '1rem',
-        }}
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderRadius: '1rem',
+          }}
         >
-        <svg
+          {/* SVG and paragraph for eventTime */}
+          <svg
           width="64"
           height="64"
           viewBox="0 0 64 64"
@@ -247,17 +253,18 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           }}
         >
           {eventTime}
-        </p>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          marginTop: '24px', // Assuming mt-6 maps to 24px based on Tailwind's scale
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-          borderRadius: '1rem',
-        }}
-      >
+        </p>                      
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginTop: '24px',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderRadius: '1rem',
+          }}
+        >
+          {/* SVG and paragraph for eventAddress */}
         <svg
           width="64"
           height="64"
@@ -308,11 +315,11 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
           {eventAddress}
         </p>
+        </div>
       </div>
-              </div>
     </div>
-    </div>
-    </div>
+  </div>
+</div>
     ),
     {
       width: 1200,
