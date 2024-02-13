@@ -128,7 +128,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
           marginLeft: '48px',
-          marginLeft: '48px',
+          marginRight: '48px',
         }}
       >
         {eventTitle}
