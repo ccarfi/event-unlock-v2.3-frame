@@ -132,17 +132,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       height: '90%',
     }}
   >
-
-    <div
-      id="infoContainer"
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '100%',
-        padding: '0.5rem',
-      }}
-    >
       <h1
         id="title"
         style={{
@@ -198,8 +187,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </p>
         {/* Close addressContainer */}
         </div>
-    {/* Close infoContainer */}
-    </div>
   {/* Close contentContainer */}
   </div>
   <div
