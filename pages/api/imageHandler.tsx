@@ -181,7 +181,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     >
       <h1
         style={{
-          fontSize: '96px',
+          fontSize: '64px',
           width: '80%',
           backgroundColor: 'rgba(255, 255, 255, 0.5)',
           padding: '0.5rem',
@@ -247,7 +247,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </svg>
         <p
           style={{
-          fontSize: '48px',
+          fontSize: '36px',
           marginLeft: '24px',
           fontWeight: 'bold',
           width: '384px',
@@ -308,7 +308,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </svg>
         <p
           style={{
-            fontSize: '48px', // text-2xl
+            fontSize: '36px', // text-2xl
             marginLeft: '24px', // ml-6, assuming 1rem = 16px
             fontWeight: 'bold', // font-semibold
             width: '384px', // w-96
