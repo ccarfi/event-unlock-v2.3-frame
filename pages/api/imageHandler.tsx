@@ -128,7 +128,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       position: 'relative',
       display: 'flex',
       flexDirection: 'column',
-      width: '60%',
+      width: '70%',
       height: '90%',
     }}
   >
@@ -155,13 +155,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       >
         {eventTitle}
       </h1>
-      <div
-        id="detailsContainer"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
         <div
           id="timeContainer"
           style={{
@@ -205,8 +198,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         </p>
         {/* Close addressContainer */}
         </div>
-      {/* Close detailsContainer */}
-      </div>
     {/* Close infoContainer */}
     </div>
   {/* Close contentContainer */}
