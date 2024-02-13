@@ -8,7 +8,7 @@ export const config = {
   runtime: 'edge',
 };
 
-function truncateString(str, num) {
+function truncateString(str: String, num) {
   if (str.length <= num) {
     return str;
   }
