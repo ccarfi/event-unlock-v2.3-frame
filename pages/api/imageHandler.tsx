@@ -127,7 +127,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
-          marginLeft: '36px',
+          marginLeft: '48px',
+          marginLeft: '48px',
         }}
       >
         {eventTitle}
@@ -145,7 +146,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontSize: '36px',
           color: '#FFFFFF',
           fontWeight: 'bold',
-          marginLeft: '36px',
+          marginLeft: '48px',
           }}
         >
           {eventDate}
@@ -165,7 +166,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontSize: '36px',
           color: '#FFFFFF',
           fontWeight: 'bold',
-          marginLeft: '36px',
+          marginLeft: '48px',
           }}
         >
           {eventTime}
