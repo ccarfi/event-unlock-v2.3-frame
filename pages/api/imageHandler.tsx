@@ -117,6 +117,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       display: 'flex',
       flexDirection: 'column',
       width: '70%',
+      marginLeft: '50px',
+      marginRight: '50px', 
     }}
   >
       <p
@@ -127,8 +129,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
-          marginLeft: '48px',
-          marginRight: '48px',
         }}
       >
         {eventTitle}
@@ -146,7 +146,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontSize: '36px',
           color: '#FFFFFF',
           fontWeight: 'bold',
-          marginLeft: '48px',
           }}
         >
           {eventDate}
@@ -166,7 +165,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontSize: '36px',
           color: '#FFFFFF',
           fontWeight: 'bold',
-          marginLeft: '48px',
           }}
         >
           {eventTime}
