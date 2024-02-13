@@ -127,7 +127,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 1) {
                 action = "register";
                 if (isMember && !firstVisit) {
-                    imageUrl = `https://i.imgur.com/FQvDjSm.png?t=110`;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
                     button1Action = "post";
                     register = false;
                 }
@@ -142,13 +142,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 2) {
                 action = "location";
                 if (isMember) {
-                    imageUrl = `https://i.imgur.com/2uSiYW1.png`;
-                    console.log("Slug we're sending")
-                    console.log(eventSlug);
-                    console.log("ImageUrl");
-                    console.log(imageUrl);
                     button1Action = "post";
                     register = false;
+                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
                 }
                 else {
                     imageUrl = `${process.env['HOST_DEV']}/api/imageLocationNotRegistered`;
@@ -158,7 +154,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 3) {
                  action = "ticket";
                  if (isMember) {
-//                    imageUrl = eventImageURL;
                     button1Action = "post";
                     register = false;
                     imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
