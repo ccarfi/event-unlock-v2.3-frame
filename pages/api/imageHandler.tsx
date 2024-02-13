@@ -12,12 +12,13 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchParams = new URLSearchParams(req.nextUrl.search);
     const eventSlug = searchParams.get('slug');
+    const showDescriptionParam = searchParams.get('desc');
     console.log('req:', req);
     console.log('req.nextUrl.search:', req.nextUrl.search);
 
   // TODO: pass in flags to show or not show various fields, set display flag in div below based on value
 
-    const showDescription = "flex";
+    const showDescription = showDescriptionParam === "true" ? "flex" : "none";
     const showAddress = "none";
 
     if (req.method === 'GET') {
@@ -197,7 +198,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           }}
         >
           {eventTitle}
-          <br>
           {eventDescription}
         </p>  
         {/* Close descriptionContainer */}                    
