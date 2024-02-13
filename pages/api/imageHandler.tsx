@@ -103,7 +103,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   id="mainContainer"
   style={{
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     backgroundColor: '#F5F5F5',
     height: '630px',
     width: '1200px',
@@ -132,31 +132,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       height: '90%',
     }}
   >
-    <div
-      id="imageContainer"
-      style={{
-        width: '256px',
-        height: '256px',
-        position: 'relative',
-        top: '64px',
-        left: '48px',
-        borderRadius: '1rem',
-        borderWidth: '4px',
-        borderColor: 'white',
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        display: 'flex',
-      }}
-    >
-      <img
-        src={eventImageURL}
-        alt={eventTitle}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
-      />
-    {/* Close imageContainer */}
-    </div> 
+
     <div
       id="infoContainer"
       style={{
@@ -233,6 +209,31 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       </div>
     {/* Close infoContainer */}
     </div>
+        <div
+      id="imageContainer"
+      style={{
+        width: '256px',
+        height: '256px',
+        position: 'relative',
+        top: '64px',
+        left: '48px',
+        borderRadius: '1rem',
+        borderWidth: '4px',
+        borderColor: 'white',
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        display: 'flex',
+      }}
+    >
+      <img
+        src={eventImageURL}
+        alt={eventTitle}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      />
+    {/* Close imageContainer */}
+    </div> 
   {/* Close contentContainer */}
   </div>
 {/* Close mainContainer */}
