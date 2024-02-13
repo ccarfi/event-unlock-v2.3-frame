@@ -13,13 +13,17 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     const searchParams = new URLSearchParams(req.nextUrl.search);
     const eventSlug = searchParams.get('slug');
     const showDescriptionParam = searchParams.get('desc');
+    const showAddressParam = searchParams.get('address');
     console.log('req:', req);
     console.log('req.nextUrl.search:', req.nextUrl.search);
 
   // TODO: pass in flags to show or not show various fields, set display flag in div below based on value
 
     const showDescription = showDescriptionParam === "true" ? "flex" : "none";
-    const showAddress = "none";
+    const showAddress = showAddressParam === "true" ? "flex" : "none"
+    const showTime = showDescription === "none" ? "flex" : "none";          // show time if NOT showing description
+    const showDate = showDescription === "none" ? "flex" : "none";          // show address if NOT showing description
+
 
     if (req.method === 'GET') {
  
@@ -146,7 +150,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       <div
           id="dateContainer"
           style={{
-            display: 'flex',
+            display: showDate,
             alignItems: 'center',
             backgroundColor: 'rgba(255, 255, 255, 0.01)',
           }}
@@ -165,7 +169,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         <div
           id="timeContainer"
           style={{
-            display: 'flex',
+            display: showTime,
             alignItems: 'center',
             backgroundColor: 'rgba(255, 255, 255, 0.01)',
           }}
@@ -180,6 +184,25 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           {eventTime}
         </p>  
         {/* Close timeContainer */}                    
+        </div>
+        <div
+          id="addressContainer"
+          style={{
+            display: showAddress,
+            alignItems: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
+          }}
+        >
+        <p
+          style={{
+          fontSize: '36px',
+          color: '#FFFFFF',
+          fontWeight: 'bold',
+          }}
+        >
+          {eventAddress}
+        </p>  
+        {/* Close addressContainer */}                    
         </div>
         <div
           id="descriptionContainer"
@@ -197,7 +220,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontWeight: 'normal',
           }}
         >
-          {eventTitle}
           {eventDescription}
         </p>  
         {/* Close descriptionContainer */}                    
