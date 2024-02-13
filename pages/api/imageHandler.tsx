@@ -184,7 +184,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             display: showDescription,
             alignItems: 'center',
             backgroundColor: 'rgba(255, 255, 255, 0.01)',
-            overflow: hidden,
+            overflow: 'hidden',
           }}
         >
         <p
