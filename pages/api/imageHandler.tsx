@@ -17,7 +17,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
   // TODO: pass in flags to show or not show various fields, set display flag in div below based on value
 
-    const showDescription = "none";
+    const showDescription = "flex";
     const showAddress = "none";
 
     if (req.method === 'GET') {
