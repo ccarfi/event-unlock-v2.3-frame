@@ -116,7 +116,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       alignSelf: 'center',
       display: 'flex',
       flexDirection: 'column',
-      width: '70%',
+      width: '60%',
       marginLeft: '50px',
       marginRight: '50px', 
     }}
