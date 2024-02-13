@@ -104,24 +104,12 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   style={{
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: '#F5F5F5',
     height: '630px',
     width: '1200px',
     borderRadius: '0.5rem',
+    background: linear-gradient(to bottom, #8a2be2, #4b0082);
   }}
 >
-  <img
-    src={eventBannerURL}
-    style={{
-      position: 'absolute',
-      top: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'flex',
-    }}
-    alt={eventTitle}
-  />
   <div
     id="contentContainer"
     style={{
