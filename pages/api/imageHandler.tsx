@@ -99,8 +99,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   
   return new ImageResponse(
     (
-THIS WORKS 610p
-
 <div
   style={{
     display: 'flex',
