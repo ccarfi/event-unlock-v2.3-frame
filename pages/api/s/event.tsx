@@ -69,19 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
             else {
                 console.log(addresses);
-            }
-            
-            const balances = await Promise.all(
-                addresses.map((userAddress: string) => {
-                    return balanceOf(
-                        userAddress as `0x${string}`,
-                        "0xb77030a7e47a5eb942a4748000125e70be598632" as `0x${string}`,       // unlock membership
-//                        "0x67f4732266c7300cca593c814d46bee72e40659f" as `0x${string}`,       //zed run
-                        137
-                    );
-                })
-            );
-            
+            }            
 
             // we were given the slug when we came in — call the API and get the details
     
@@ -108,11 +96,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 eventImageURL = data.data.image;
                 eventTitle = data.name;
                 eventRegLink = data.eventUrl;
+
+                // TODO: GET THE LOCK AND NETWORK FROM THE SLUG
+
             } 
             catch (error) {
                 console.log(error);
             }
-            
+
+            const balances = await Promise.all(
+                addresses.map((userAddress: string) => {
+                    return balanceOf(
+                        userAddress as `0x${string}`,
+                        "0xb77030a7e47a5eb942a4748000125e70be598632" as `0x${string}`,       // unlock membership
+//                        "0x67f4732266c7300cca593c814d46bee72e40659f" as `0x${string}`,       //zed run
+                        137
+// TODO: replace the lock and network with what we get from the API                    
+                    );
+                })
+            );
+
             // The main bit. If user is a member (ticketholder who is registered), set image to one thing. If not a member, set to another.
 
             // Check to see if the user had a valid ticket
