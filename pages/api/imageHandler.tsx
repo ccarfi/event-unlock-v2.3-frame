@@ -189,9 +189,9 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '36px',
+          fontSize: '24px',
           color: '#FFFFFF',
-          fontWeight: 'bold',
+          fontWeight: 'normal',
           }}
         >
           {eventDescription}
