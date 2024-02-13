@@ -119,26 +119,25 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       width: '70%',
     }}
   >
-      <h1
+      <p
         id="title"
         style={{
           fontSize: '64px',
+          fontWeight: '900',
           width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
-          marginLeft: '24px',
-          borderRadius: '0.5rem',
+          marginLeft: '36px',
         }}
       >
         {eventTitle}
-      </h1>
+      </p>
       <div
           id="dateContainer"
           style={{
             display: 'flex',
             alignItems: 'center',
             backgroundColor: 'rgba(255, 255, 255, 0.01)',
-            borderRadius: '1rem',
           }}
         >
         <p
@@ -146,7 +145,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontSize: '36px',
           color: '#FFFFFF',
           fontWeight: 'bold',
-          marginLeft: '24px',
+          marginLeft: '36px',
           }}
         >
           {eventDate}
@@ -159,7 +158,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             display: 'flex',
             alignItems: 'center',
             backgroundColor: 'rgba(255, 255, 255, 0.01)',
-            borderRadius: '1rem',
           }}
         >
         <p
@@ -167,7 +165,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontSize: '36px',
           color: '#FFFFFF',
           fontWeight: 'bold',
-          marginLeft: '24px',
+          marginLeft: '36px',
           }}
         >
           {eventTime}
@@ -179,13 +177,9 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   <div
     id="imageContainer"
     style={{
-      width: '256px',
-      height: '256px',
+      width: '300px',
+      height: '300px',
       alignSelf: 'center',
-      borderRadius: '1rem',
-      borderWidth: '4px',
-      borderColor: 'white',
-      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       display: 'flex',
     }}
   >
