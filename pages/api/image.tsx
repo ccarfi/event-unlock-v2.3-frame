@@ -9,12 +9,14 @@ import * as fs from "fs";
 const fontPath = join(process.cwd(), 'Roboto-Regular.ttf')
 let fontData = fs.readFileSync(fontPath)
 
+// TODO: clean up this file
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const eventId = req.query['id']
 
         if (!eventId) {
-            return res.status(400).send('Missing event ID');
+//            return res.status(400).send('Missing event ID');
         }
 
         let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
