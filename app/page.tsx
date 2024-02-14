@@ -1,5 +1,3 @@
-import {EventCreateForm} from "./form";
-
 export let metadata = {
   title: "Unlock Event Frames v2.31",
   description: "Event Unlock frames on Warpcast",
