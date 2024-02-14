@@ -78,6 +78,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let eventImageURL = 'image not available'; // Declare eventImageURL here with a default value 
             let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
             let eventRegLink = 'registration link not available';
+            let locks = {}; // Initialize as an empty object since `locks` is expected to hold an object
+            let firstLockAddress = ""; // Initialize as an empty string, as it will hold a string value
+            let firstLockDetails = {}; // Initialize as an empty object as it's expected to hold details of a lock
+            let firstLockNetwork = 0; // Initialize with 0
 
             try {
                 const response = await fetch(url, {
@@ -97,16 +101,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 eventTitle = data.name;
                 eventRegLink = data.eventUrl;
 
-                // TODO: GET THE LOCK AND NETWORK FROM THE SLUG
+                // GET THE LOCK AND NETWORK FROM THE SLUG
 
                 // Access the first lock in the 'locks' object
-                const locks = data.checkoutConfig.config.locks;
-                const firstLockAddress = Object.keys(locks)[0]; // Gets the first lock address in the 'locks' object
-                const firstLockDetails = locks[firstLockAddress];
-                const firstLockNetwork = data.checkoutConfig.config.locks[firstLockAddress].network;
+                locks = data.checkoutConfig.config.locks;
+                firstLockAddress = Object.keys(locks)[0]; // Gets the first lock address in the 'locks' object
+                firstLockDetails = locks[firstLockAddress];
+                firstLockNetwork = data.checkoutConfig.config.locks[firstLockAddress].network;
 
-                console.log(firstLockAddress); // "0xFaC9C16A871495e23EBDBbb0437135270294cEC2"
-                console.log(firstLockNetwork); // This will log the network value for the first lock
+                console.log(firstLockAddress); // "0xFaC9C16A871495e23EBDBbb0437135270294cEC2" as an example
+                console.log(firstLockNetwork); // This will log the network value for the first lock as an example
 
             } 
             catch (error) {
