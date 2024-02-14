@@ -103,9 +103,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const locks = data.checkoutConfig.config.locks;
                 const firstLockAddress = Object.keys(locks)[0]; // Gets the first lock address in the 'locks' object
                 const firstLockDetails = locks[firstLockAddress];
+                const firstLockNetwork = data.checkoutConfig.config.locks[firstLockAddress].network;
 
                 console.log(firstLockAddress); // "0xFaC9C16A871495e23EBDBbb0437135270294cEC2"
-                console.log(firstLockDetails); // { "network": 8453 }
+                console.log(firstLockNetwork); // This will log the network value for the first lock
 
             } 
             catch (error) {
