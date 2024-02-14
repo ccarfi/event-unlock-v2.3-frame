@@ -117,10 +117,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 addresses.map((userAddress: string) => {
                     return balanceOf(
                         userAddress as `0x${string}`,
-                        "0xb77030a7e47a5eb942a4748000125e70be598632" as `0x${string}`,       // unlock membership
+//                        "0xb77030a7e47a5eb942a4748000125e70be598632" as `0x${string}`,       // unlock membership
 //                        "0x67f4732266c7300cca593c814d46bee72e40659f" as `0x${string}`,       //zed run
-                        137
-// TODO: replace the lock and network with what we get from the API                    
+                          firstLockAddress as `0x${string}`,                                   // address from API 
+//                        137                                                                  // polygon
+                          firstLockNetwork                                                     // network from API
                     );
                 })
             );
