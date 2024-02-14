@@ -87,7 +87,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let locks: LockDetails = {}; // Initialize as an empty object since `locks` is expected to hold an object
             let firstLockAddress = ""; // Initialize as an empty string, as it will hold a string value
             let firstLockDetails: { network: number; } | undefined; // Initialize as an empty object as it's expected to hold details of a lock
-            let firstLockNetwork: number | undefined; // Initialize with 0
+            let firstLockNetwork: 0; // Initialize with 0
 
             try {
                 const response = await fetch(url, {
