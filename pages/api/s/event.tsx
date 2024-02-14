@@ -74,14 +74,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // we were given the slug when we came in — call the API and get the details
     
             const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
- 
+
+            interface LockDetails {
+                [key: string]: {
+                network: number;
+                };
+            }
+            
             let eventImageURL = 'image not available'; // Declare eventImageURL here with a default value 
             let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
             let eventRegLink = 'registration link not available';
-            let locks = {}; // Initialize as an empty object since `locks` is expected to hold an object
+            let locks: LockDetails = {}; // Initialize as an empty object since `locks` is expected to hold an object
             let firstLockAddress = ""; // Initialize as an empty string, as it will hold a string value
-            let firstLockDetails = {}; // Initialize as an empty object as it's expected to hold details of a lock
-            let firstLockNetwork = 0; // Initialize with 0
+            let firstLockDetails: { network: number; } | undefined; // Initialize as an empty object as it's expected to hold details of a lock
+            let firstLockNetwork: number | undefined; // Initialize with 0
 
             try {
                 const response = await fetch(url, {
