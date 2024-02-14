@@ -1,59 +1,93 @@
-import {kv} from "@vercel/kv";
 import {UnlockEvent} from "@/app/types";
-import Link from "next/link";
+import Head from "next/head";
+import {Metadata, ResolvingMetadata} from "next";
 
-const SEVEN_DAYS_IN_MS = 1000 * 60 * 60 * 24 * 7;
+type Props = {
+    params: { slug: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+}
 
-async function getEvents() {
+export async function generateMetadata(
+    { params, searchParams }: Props,
+    parent: ResolvingMetadata
+): Promise<Metadata> {
+
+    const slug = params.slug;
+    const url = `https://locksmith.unlock-protocol.com/v2/events/${slug}`;
+    let ogImageURL = 'og image not available'; // Declare ogImageURL here with a default value 
+    let eventTitle = 'event title not available'; // Declare eventTitle here with a default value
+    let regLink = 'registration link not available';
+
     try {
-        let eventIds = await kv.zrange("events_by_date", Date.now(), Date.now() - SEVEN_DAYS_IN_MS, {byScore: true, rev: true, count: 100, offset: 0});
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
 
-        if (!eventIds.length) {
-            return [];
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        let multi = kv.multi();
-        eventIds.forEach((id) => {
-            multi.hgetall(`event:${id}`);
-        });
+        const data = await response.json();
+        console.log(JSON.stringify(data));
+        ogImageURL = data.data.image;
+        ogImageURL = `${process.env['HOST_DEV']}/api/imageHandler?slug=${slug}`;
+        eventTitle = data.name;
+        regLink = data.eventUrl;
+        console.log(regLink);
+      } 
+      catch (error) {
+        console.log(error);
+      }
 
-        let items: UnlockEvent[] = await multi.exec();
-        return items.map((item) => {
-            return {...item};
-        });
-    } catch (error) {
-        console.error(error);
-        return [];
+    /* 
+        The commented-out array line(s) below lets us easily add new buttons to the frame when
+        we are ready to add them, or switch between different frame configs.
+        The line near the commented-out line is the simple case where we have just one 'Register' 
+        button that redirects to the Event Landing Page. 
+        Farcater just added the 'action' and 'target' pieces
+        which make this much easier than doing the 'redirect' approach that
+        they required last week.
+    */
+
+    const fcMetadata: Record<string, string> = {
+        "fc:frame": "vNext",
+        "fc:frame:post_url": `${process.env['HOST_DEV']}/api/s/event?slug=${slug}&id=9bfcbbb4-a37b-4ac4-a345-e7bc5472f4d6&register=true&firstvisit=true`,
+        "fc:frame:image": `${ogImageURL}`,
+        "fc:frame:image:aspect_ratio": `1.91:1`,
+        "fc:frame:button:1:action": `link`,
+        "fc:frame:button:1:target": `${regLink}`,
+    };
+    ["Register", "See location", "See description", ""].filter(o => o !== "").map((option, index) => {
+        fcMetadata[`fc:frame:button:${index + 1}`] = option;
+//    ["Register", "", "", ""].filter(o => o !== "").map((option, index) => {
+//        fcMetadata[`fc:frame:button:${index + 1}`] = option;  
+    })
+
+    return {
+        title: eventTitle,
+        openGraph: {                            // these og tags are what get shared OUTSIDE of warpcast
+            title: eventTitle,
+            images: ogImageURL,                 
+        },
+        other: {
+            ...fcMetadata,
+        },
+        metadataBase: new URL(process.env['HOST'] || '')
     }
 }
 
-export default async function Page() {
-    const events = await getEvents();
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
-            <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">
-                <h1 className="text-lg sm:text-2xl font-bold mb-2">
-                    Created Events
-                </h1>
-                <div className="flex-1 flex-wrap items-center justify-around max-w-4xl my-8 sm:w-full bg-white rounded-md shadow-xl h-full border border-gray-100">
-                    {
-                        events.map((event) => {
-                        // returns links to event ids
-                        return (<div key={event.id}>
-                            <a href={`/events/${event.id}`} className="underline">
-                                <p className="text-md sm:text-xl mx-4">{event.title}</p>
-                            </a>
-                        </div>)
-                        })
-                    }
-                </div>
-                <Link href="/">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Create Event
-                    </button>
-                </Link>
-            </main>
-        </div>
+export default async function Page({params}: { params: {slug: string}}) {
+    return(
+        <>
+            <div className="flex flex-col items-center justify-center min-h-screen py-2">
+                <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">
+                    Go to /events/nameofyourevent for your event.
+                </main>
+            </div>
+        </>
     );
-}
 
+}

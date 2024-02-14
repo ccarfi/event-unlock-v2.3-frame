@@ -1,8 +1,6 @@
-import {EventCreateForm} from "./form";
-
 export let metadata = {
-  title: "Unlock Event Frames v2.3",
-  description: "Event Unlock frame example for farcaster",
+  title: "Unlock Event Frames v2.31",
+  description: "Event Unlock frames on Warpcast",
 };
 
 export default async function Page() {
@@ -19,7 +17,7 @@ export default async function Page() {
           Create a new event registration frame
         </h2>
         <div className="flex flex-wrap items-center justify-around max-w-4xl my-8 sm:w-full bg-white rounded-md shadow-xl h-full border border-gray-100">
-          <EventCreateForm />
+          Go to /events/nameofyourevent for your event.
         </div>
       </main>
     </div>
