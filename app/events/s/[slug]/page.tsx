@@ -1,4 +1,3 @@
-import {kv} from "@vercel/kv";
 import {UnlockEvent} from "@/app/types";
 import Head from "next/head";
 import {Metadata, ResolvingMetadata} from "next";
