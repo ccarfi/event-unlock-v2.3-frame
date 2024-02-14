@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 //            return res.status(400).send('Missing event ID');
         }
 
-        let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
+//        let event: UnlockEvent | null = await kv.hgetall(`event:${eventId}`);
 
         if (!event) {
 //            return res.status(400).send('Missing event ID');
