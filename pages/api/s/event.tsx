@@ -150,7 +150,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             if (buttonId === 1) {
                 action = "register";
                 if (isMember && !firstVisit) {
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}`;
+                    imageUrl = `${process.env['HOST']}/api/imageHandler?slug=${eventSlug}`;
                     button1Action = "link";
                     register = false;
                 }
@@ -168,11 +168,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 if (isMember) {
                     button1Action = "link";
                     register = false;
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&address=true`;
+                    imageUrl = `${process.env['HOST']}/api/imageHandler?slug=${eventSlug}&address=true`;
                 }
                 else {
                     button1Text = "Register";
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageLocationNotRegistered`;
+                    imageUrl = `${process.env['HOST']}/api/imageLocationNotRegistered`;
                 }
             }
             
@@ -181,12 +181,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                  if (isMember) {
                     button1Action = "link";
                     register = false;
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&desc=true`;           
+                    imageUrl = `${process.env['HOST']}/api/imageHandler?slug=${eventSlug}&desc=true`;           
                  }   
                  else {
-//                    imageUrl = `${process.env['HOST_DEV']}/api/imageTicketNotRegistered`;
+//                    imageUrl = `${process.env['HOST']}/api/imageTicketNotRegistered`;
                     button1Text = "Register";
-                    imageUrl = `${process.env['HOST_DEV']}/api/imageHandler?slug=${eventSlug}&desc=true`;     // you can see description even if not registered      
+                    imageUrl = `${process.env['HOST']}/api/imageHandler?slug=${eventSlug}&desc=true`;     // you can see description even if not registered      
                  }
             }
 
@@ -214,7 +214,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${imageUrl}">
           <meta name="fc:frame:image:aspect_ratio" content="1.91:1">
-          <meta name="fc:frame:post_url" content="${process.env['HOST_DEV']}/api/s/event?slug=${eventSlug}&register=${register ? 'true' : 'false'}">
+          <meta name="fc:frame:post_url" content="${process.env['HOST']}/api/s/event?slug=${eventSlug}&register=${register ? 'true' : 'false'}">
           <meta name="fc:frame:button:1" content="${button1Text}">
           <meta name="fc:frame:button:1:action" content="${button1Action}">
           <meta name="fc:frame:button:1:target" content="${eventRegLink}">
