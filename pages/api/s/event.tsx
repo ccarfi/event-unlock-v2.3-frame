@@ -99,6 +99,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 // TODO: GET THE LOCK AND NETWORK FROM THE SLUG
 
+                // Access the first lock in the 'locks' object
+                const locks = data.checkoutConfig.config.locks;
+                const firstLockAddress = Object.keys(locks)[0]; // Gets the first lock address in the 'locks' object
+                const firstLockDetails = locks[firstLockAddress];
+
+                console.log(firstLockAddress); // "0xFaC9C16A871495e23EBDBbb0437135270294cEC2"
+                console.log(firstLockDetails); // { "network": 8453 }
+
             } 
             catch (error) {
                 console.log(error);
