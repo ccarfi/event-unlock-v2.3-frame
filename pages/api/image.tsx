@@ -42,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     flexDirection: 'column',
                     padding: 20,
                 }}>
-                    <h2 style={{textAlign: 'center', color: 'lightgray'}}>{event.title}</h2>
+                    <h2 style={{textAlign: 'center', color: 'lightgray'}}>Event</h2>
                     <p style={{textAlign: 'center', color: 'lightgray'}}>
                         Placeholder
                     </p>
