@@ -65,7 +65,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             // Get the wallet address of the user, or note if there is no wallet address
             console.log("Getting wallet address");
             const fidAsString = fid.toString();
+            console.log("Calling getUserAddresses");
             const addresses = await getUserAddresses(fidAsString);
+            console.log("Back from calling getUserAddresses");
             
             if (addresses.length === 0) {
                 console.log("No wallet");
