@@ -63,6 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             console.log("Entered event.ts...");
 
             // Get the wallet address of the user, or note if there is no wallet address
+            console.log("Getting wallet address");
             const fidAsString = fid.toString();
             const addresses = await getUserAddresses(fidAsString);
             
@@ -74,7 +75,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }            
 
             // we were given the slug when we came in — call the API and get the details
-    
+            
+            console.log("Setting slug");
             const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
 
             interface LockDetails {
