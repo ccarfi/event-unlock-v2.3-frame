@@ -1,6 +1,5 @@
-const endpoint = "https://nemes.farcaster.xyz:2281";
-//const endpoint = "https://api.neynar.com:2281";
-// const endpoint = "https://blah.com";
+//const endpoint = "https://nemes.farcaster.xyz:2281";
+const endpoint = "https://api.neynar.com:2281";
 
 
 const version = "v1";
