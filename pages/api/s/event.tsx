@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const eventSlug = req.query['slug']
             let register = req.query['register'] === 'true'
             let firstVisit = req.query['firstvisit'] === 'true'
+            console.log("Checking slug");
             if (!eventSlug) {
                 return res.status(400).send('Missing event slug');   //shadow
             }
@@ -26,6 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             try {
                 const frameMessage = Message.decode(Buffer.from(req.body?.trustedData?.messageBytes || '', 'hex'));
                 const result = await client?.validateMessage(frameMessage);
+                console.log("Checking message");
                 if (result && result.isOk() && result.value.valid) {
                     validatedMessage = result.value.message;
                 }
@@ -90,6 +92,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             let firstLockNetwork: 0; // Initialize with 0
 
             try {
+                console.log("Fetching url");
                 const response = await fetch(url, {
                   method: 'GET',
                   headers: {
@@ -101,6 +104,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                   throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
+                console.log("Parsing response");
                 const data = await response.json();
                 console.log(JSON.stringify(data));
                 eventImageURL = data.data.image;
