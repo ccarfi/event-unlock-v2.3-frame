@@ -1,25 +1,11 @@
 import { NeynarAPIClient } from "@neynar/nodejs-sdk";
 
 //const endpoint = "https://nemes.farcaster.xyz:2281";
-const endpoint = "https://api.neynar.com:2281";
+const endpoint = "https://api.neynar.com";
 
 const version = "v1";
 
-const base = "https://api.neynar.com/";
 const apiKey = process.env.NEYNAR_API_KEY;
-
-/*
-const hash = "0x8ffed4e8fa53c6e22b85f678c9a53067826e846a";
-const url1 = `${base}v2/farcaster/cast?identifier=${hash}&type=hash`;
-const response1 = await fetch(url1, {
-  headers: {
-    accept: "application/json",
-    api_key: apiKey,
-  },
-});
-const cast = await response1.json();
-console.log(cast); // logs information about the cast
-*/
 
 
 const fid = 3;
@@ -68,10 +54,26 @@ export const getUserProfile = async (fid: string) => {
 };
 
 export const getUserAddresses = async (fid: string) => {
-  const u = new URL(`${endpoint}/${version}/verificationsByFid`);
+  /*
+  const u = new URL(`${endpoint}/${version}/verificationsByFid`);       // nemes flavor
   u.searchParams.append("fid", fid);
   const response = await fetch(u.toString());
   const data = await response.json();
+  return data.messages
+    .filter((message: any) => {
+      return message.data.type === "MESSAGE_TYPE_VERIFICATION_ADD_ETH_ADDRESS";
+    })
+    .map((message: any) => {
+      return message.data.verificationAddEthAddressBody.address;
+    });
+  */
+  
+  const u = new URL(`${endpoint}/${version}/farcaster/verifications`);    // neynar flavor
+  u.searchParams.append("fid", fid);
+  u.searchParams.append("api_key", apiKey);
+  const response = await fetch(u.toString());
+  const data = await response.json();
+  console.log("Data:",data);
   return data.messages
     .filter((message: any) => {
       return message.data.type === "MESSAGE_TYPE_VERIFICATION_ADD_ETH_ADDRESS";
