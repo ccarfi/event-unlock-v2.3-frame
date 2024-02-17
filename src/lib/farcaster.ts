@@ -24,12 +24,18 @@ console.log(cast); // logs information about the cast
 
 const fid = 3;
 const url2 = `${base}v1/farcaster/user?fid=${fid}`;
+const headers: HeadersInit = {
+  accept: "application/json",
+};
+
+if (api_key) {
+  headers["api_key"] = api_key;
+}
+
 const response2 = await fetch(url2, {
-  headers: {
-    accept: "application/json",
-    api_key: apiKey,
-  },
+  headers: headers,
 });
+
 const user = await response2.json();
 console.log(user); // logs information about the user
 
