@@ -9,7 +9,7 @@ const apiKey = process.env.NEYNAR_API_KEY;
 
 
 const fid = 3;
-const url2 = `${base}v1/farcaster/user?fid=${fid}`;
+const url2 = `${endpoint}v1/farcaster/user?fid=${fid}`;
 const headers: HeadersInit = {
   accept: "application/json",
 };
