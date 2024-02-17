@@ -28,8 +28,8 @@ const headers: HeadersInit = {
   accept: "application/json",
 };
 
-if (api_key) {
-  headers["api_key"] = api_key;
+if (apiKey) {
+  headers["api_key"] = apiKey;
 }
 
 const response2 = await fetch(url2, {
