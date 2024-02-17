@@ -21,6 +21,7 @@ const cast = await response1.json();
 console.log(cast); // logs information about the cast
 */
 
+/*
 const fid = 3;
 const url2 = `${base}v1/farcaster/user?fid=${fid}`;
 const response2 = await fetch(url2, {
@@ -31,7 +32,7 @@ const response2 = await fetch(url2, {
 });
 const user = await response2.json();
 console.log(user); // logs information about the user
-
+*/
 
 
 function hexToBytes(hex: string) {
