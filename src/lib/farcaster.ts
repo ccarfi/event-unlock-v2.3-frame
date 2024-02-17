@@ -83,6 +83,6 @@ export const getUserAddresses = async (fid: string) => {
       return message.data.type === "MESSAGE_TYPE_VERIFICATION_ADD_ETH_ADDRESS";
     })
     .map((message: any) => {
-      return message.data.verifications;
+      return message.data.result.verifications;
     });
 };
