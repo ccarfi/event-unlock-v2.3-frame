@@ -1,8 +1,11 @@
-const endpoint = "https://nemes.farcaster.xyz:2281";
-//const endpoint = "https://api.neynar.com:2281";
+import { NeynarAPIClient } from "@neynar/nodejs-sdk";
+
+//const endpoint = "https://nemes.farcaster.xyz:2281";
+const endpoint = "https://api.neynar.com:2281";
 
 
 const version = "v1";
+const client = new NeynarAPIClient(process.env.NEYNAR_API_KEY);
 
 function hexToBytes(hex: string) {
   for (var bytes = [], c = 0; c < hex.length; c += 2) {
