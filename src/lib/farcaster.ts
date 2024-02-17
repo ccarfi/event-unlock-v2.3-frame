@@ -76,12 +76,5 @@ export const getUserAddresses = async (fid: string) => {
   });
   const data = await response.json();
   console.log("Data:",data);
-  console.log("data.messages:",data.messages);
-  return data.messages
-    .filter((message: any) => {
-      return message.data.type === "MESSAGE_TYPE_VERIFICATION_ADD_ETH_ADDRESS";
-    })
-    .map((message: any) => {
-      return message.data.result.verifications;
-    });
+  return data.result.verifications;
 };
