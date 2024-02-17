@@ -70,8 +70,12 @@ export const getUserAddresses = async (fid: string) => {
   
   const u = new URL(`${endpoint}/${version}/farcaster/verifications`);    // neynar flavor
   u.searchParams.append("fid", fid);
-  u.searchParams.append("api_key", apiKey);
-  const response = await fetch(u.toString());
+//  const response = await fetch(u.toString());
+
+  
+  const response = await fetch(u, {
+    headers: headers,
+  });
   const data = await response.json();
   console.log("Data:",data);
   return data.messages
