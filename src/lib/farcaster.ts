@@ -70,14 +70,13 @@ export const getUserAddresses = async (fid: string) => {
   
   const u = new URL(`${endpoint}/${version}/farcaster/verifications`);    // neynar flavor
   u.searchParams.append("fid", fid);
-//  const response = await fetch(u.toString());
-
   
   const response = await fetch(u, {
     headers: headers,
   });
   const data = await response.json();
   console.log("Data:",data);
+  console.log("data.messages:",data.messages);
   return data.messages
     .filter((message: any) => {
       return message.data.type === "MESSAGE_TYPE_VERIFICATION_ADD_ETH_ADDRESS";
