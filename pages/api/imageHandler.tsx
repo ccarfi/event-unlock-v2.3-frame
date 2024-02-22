@@ -240,8 +240,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   <div
     id="imageContainer"
     style={{
-      width: '400px',
-      height: '400px',
+      width: '450px',
+      height: '450px',
       alignSelf: 'center',
       display: 'flex',
     }}
