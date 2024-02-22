@@ -84,6 +84,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             let eventDate = 'event date not available';
             let eventTime = 'event time not available';
             let eventRegLink = 'registration link not available';
+            let formattedDate = 'formatted event date not available';
+            let formattedTime = 'formatted event time not available';
 
             try {
                 const response = await fetch(url, {
@@ -114,6 +116,21 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 eventRegLink = data.eventUrl;
 
                 eventDescription = truncateString(eventDescription,500); // clip the description if needed
+
+                const dateObject = new Date(eventDate);                  // show the date in a friendly format
+                formattedDate = dateObject.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                });
+
+                const dateTime = new Date(`${eventDate}T${eventTime}:00`);  // show the time in a friendly format
+                const timeOptions: Intl.DateTimeFormatOptions = { 
+                  hour: 'numeric', 
+                  minute: 'numeric', 
+                  hour12: true 
+                };
+                formattedTime = dateTime.toLocaleTimeString('en-US', timeOptions);
 
             } 
             catch (error) {
@@ -168,12 +185,12 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '36px',
+          fontSize: '28px',
           color: '#FFFFFF',
           fontWeight: 'bold',
           }}
         >
-          {eventDate}
+          {formattedDate}
         </p>  
         {/* Close dateContainer */}                    
         </div>
@@ -187,12 +204,12 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '36px',
+          fontSize: '28px',
           color: '#FFFFFF',
           fontWeight: 'bold',
           }}
         >
-          {eventTime}
+          {formattedTime}
         </p>  
         {/* Close timeContainer */}                    
         </div>
@@ -206,7 +223,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '36px',
+          fontSize: '28px',
           color: '#FFFFFF',
           fontWeight: 'bold',
           }}
