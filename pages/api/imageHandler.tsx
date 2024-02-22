@@ -171,6 +171,14 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           display: 'flex',
         }}
     >
+    <img
+      src="/unlock-512-white.png"
+      alt="Unlock logo"
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    />
     {/* Close logoContainer */}                    
     </div>  
     <div
