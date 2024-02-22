@@ -163,6 +163,23 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       marginBottom: '50px', 
     }}
   >
+    <div
+        id="logoContainer"
+        style={{
+          width: '100px',
+          height: '22px',
+          display: 'flex',
+        }}
+    >
+    {/* Close logoContainer */}                    
+    </div>  
+    <div
+        id="titleContainer"
+        style={{
+          display: flex,
+          backgroundColor: 'rgba(255, 255, 255, 0.01)',
+        }}
+      >
       <p
         id="title"
         style={{
@@ -175,6 +192,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       >
         {eventTitle}
       </p>
+      {/* Close titleContainer */}                    
+      </div>
       <div
           id="dateContainer"
           style={{
