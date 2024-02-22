@@ -75,6 +75,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     }
 
             const url = `https://locksmith.unlock-protocol.com/v2/events/${eventSlug}`;
+            const logoURL = `${process.env['HOST']}/unlock-100-white.png`;
  
             let eventTitle = 'event title not available';
             let eventDescription = 'event description not available';
@@ -163,6 +164,31 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       marginBottom: '50px', 
     }}
   >
+    <div
+        id="logoContainer"
+        style={{
+          width: '100px',
+          height: '22px',
+          display: 'flex',
+          marginBottom: '50px', 
+        }}
+    >
+    <img
+      src={logoURL}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
+    />
+    {/* Close logoContainer */}                    
+    </div>  
+    <div
+        id="titleContainer"
+        style={{
+          display: 'flex',
+          backgroundColor: 'rgba(255, 255, 255, 0.01)',
+        }}
+      >
       <p
         id="title"
         style={{
@@ -175,6 +201,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       >
         {eventTitle}
       </p>
+      {/* Close titleContainer */}                    
+      </div>
       <div
           id="dateContainer"
           style={{
