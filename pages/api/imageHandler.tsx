@@ -115,6 +115,13 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
                 eventDescription = truncateString(eventDescription,500); // clip the description if needed
 
+                const dateObject = new Date(eventDate);                  // show the date in a friendly format
+                const formattedDate = dateObject.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                });
+
             } 
             catch (error) {
                 console.log(error);
@@ -173,7 +180,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontWeight: 'bold',
           }}
         >
-          {eventDate}
+          {formattedDate}
         </p>  
         {/* Close dateContainer */}                    
         </div>
