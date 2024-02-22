@@ -185,7 +185,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '32px',
+          fontSize: '28px',
           color: '#FFFFFF',
           fontWeight: 'bold',
           }}
@@ -204,7 +204,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '32px',
+          fontSize: '28px',
           color: '#FFFFFF',
           fontWeight: 'bold',
           }}
@@ -223,7 +223,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '32px',
+          fontSize: '28px',
           color: '#FFFFFF',
           fontWeight: 'bold',
           }}
