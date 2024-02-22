@@ -125,7 +125,11 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 });
 
                 const dateTime = new Date(`${eventDate}T${eventTime}:00`);  // show the time in a friendly format
-                const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
+                const timeOptions: Intl.DateTimeFormatOptions = { 
+                  hour: 'numeric', 
+                  minute: 'numeric', 
+                  hour12: true 
+                };
                 formattedTime = dateTime.toLocaleTimeString('en-US', timeOptions);
 
             } 
