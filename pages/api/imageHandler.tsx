@@ -170,6 +170,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           width: '100px',
           height: '22px',
           display: 'flex',
+          marginBottom: '50px', 
         }}
     >
     <img
