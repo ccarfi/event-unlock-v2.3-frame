@@ -85,6 +85,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             let eventTime = 'event time not available';
             let eventRegLink = 'registration link not available';
             let formattedDate = 'formatted event date not available';
+            let formattedTime = 'formatted event time not available';
 
             try {
                 const response = await fetch(url, {
@@ -122,6 +123,10 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                   month: "long",
                   day: "numeric",
                 });
+
+                const dateTime = new Date(`${eventDate}T${eventTime}:00`);  // show the time in a friendly format
+                const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
+                formattedTime = dateTime.toLocaleTimeString('en-US', timeOptions);
 
             } 
             catch (error) {
@@ -200,7 +205,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
           fontWeight: 'bold',
           }}
         >
-          {eventTime}
+          {formattedTime}
         </p>  
         {/* Close timeContainer */}                    
         </div>
