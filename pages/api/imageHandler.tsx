@@ -139,7 +139,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       alignSelf: 'center',
       display: 'flex',
       flexDirection: 'column',
-      width: '60%',
+      width: '50%',
       marginLeft: '50px',
       marginRight: '50px', 
       marginTop: '50px',
@@ -149,7 +149,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
       <p
         id="title"
         style={{
-          fontSize: '64px',
+          fontSize: '48px',
           fontWeight: '900',
           width: '100%',
           color: '#FFFFFF',
@@ -240,8 +240,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   <div
     id="imageContainer"
     style={{
-      width: '300px',
-      height: '300px',
+      width: '500',
+      height: '500px',
       alignSelf: 'center',
       display: 'flex',
     }}
