@@ -174,7 +174,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     >
     <img
       src={logoURL}
-      alt="Unlock logo"
       style={{
         width: '100%',
         height: '100%',
