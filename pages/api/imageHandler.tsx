@@ -84,6 +84,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
             let eventDate = 'event date not available';
             let eventTime = 'event time not available';
             let eventRegLink = 'registration link not available';
+            let formattedDate = 'formatted event date not available';
 
             try {
                 const response = await fetch(url, {
@@ -116,7 +117,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 eventDescription = truncateString(eventDescription,500); // clip the description if needed
 
                 const dateObject = new Date(eventDate);                  // show the date in a friendly format
-                const formattedDate = dateObject.toLocaleDateString("en-US", {
+                formattedDate = dateObject.toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
