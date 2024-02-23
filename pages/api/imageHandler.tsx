@@ -15,7 +15,7 @@ function truncateString(str: string, num: number) {
   return str.slice(0, num) + "...";
 }
 
-function stripLinksAndBullets(markdownText) {
+function stripLinksAndBullets(markdownText: string) {
   // Strip markdown links: [text](URL)
   const strippedLinks = markdownText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
 
