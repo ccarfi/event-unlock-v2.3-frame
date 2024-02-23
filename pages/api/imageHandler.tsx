@@ -15,6 +15,16 @@ function truncateString(str: string, num: number) {
   return str.slice(0, num) + "...";
 }
 
+function stripLinksAndBullets(markdownText) {
+  // Strip markdown links: [text](URL)
+  const strippedLinks = markdownText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+
+  // Strip bullets: lines starting with -, *, or number.
+  const strippedBullets = strippedLinks.replace(/(^|\n)\s*(\*|-|\d+\.)\s+/g, '$1');
+
+  return strippedBullets;
+}
+
 export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchParams = new URLSearchParams(req.nextUrl.search);
@@ -117,6 +127,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 eventRegLink = data.eventUrl;
 
                 eventDescription = truncateString(eventDescription,500); // clip the description if needed
+                eventDescription = stripLinksAndBullets(eventDescription); // striip out any markdown links or bullets from the markdown
 
                 const dateObject = new Date(eventDate);                  // show the date in a friendly format
                 formattedDate = dateObject.toLocaleDateString("en-US", {
