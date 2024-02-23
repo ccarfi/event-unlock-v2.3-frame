@@ -197,7 +197,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         id="titleContainer"
         style={{
           display: 'flex',
-          marginLeft: '-10px',
+          marginLeft: '-5px',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
         }}
       >
