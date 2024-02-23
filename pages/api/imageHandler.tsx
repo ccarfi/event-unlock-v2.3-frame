@@ -15,6 +15,16 @@ function truncateString(str: string, num: number) {
   return str.slice(0, num) + "...";
 }
 
+function stripLinksAndBullets(markdownText: string) {
+  // Strip markdown links: [text](URL)
+  const strippedLinks = markdownText.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+
+  // Strip bullets: lines starting with -, *, or number.
+  const strippedBullets = strippedLinks.replace(/(^|\n)\s*(\*|-|\d+\.)\s+/g, '$1');
+
+  return strippedBullets;
+}
+
 export default async function handler(req: NextRequest, res: NextResponse) {
 
     const searchParams = new URLSearchParams(req.nextUrl.search);
@@ -116,6 +126,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 eventTime = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_start_time")?.value;
                 eventRegLink = data.eventUrl;
 
+                eventDescription = stripLinksAndBullets(eventDescription); // striip out any markdown links or bullets from the markdown
                 eventDescription = truncateString(eventDescription,500); // clip the description if needed
 
                 const dateObject = new Date(eventDate);                  // show the date in a friendly format
@@ -186,6 +197,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         id="titleContainer"
         style={{
           display: 'flex',
+          marginLeft: '-4px',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
         }}
       >
@@ -193,8 +205,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         id="title"
         style={{
           fontSize: '48px',
-          fontWeight: '900',
-          width: '100%',
+          fontWeight: 'black',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
         }}
@@ -271,7 +282,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         >
         <p
           style={{
-          fontSize: '24px',
+          fontSize: '18px',
           color: '#FFFFFF',
           fontWeight: 'normal',
           }}
