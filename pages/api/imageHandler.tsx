@@ -204,7 +204,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         id="title"
         style={{
           fontSize: '48px',
-          fontWeight: '900',
+          fontWeight: 'black',
           width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
