@@ -126,8 +126,8 @@ export default async function handler(req: NextRequest, res: NextResponse) {
                 eventTime = data.data.attributes.find((attr: Attribute) => attr.trait_type === "event_start_time")?.value;
                 eventRegLink = data.eventUrl;
 
-                eventDescription = truncateString(eventDescription,500); // clip the description if needed
                 eventDescription = stripLinksAndBullets(eventDescription); // striip out any markdown links or bullets from the markdown
+                eventDescription = truncateString(eventDescription,500); // clip the description if needed
 
                 const dateObject = new Date(eventDate);                  // show the date in a friendly format
                 formattedDate = dateObject.toLocaleDateString("en-US", {
