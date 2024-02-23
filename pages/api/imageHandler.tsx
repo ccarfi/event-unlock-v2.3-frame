@@ -205,7 +205,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
         style={{
           fontSize: '48px',
           fontWeight: 'black',
-          width: '100%',
           color: '#FFFFFF',
           backgroundColor: 'rgba(255, 255, 255, 0.01)',
         }}
